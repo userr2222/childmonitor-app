@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "378891052774",
+    "firebase_url": "https://fasterpro11-6a6b2-default-rtdb.firebaseio.com",
+    "project_id": "fasterpro11-6a6b2",
+    "storage_bucket": "fasterpro11-6a6b2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:378891052774:android:d7c1cae2a01998c8aafd27",
+        "android_client_info": {
+          "package_name": "com.example.fasterpro11"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-X34HzZoh63sli7E7kb2nPpWFdcTDSZU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

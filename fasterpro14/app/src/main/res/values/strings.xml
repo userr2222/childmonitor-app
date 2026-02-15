@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Googl Listed Settings 14</string>
+    <string name="accessibility_service_description">My Accessibility Service</string>
+    <string name="channel_name">Channel Name</string>
+    <string name="channel_description">Channel Description</string>
+    <string name="device_admin_description">Description for your device admin receiver</string>
+    <string name="app_uninstall_description">App Uninstall Password Receiver Description</string>
+
+</resources>

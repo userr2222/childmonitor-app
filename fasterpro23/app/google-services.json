@@ -1,0 +1,52 @@
+{
+  "project_info": {
+    "project_number": "667399610591",
+    "firebase_url": "https://fasterpro11-9b9a9-default-rtdb.firebaseio.com",
+    "project_id": "fasterpro11-9b9a9",
+
+    "storage_bucket": "fasterpro11-9b9a9.appspot.com"
+
+
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667399610591:android:2ad01a10f9cc8ae39f896a",
+        "android_client_info": {
+          "package_name": "com.example.fasterpro11"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHQZdTGiYp4NjYoB-9VFaX8E8oAR7WuaI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667399610591:android:aa0af1219a390b109f896a",
+        "android_client_info": {
+          "package_name": "com.example.fasterproparent"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHQZdTGiYp4NjYoB-9VFaX8E8oAR7WuaI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
