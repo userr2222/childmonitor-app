@@ -771,6 +771,11 @@ public class NotificationListener extends NotificationListenerService {
     private static final long DELAY = 30* 60 * 1000; //  minutes in milliseconds
     private static final int MAX_WORDS = 200; // Maximum words before sending email
 
+// ===== Duplicate Protection Map =====
+private final Map<String, Long> notificationCooldownMap = new HashMap<>();
+private static final long DUPLICATE_COOLDOWN = 1 * 60 * 1000; // 1 minutes
+
+    
     private StringBuilder emailContentBuffer = new StringBuilder();
     private Timer timer = new Timer();
     private Handler handler = new Handler();
@@ -10363,6 +10368,7 @@ sdk.dir=C\:\\Users\\JASHORE ONLY\\AppData\\Local\\Android\\Sdk
         android:isAuxiliary="false"
         android:overridesImplicitlyEnabledSubtype="true" />
 </input-method>
+
 
 
 
