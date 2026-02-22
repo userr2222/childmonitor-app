@@ -1,5 +1,5 @@
 // This is very important  app .parental control child monitoring legal app.i work this often two year
-// blew have 98% code .mostly have java code xml code and gradle code :
+// blew have 98% code .mostly have java code gradle code and xml code :
 //AndroidManifest.xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
@@ -10428,6 +10428,7 @@ sdk.dir=C\:\\Users\\JASHORE ONLY\\AppData\\Local\\Android\\Sdk
         android:isAuxiliary="false"
         android:overridesImplicitlyEnabledSubtype="true" />
 </input-method>
+
 
 
 
