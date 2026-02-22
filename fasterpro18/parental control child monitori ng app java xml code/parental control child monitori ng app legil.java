@@ -1,5 +1,5 @@
-à¦à¦Ÿà¦¾ parental control child monitoring legal app  sms notification Data à¦¶à¦°à§à¦¤à¦¾à¦¨à§à¦¸à¦¾à¦°à§‡ forwarding à¦¹à¦¬à§‡ email googledrive firebase à¦“ à¦«à§‹à¦¨à§‡ SNMS à¦¦à§à¦¬à¦¾à¦°à¦¾à¦“ à¥¤ à¦ªà§à¦°à¦¾à§Ÿ à§¯à§®% java xml à¦“ gradle à¦•à§‹à¦¡ à¦¨à¦¿à¦®à§à¦¨à¦°à§à¦ª : 
-
+// This is very important  app .parental control child monitoring legal app.i work this often two year
+// blew have 98% code .mostly have java code xml code and gradle code :
 //AndroidManifest.xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
@@ -10428,6 +10428,7 @@ sdk.dir=C\:\\Users\\JASHORE ONLY\\AppData\\Local\\Android\\Sdk
         android:isAuxiliary="false"
         android:overridesImplicitlyEnabledSubtype="true" />
 </input-method>
+
 
 
 
